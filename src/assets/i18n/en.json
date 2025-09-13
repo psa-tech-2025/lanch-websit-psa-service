@@ -1,0 +1,111 @@
+{
+  "ABOUT_US": "About Us",
+  "INDUSTRIES": "Industries",
+  "IT_SERVICES": "IT and Services",
+  "FOOD_PHARMA": "Food and Pharma",
+  "CHEMICALS": "Chemicals",
+  "FINANCE": "Finance",
+  "INFRA": "Infra",
+  "AUTOMOBILE": "Automobile",
+  "BANKING": "Banking",
+  "AGRICULTURE": "Agriculture",
+  "ECOMMERCE": "Ecommerce",
+  "ELECTRONICS": "Electronics",
+  "SERVICES": "Services",
+  "DIGITAL_TRANSFORMATION": "Digital Transformation",
+  "CLOUD_SERVICES": "Cloud Services",
+  "DEVSECOPS": "DevSecOps",
+  "CLOUD_NATIVE": "Cloud Native Development Services",
+  "PLATFORM_ENGINEERING": "Design Led Platform Engineering",
+  "AGILE_DEVOPS": "Agile Development & DevOps",
+  "UI_UX": "UI/UX Design",
+  "MOBILE_APP": "Mobile App Development",
+  "DIGITAL_MARKETING": "Digital Marketing",
+  "SMM": "Social Media Marketing",
+  "SEO": "SEO",
+  "SMO": "Social Media Optimization",
+  "CONSULTING": "Business Consulting",
+  "LEAD_GENERATION": "Lead Generation",
+  "SMS": "SMS Marketing",
+  "WHATSAPP": "WhatsApp Marketing",
+  "VOICE_CALLING": "Voice Calling",
+  "INSTRUMENT_SUPPLIER": "Industrial Instrument Supplier",
+  "STAFFING": "Staffing & Resource Management",
+  "CAREERS": "Careers",
+  "CONTACT_US": "Contact Us",
+
+  "ABOUT": {
+    "TITLE": "Design-Driven Engineering",
+    "DESCRIPTION": "At PSATECH, we specialize in building scalable, innovative applications, guided by our core values of integrity, accountability, trust, and ownership. We bring together design and development experts with strong academic backgrounds and proven hands-on experience, all committed to delivering beyond expectations. Our driven and proactive teams consistently go above and beyond to ensure client needs are not only met but surpassed.",
+    "WHY_CHOOSE_US": "Why Choose Us",
+    "WHY_DESC1": "With over 8+ years of combined expertise in **IT services and industrial solutions**, PSA has built a strong reputation for driving success through innovation and reliability. Our foundation rests on **robust data/IP governance, exceptional engineering standards, and seamless collaboration**, enabling us to consistently deliver measurable outcomes. Leveraging deep domain knowledge and practical industry experience, we have successfully executed **large-scale, end-to-end projects** that balance technical precision with business value.",
+    "WHY_DESC2": "At PSA, we embrace **composable architectures and reusable frameworks** to ensure agility and scalability, while our proven accelerators shorten delivery cycles and reduce costs. This approach allows us to maintain an unwavering focus on the features that matter most to our clients. Our team is made up of **skilled, dynamic professionals** who not only bring technical excellence but also integrate smoothly with diverse project management methodologies, tools, and performance metrics—ensuring a productive and collaborative partnership",
+    "FEATURE1": {
+      "TITLE": "Innovative Technical Excellence",
+      "DESC": "We provide smart, scalable solutions that simplify complexity, drive efficiency, and inspire innovation."
+    },
+    "FEATURE2": {
+      "TITLE": "Reliable Execution",
+      "DESC": "We combine our technical expertise with a dependable delivery approach, ensuring consistent results every time."
+    },
+    "FEATURE3": {
+      "TITLE": "Trusted Business Advisory",
+      "DESC": "We question conventional approaches, uncover new possibilities, and serve as reliable partners in guiding business growth."
+    },
+    "JOIN_TITLE": "Build Your Future With Us",
+    "JOIN_DESC": "At PSA, we’re driven by a passion for technology and innovation, and we’re looking for curious, motivated individuals who share that spirit. If you’re eager to make an impact and grow with a dynamic team, we invite you to be part of our journey.Together, let’s create powerful digital solutions that shape tomorrow’s possibilities.",
+    "EXPLORE_OPENINGS": "Explore Current Openings"
+  },
+    "SERVICE": {
+    "HEADER": {
+      "TITLE": "Digital Transformation",
+      "PARA1": "In today’s fast-evolving digital era, industries are being redefined by innovation and technology. PSA partners with businesses to navigate this transformation with confidence, unlocking new opportunities and maximizing the value of change.",
+      "PARA2": "With over 8 years of proven expertise across Banking, Finance, Insurance, and Technology, PSA delivers the right mix of strategy, innovation, and execution. We help organizations reimagine processes, enhance performance, and achieve lasting success in their digital transformation journey."
+    },
+    "SOLID": {
+      "TITLE": "Reliable Delivery of Digital Solutions",
+      "PARA": "Digital transformation often faces hurdles such as outdated legacy systems, complex IT landscapes, and fragmented data integration. At PSA, we bridge these gaps by sharing deep domain expertise and enabling organizations to harness technology effectively—driving innovation, efficiency, and sustainable growth."
+    }
+  },
+   "CAREER_FORM": {
+    "TITLE": "Let's Get In Touch!",
+    "FIELDS": {
+      "NAME": "Name (optional)",
+      "MOBILE": "Mobile",
+      "EMAIL": "Email",
+      "SALUTATION": "Salutation",
+      "FIRST_NAME": "First Name",
+      "LAST_NAME": "Last Name",
+      "COMPANY_NAME": "Company Name",
+      "JOB_TITLE": "Job Title",
+      "INDUSTRY": "Industry",
+      "JOB_ROLE": "Job Role",
+      "COUNTRY_CODE": "Country Code",
+      "POSTAL_CODE": "Postal Code",
+      "CITY": "City",
+      "COUNTRY_REGION": "Country/Region",
+      "CONTACT_TYPE": "Contact Type",
+      "MARKETING_CONSENT": "I agree to receive marketing updates"
+    },
+    "PLACEHOLDER": {
+      "NAME": "Name (optional)",
+      "MOBILE": "Mobile",
+      "EMAIL": "Email",
+      "SALUTATION": "Select Salutation",
+      "FIRST_NAME": "First Name",
+      "LAST_NAME": "Last Name",
+      "COMPANY_NAME": "Company Name",
+      "JOB_TITLE": "Job Title",
+      "INDUSTRY": "Select Industry",
+      "JOB_ROLE": "Select Job Role",
+      "COUNTRY_CODE": "Country Code",
+      "POSTAL_CODE": "Postal Code",
+      "CITY": "City",
+      "COUNTRY_REGION": "Country/Region",
+      "CONTACT_TYPE": "Select Contact Type"
+    },
+    "BUTTON": {
+      "SUBMIT": "Submit"
+    }
+  }
+}

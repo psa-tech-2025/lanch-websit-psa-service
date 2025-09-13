@@ -1,0 +1,59 @@
+<div class="about-us-container">
+  <div class="about-header">
+    <h2>{{ 'ABOUT.TITLE' | translate }}</h2>
+    <p>{{ 'ABOUT.DESCRIPTION' | translate }}</p>
+  </div>
+
+  <div class="about-content">
+    <!-- Left Section -->
+    <div class="about-left">
+      <h3>{{ 'ABOUT.WHY_CHOOSE_US' | translate }}</h3>
+      <p>{{ 'ABOUT.WHY_DESC1' | translate }}</p>
+      <p>{{ 'ABOUT.WHY_DESC2' | translate }}</p>
+    </div>
+
+    <!-- Right Section -->
+    <div class="about-right">
+      <div class="feature">
+        <div class="icon"><i class="fas fa-lightbulb"></i></div>
+        <div class="text">
+          <h4>{{ 'ABOUT.FEATURE1.TITLE' | translate }}</h4>
+          <p>{{ 'ABOUT.FEATURE1.DESC' | translate }}</p>
+        </div>
+      </div>
+      <hr />
+      <div class="feature">
+        <div class="icon"><i class="fas fa-check-circle"></i></div>
+        <div class="text">
+          <h4>{{ 'ABOUT.FEATURE2.TITLE' | translate }}</h4>
+          <p>{{ 'ABOUT.FEATURE2.DESC' | translate }}</p>
+        </div>
+      </div>
+      <hr />
+      <div class="feature">
+        <div class="icon"><i class="fas fa-dice-d6"></i></div>
+        <div class="text">
+          <h4>{{ 'ABOUT.FEATURE3.TITLE' | translate }}</h4>
+          <p>{{ 'ABOUT.FEATURE3.DESC' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOIN OUR TEAM SECTION -->
+  <div class="join-team-section">
+    <div class="join-team-box">
+      <div class="join-left">
+        <h2>{{ 'ABOUT.JOIN_TITLE' | translate }}</h2>
+      </div>
+      <div class="join-right">
+        <p>{{ 'ABOUT.JOIN_DESC' | translate }}</p>
+        <a [routerLink]="['/careers']" target="_blank" class="cta-link">
+          <strong>{{ 'ABOUT.EXPLORE_OPENINGS' | translate }}</strong>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<app-nav-controls></app-nav-controls>

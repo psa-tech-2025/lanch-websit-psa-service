@@ -1,0 +1,470 @@
+
+<!-- //section one -->
+<div *ngIf="currentSection === 'smm'">
+<div class="social-media-container">
+  <div class="header">
+    <h2>Social Media Marketing Services</h2>
+  </div>
+
+  <div class="subtitle">
+    <div class="highlight-box">Here Is Where Brands Come To Life</div>
+  </div>
+
+  <div class="description">
+    <p>
+      <strong>
+        We Offer A Comprehensive Suite Of Social Media Marketing Services Tailored To Your Brand's Unique Needs And Objectives
+      </strong>
+    </p>
+  </div>
+
+  <div class="accordion">
+    <div
+      class="accordion-item"
+      *ngFor="let item of services; let i = index"
+    >
+      <div class="accordion-title" (click)="toggle(i)">
+        {{ item.title }}
+        <span class="icon">{{ activeIndex === i ? '−' : '+' }}</span>
+      </div>
+      <div class="accordion-content" *ngIf="activeIndex === i">
+        {{ item.description }}
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="footer-cta">
+    <p>
+      Let’s work together to develop a social media strategy that sets your brand apart and drives engagement, growth, and success.
+    </p>
+    <button class="cta-button">Schedule Your FREE Consultation Now!</button>
+  </div> -->
+  <div class="footer-cta">
+  <p>
+    Ready to embark on a journey of business growth and success?
+    <br />
+    Let’s work together to develop a tailored plan that empowers your business to thrive in today’s competitive landscape.
+  </p>
+  <h3>Get Started Today</h3>
+  <button class="cta-button">Schedule Your FREE Consultation Now!</button>
+
+  <div class="contact-info">
+    <p>
+      <a href="tel:+919970747967">
+        <i class="fas fa-phone-alt"></i> +91 9970747967
+      </a>
+    </p>
+    <p>
+      <a href="mailto:sales@psatechall.com">
+        <i class="fas fa-envelope"></i> sales@psatechall.com
+      </a>
+    </p>
+  </div>
+</div>
+
+</div>
+</div>
+
+<!-- section two -->
+
+<div *ngIf="currentSection === 'seo'">
+   <div class="seo-marketing-container">
+  <div class="header">
+    <h2>Search Engine Optimisation Marketing</h2>
+  </div>
+
+  <div class="subtitle-box yellow">Let's Get You To The Top!</div>
+  <div class="subtitle-box yellow">Boost Your Website's Visibility With Our Top-Tier SEO Services.</div>
+
+  <div class="description">
+    <p><strong>Our Team Of SEO Experts Is Dedicated To Delivering Results That Matter.</strong></p>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-item" *ngFor="let item of seoServices; let i = index">
+      <div class="accordion-title" (click)="toggle(i)">
+        {{ item.title }}
+        <span class="icon">{{ activeIndex === i ? '−' : '+' }}</span>
+      </div>
+      <div class="accordion-content" *ngIf="activeIndex === i">
+        {{ item.description }}
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="footer-cta">
+    <p>
+      As a leading digital marketing agency, we specialize in elevating your online visibility to new heights. Our comprehensive SEO services in India ensure that your target audience effortlessly finds what they’re searching for using relevant keywords.
+    </p>
+    <h3>Get Started Today</h3>
+    <button class="cta-button">Get FREE SEO Audit</button>
+  </div> -->
+  <div class="footer-cta">
+  <p>
+    Ready to embark on a journey of business growth and success?
+    <br />
+    Let’s work together to develop a tailored plan that empowers your business to thrive in today’s competitive landscape.
+  </p>
+  <h3>Get Started Today</h3>
+  <button class="cta-button">Schedule Your FREE Consultation Now!</button>
+
+  <div class="contact-info">
+    <p>
+      <a href="tel:+919970747967">
+        <i class="fas fa-phone-alt"></i> +91 9970747967
+      </a>
+    </p>
+    <p>
+      <a href="mailto:sales@psatechall.com">
+        <i class="fas fa-envelope"></i> sales@psatechall.com
+      </a>
+    </p>
+  </div>
+</div>
+
+</div>
+
+
+</div>
+
+<!-- section three -->
+
+<div *ngIf="currentSection === 'smo'">
+    <div class="smo-container">
+  <div class="header">
+    <h2>Social Media Optimization<br />In Digital Marketing</h2>
+  </div>
+
+  <div class="subtitle-box yellow">
+    In The Digital Age, A Strong Online Presence Is The Foundation Of Success.
+  </div>
+  <div class="subtitle-box yellow">
+    Boost Your Online Presence And Drive Measurable Growth
+  </div>
+
+  <div class="description">
+    <p><strong>Social Media Optimization Services:</strong></p>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-item" *ngFor="let item of smoServices; let i = index">
+      <div class="accordion-title" (click)="toggle(i)">
+        {{ item.title }}
+        <span class="icon">{{ activeIndex === i ? '−' : '+' }}</span>
+      </div>
+      <div class="accordion-content" *ngIf="activeIndex === i">
+        {{ item.description }}
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="footer-cta">
+    <p>
+      Let’s work together to develop a social media strategy that sets your brand apart and drives engagement, growth, and success.
+    </p>
+    <h3>Get Started Today</h3>
+    <button class="cta-button">Schedule Your FREE Consultation Now!</button>
+  </div> -->
+  <div class="footer-cta">
+  <p>
+    Ready to embark on a journey of business growth and success?
+    <br />
+    Let’s work together to develop a tailored plan that empowers your business to thrive in today’s competitive landscape.
+  </p>
+  <h3>Get Started Today</h3>
+  <button class="cta-button">Schedule Your FREE Consultation Now!</button>
+
+  <div class="contact-info">
+    <p>
+      <a href="tel:+919970747967">
+        <i class="fas fa-phone-alt"></i> +91 9970747967
+      </a>
+    </p>
+    <p>
+      <a href="mailto:sales@psatechall.com">
+        <i class="fas fa-envelope"></i> sales@psatechall.com
+      </a>
+    </p>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<div *ngIf="currentSection === 'consulting'">
+    <div>
+        <div class="consulting-container">
+  <div class="header">
+    <h2>Business Consulting Services</h2>
+  </div>
+
+  <div class="subtitle-box yellow">
+    In The Ever-Evolving Landscape Of Business Achieving Sustainable Growth Is The Ultimate Goal.
+  </div>
+  <div class="subtitle-box yellow">
+    At Infinite Vision We Are Committed To Helping Businesses Of All Sizes Reach Their Full Potential.
+    Our Team Of Seasoned Consultants Offers Expert Guidance And Strategies To Navigate Challenges,
+    Seize Opportunities, And Drive Your Business Toward Unparalleled Success
+  </div>
+
+  <div class="description">
+    <p><strong>Our Business Growth Consultation Services</strong></p>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-item" *ngFor="let item of consultingServices; let i = index">
+      <div class="accordion-title" (click)="toggle(i)">
+        {{ item.title }}
+        <span class="icon">{{ activeIndex === i ? '−' : '+' }}</span>
+      </div>
+      <div class="accordion-content" *ngIf="activeIndex === i">
+        {{ item.description }}
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="footer-cta">
+    <p>
+      Ready to embark on a journey of business growth and success?
+      <br />
+      Let’s work together to develop a tailored plan that empowers your business to thrive in today’s competitive landscape.
+    </p>
+    <h3>Get Started Today</h3>
+    <button class="cta-button">Schedule Your FREE Consultation Now!</button>
+  </div> -->
+  <div class="footer-cta">
+  <p>
+    Ready to embark on a journey of business growth and success?
+    <br />
+    Let’s work together to develop a tailored plan that empowers your business to thrive in today’s competitive landscape.
+  </p>
+  <h3>Get Started Today</h3>
+  <button class="cta-button">Schedule Your FREE Consultation Now!</button>
+
+  <div class="contact-info">
+    <p>
+      <a href="tel:+919970747967">
+        <i class="fas fa-phone-alt"></i> +91 9970747967
+      </a>
+    </p>
+    <p>
+      <a href="mailto:sales@psatechall.com">
+        <i class="fas fa-envelope"></i> sales@psatechall.com
+      </a>
+    </p>
+  </div>
+</div>
+
+</div>
+
+    </div>
+</div>
+
+<div *ngIf="currentSection === 'lead-generation'">
+    <div>
+        <div class="digital-ad-container">
+  <div class="header">
+    <h2>Digital Advertising Services</h2>
+  </div>
+
+  <div class="content">
+    <div class="image">
+      <img src="assets/images/lead-conversion.png" alt="Lead Conversion Funnel" />
+    </div>
+    <div class="text">
+      <h3>Consistent influx of high-quality leads is the lifeblood of success</h3>
+      <p>
+        We specialize in generating leads that convert into loyal customers, empowering your business to thrive and prosper.
+        Our team of dedicated lead generation experts is committed to delivering a continuous flow of prospects directly to your sales pipeline.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-cta">
+    <p>
+      Let’s work together to develop a lead generation strategy that delivers a continuous stream of prospects eager to engage with your offerings.
+    </p>
+    <h3>Fuel Your Sales Pipeline Today</h3>
+    <button class="cta-button">Schedule Your FREE Consultation Now!</button>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<div *ngIf="currentSection === 'sms'">
+    <div class="sms-container">
+  <!-- Header Section -->
+  <div class="header">
+    <h2>Bulk SMS Marketing</h2>
+  </div>
+
+  <!-- Subtitle -->
+  <div class="subtitle">
+    <div class="highlight-box">
+      Revolutionize Your Communication With Our Top-Notch SMS Solutions That Empower Businesses.
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="services-section">
+    <h4>Our Services</h4>
+
+    <div
+      class="accordion-item"
+      *ngFor="let item of smsservices; let i = index"
+    >
+      <div class="accordion-title" (click)="toggle(i)">
+        {{ item.title }}
+        <span class="icon">{{ activeIndex === i ? '−' : '+' }}</span>
+      </div>
+      <div class="accordion-content" *ngIf="activeIndex === i">
+        {{ item.description }}
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <!-- <div class="footer-cta">
+    <h3>Get Started Today</h3>
+    <button class="cta-button">Schedule Your FREE Consultation Now!</button>
+  </div> -->
+  <div class="footer-cta">
+  <p>
+    Ready to embark on a journey of business growth and success?
+    <br />
+    Let’s work together to develop a tailored plan that empowers your business to thrive in today’s competitive landscape.
+  </p>
+  <h3>Get Started Today</h3>
+  <button class="cta-button">Schedule Your FREE Consultation Now!</button>
+
+  <div class="contact-info">
+    <p>
+      <a href="tel:+919970747967">
+        <i class="fas fa-phone-alt"></i> +91 9970747967
+      </a>
+    </p>
+    <p>
+      <a href="mailto:sales@psatechall.com">
+        <i class="fas fa-envelope"></i> sales@psatechall.com
+      </a>
+    </p>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<div *ngIf="currentSection === 'whatsapp'">
+    <div class="whatsapp-container">
+  <!-- Header -->
+  <div class="header">
+    <h2>Whatsapp Marketing & Automation</h2>
+  </div>
+
+  <!-- Subtitle -->
+  <div class="subtitle">
+    <div class="highlight-box">
+      Elevate Your Marketing Game With WhatsApp Marketing Services
+    </div>
+  </div>
+  <!-- Accordion Section -->
+  <div class="services-section">
+    <h4>Our Services</h4>
+    <div
+      class="accordion-item"
+      *ngFor="let item of wpservices; let i = index"
+    >
+      <div class="accordion-title" (click)="toggle(i)">
+        {{ item.title }}
+        <span class="icon">{{ activeIndex === i ? '−' : '+' }}</span>
+      </div>
+      <div class="accordion-content" *ngIf="activeIndex === i">
+        {{ item.description }}
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <!-- <div class="footer-cta">
+    <h3>Get Started Today</h3>
+    <button class="cta-button">Schedule Your FREE Consultation Now!</button>
+  </div> -->
+  
+  <div class="footer-cta">
+  <p>
+    Ready to embark on a journey of business growth and success?
+    <br />
+    Let’s work together to develop a tailored plan that empowers your business to thrive in today’s competitive landscape.
+  </p>
+  <h3>Get Started Today</h3>
+  <button class="cta-button">Schedule Your FREE Consultation Now!</button>
+
+  <div class="contact-info">
+    <p>
+      <a href="tel:+919970747967">
+        <i class="fas fa-phone-alt"></i> +91 9970747967
+      </a>
+    </p>
+    <p>
+      <a href="mailto:sales@psatechall.com">
+        <i class="fas fa-envelope"></i> sales@psatechall.com
+      </a>
+    </p>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<div *ngIf="currentSection === 'voice-calling'">
+  <section class="service-component voice-service">
+    <div class="service-header">
+      <h2>Interactive Voice Response Service</h2>
+    </div>
+
+    <div class="service-highlight">
+      Empower Your Communication With Voice Calling Services
+    </div>
+
+    <div class="service-body">
+      <h4>Our Services</h4>
+
+      <div class="accordion">
+        <div *ngFor="let item of services; let i = index" class="accordion-item" [class.active]="item.active">
+          <div class="accordion-title" (click)="toggle(i)">
+            {{ item.title }}
+            <span class="icon">{{ item.active ? '−' : '+' }}</span>
+          </div>
+          <div class="accordion-content" [class.show]="item.active">
+            {{ item.content }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <p>
+        If you're ready to transform your communication strategy with the power of voice, contact us today to learn more about our voice calling services.
+      </p>
+      <h3>Get Started Today</h3>
+      <button class="cta-button">Schedule Your FREE Consultation Now!</button>
+        <div class="contact-info">
+    <p>
+      <a href="tel:+919970747967">
+        <i class="fas fa-phone-alt"></i> +91 9970747967
+      </a>
+    </p>
+    <p>
+      <a href="mailto:sales@psatechall.com">
+        <i class="fas fa-envelope"></i> sales@psatechall.com
+      </a>
+    </p>
+  </div>
+    </div>
+  </section>
+</div>
+<app-nav-controls></app-nav-controls>

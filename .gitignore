@@ -1,0 +1,29 @@
+# Angular build
+/dist
+/out-tsc
+/.angular/cache
+
+# Node modules
+/node_modules
+npm-debug.log*
+yarn-error.log*
+
+# Logs
+*.log
+
+# IDEs
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Coverage & test
+/coverage
+/.nyc_output

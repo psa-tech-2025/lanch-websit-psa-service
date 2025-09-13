@@ -1,0 +1,106 @@
+.carousel-item img {
+  width: 100%;              /* Always take full width */
+  height: 450px;            /* Standard height for all slides */
+  object-fit: cover;        /* Crop & center image nicely */
+  border-radius: 10px;      /* Optional rounded corners */
+}
+
+
+.services-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background: #f9f9f9;
+  padding: 40px 0;
+}
+
+.scroll-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 280px;
+  margin: 0 15px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%; /* 🔵 Makes the image perfectly round */
+  margin-bottom: 15px;
+  border: 3px solid #007bff; /* Blue border */
+}
+
+.card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 10px 0;
+  color: #333;
+  white-space: nowrap;       /* Keep in one line */
+  overflow: hidden;
+  text-overflow: ellipsis;   /* Adds "..." if too long */
+}
+
+.card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+  min-height: 50px; /* keeps card height balanced */
+}
+
+.card button {
+  padding: 8px 16px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.card button:hover {
+  background: #0056b3;
+}
+
+
+
+.carousel-caption h5 {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  font-weight: 600;
+}
+
+.carousel-caption p {
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+  font-size: 1.1rem;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+

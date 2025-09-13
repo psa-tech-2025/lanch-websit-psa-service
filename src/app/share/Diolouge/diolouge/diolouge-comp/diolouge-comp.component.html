@@ -1,0 +1,21 @@
+<p>diolouge-comp works!</p>
+
+<div class="overlay" [ngClass]="{ overlaycolor: config?.hasBackdrop != false }" (click)="onOverlayClicked($event)">
+    <h3>close</h3>
+  <div class="dialog" (click)="onDialogClicked($event)" [ngStyle]="{
+      width: config?.width ? config?.width : 'auto',
+      height: config?.height ? config?.height : 'auto',
+      minWidth: config?.minWidth ? config?.minWidth : 'auto',
+      minHeight: config?.minHeight ? config?.minHeight : 'auto',
+      maxWidth: config?.maxWidth ? config?.maxWidth : 'auto',
+      maxHeight: config?.maxHeight ? config?.maxHeight : 'auto',
+      top: config?.position?.top ? config?.position.top : 'auto',
+      bottom: config?.position?.bottom ? config?.position?.bottom : 'auto',
+      left: config?.position?.left ? config?.position?.left : 'auto',
+      right: config?.position?.right ? config?.position?.right : 'auto',
+      padding: config?.padding ? config?.padding : '',
+      position: config?.position?.position ? config?.position?.position : ''
+    }">
+    <ng-template appInsertion> </ng-template>
+  </div>
+</div>

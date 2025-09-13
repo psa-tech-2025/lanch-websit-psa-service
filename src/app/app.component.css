@@ -1,0 +1,57 @@
+
+
+.services-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.services-grid,
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Common card styling */
+.service-item,
+.tech-item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  text-align: center;
+  border-top: 5px solid var(--icon-color);
+}
+
+.service-item:hover,
+.tech-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Icon styling */
+.service-item i,
+.tech-item i {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: var(--icon-color);
+}
+
+/* Text */
+.service-item p,
+.tech-item p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+  margin-top: 5px;
+}

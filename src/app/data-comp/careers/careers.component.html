@@ -1,0 +1,29 @@
+<div class="career-container">
+  <!-- Job Listings -->
+  <div class="job-list" *ngFor="let job of jobs">
+    <div class="job-title">{{ job.title }}</div>
+    <div class="job-exp">Experience {{ job.experience }}</div>
+    <button class="apply-btn">Apply</button>
+  </div>
+
+  <!-- Why Join Section -->
+  <div class="why-join">
+    <h2>Why you Should Join Our Awesome Team</h2>
+    <p>
+      We're more than just a team -- we're a family of forward-thinking individuals dedicated to making a significant impact. 
+      Here, every day is an opportunity to learn, grow, and create.
+    </p>
+
+    <div class="dropdown-section" *ngFor="let item of benefits; let i = index">
+      <div class="dropdown-header" (click)="toggleDropdown(i)">
+        {{ item.title }}
+        <span class="arrow">{{ selectedIndex === i ? '-' : '+' }}</span>
+      </div>
+      <div class="dropdown-body" *ngIf="selectedIndex === i">
+        <p>{{ item.content }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<app-nav-controls></app-nav-controls>
+

@@ -1,0 +1,12 @@
+
+<!-- nav-controls.component.html -->
+<div class="nav-controls">
+  <button (click)="goPrev()" [disabled]="currentIndex <= 0">
+    <i class="fas fa-arrow-left"></i> Previous
+  </button>
+
+  <button (click)="goNext()" [disabled]="currentIndex ">
+    Next <i class="fas fa-arrow-right"></i>
+  </button>
+</div>
+

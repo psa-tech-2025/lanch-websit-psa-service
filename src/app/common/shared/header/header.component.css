@@ -1,0 +1,283 @@
+/* ===============================
+   Navbar Container
+=============================== */
+
+    .hamburger, .close-icon {
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+    display: block; /* show only on small screens */
+  }
+body.menu-open,
+html.menu-open {
+  overflow: hidden;
+  height: 100%;
+}
+.navbar {
+  /* position: sticky; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  padding: 10px 40px;
+  font-family: Arial, sans-serif;
+  top: 0;
+  z-index: 1000; /* Make sure it stays above other content */
+  width: 100%;
+}
+
+/* ===============================
+   Logo
+=============================== */
+.logo img {
+  height: 40px;
+}
+
+/* ===============================
+   Remove bullets
+=============================== */
+.nav-menu,
+.nav-menu li,
+.dropdown-menu,
+.dropdown-menu li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===============================
+   Nav Menu
+=============================== */
+.nav-menu {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  position: relative;
+  margin: 0 20px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.nav-menu a:hover {
+  color: #ff5733;
+  border-bottom: 2px solid #ff5733;
+}
+
+/* ===============================
+   Dropdown
+=============================== */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: #222;
+  top: 40px;
+  left: 0;
+  min-width: 250px;
+  padding: 10px 0;
+  border-radius: 5px;
+  z-index: 999;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 8px 20px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+  background: #333;
+  color: #ff5733;
+}
+
+/* ===============================
+   Submenu (default = right side)
+=============================== */
+.dropdown-menu .dropdown > .dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 100%;   /* opens to right */
+  top: 0;
+  background: #1e293b;
+  padding: 10px;
+  border-radius: 6px;
+  z-index: 999;
+}
+
+/* Show submenu on hover */
+.dropdown-menu .dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+/* ===============================
+   Special: Digital Marketing submenu (open to LEFT)
+=============================== */
+.dropdown-menu.dropdown-left {
+  right: 100%;
+  left: auto;
+  top: 0;
+}
+
+/* Default nested dropdowns open to the right */
+.dropdown-menu .dropdown > .dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background: #1e293b;
+  padding: 10px;
+  border-radius: 6px;
+  z-index: 999;
+}
+
+/* Show submenu when hovering */
+.dropdown-menu .dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+/* Specific case: make a submenu open LEFT instead of RIGHT */
+.dropdown-menu .dropdown.dropdown-left > .dropdown-menu {
+  left: auto;
+  right: 100%; /* now it opens to the left */
+  top: 0;
+}
+
+
+/* ===============================
+   Hamburger (hidden on desktop)
+=============================== */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ===============================
+   Responsive (mobile view)
+=============================== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    
+  }
+  
+
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background: #111;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 220px;
+    border-radius: 5px;
+    padding: 15px 0;
+    position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  background: #111;
+  padding: 60px 0 20px 0;
+  overflow-y: auto; /* enable scroll on menu */
+  overflow-x: hidden; /* prevent horizontal scroll */
+  z-index: 10000;
+  transition: transform 0.3s ease;
+  transform: translateX(100%);
+   overscroll-behavior: contain; /* Add this */
+  }
+
+  .nav-menu.active {
+    display: flex;
+      transform: translateX(0); /* Slide in */
+  }
+
+  .nav-menu li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  /* Make dropdowns stack vertically on mobile */
+  .dropdown-menu {
+    position: static;
+    min-width: 100%;
+    border-radius: 0;
+  }
+
+  .dropdown-menu .dropdown > .dropdown-menu,
+  .dropdown-menu.dropdown-left {
+    position: static;
+    width: 100%;
+    right: auto;
+    left: auto;
+  }
+}
+
+/* Style the login button */
+.login-button a {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.login-button a:hover {
+  background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+  transform: translateY(-2px);
+}
+
+/* Mobile menu overlay */
+/* @media (max-width: 768px) {
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  background: #111;
+  padding: 60px 0 20px 0;
+  overflow-y: auto; /* enable scroll on menu */
+  /* overflow-x: hidden; /* prevent horizontal scroll */
+  /* z-index: 10000;
+  transition: transform 0.3s ease;
+  transform: translateX(100%); */
+/* } */
+
+
+  /* .nav-menu.active {
+    transform: translateX(0); /* slide in menu */
+  /* }
+
+  body.menu-open {
+    overflow: hidden; /* prevent page scrolling when menu is open */
+  /* }
+}  */ 
+
+.nav-menu {
+  transition: transform 0.3s ease;
+}
+
+
+
+
+

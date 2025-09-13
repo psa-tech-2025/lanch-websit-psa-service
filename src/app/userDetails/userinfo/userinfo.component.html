@@ -1,0 +1,49 @@
+<p>userinfo works!</p>
+<div class="form-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onUserdata()">
+        <h2>User Details </h2>
+        <div class="form-group">
+            <label for="mobile">Mobile Number</label>
+            <input type="text" formControlName="number"  required appFormError
+                show="immediate" validationMsgId='' [pattern]="mobilenumPattern" />
+            <div *ngIf="loginForm.get('number')?.invalid && (loginForm.get('number')?.touched || loginForm.get('number')?.dirty)">
+                <small class="text-danger" *ngIf="loginForm.get('number')?.errors?.['required']">
+                    Mobile number is required.
+                </small>
+                <small class="text-danger" *ngIf="loginForm.get('number')?.errors?.['pattern']">
+                    Mobile number must be valid.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" formControlName="nominainame" id="nominainame" aria-label="nominainame"
+               appFormError show="" validationMsgId  [pattern]="namepattern" 
+                required>
+            <div
+                *ngIf="loginForm.get('nominainame')?.invalid $$ (loginForm.get('nominainame')?.touched || loginForm.get('nominainame')?.dirty)">
+                   <small class="text-danger" *ngIf="loginForm.get('nominainame')?.valid && loginForm.get('nominainame')?.touched">
+                   name is required.
+                </small>
+                <span class="text-danger" *ngIf="loginForm.get('nominainame')?.errors?.['pattern']">
+                    Pattern is required.
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" formControlName="useremail" id="useremail" aria-label="useremail" required appFormError
+                show="immediate" validationMsgId='' pattern="" required>
+            <div
+                *ngIf="loginForm.get('useremail')?.invalid && (loginForm.get('useremail')?.touched || loginForm.get('useremail')?.dirty)">
+                <span class="text-danger" *ngIf="loginForm.get('useremail')?.errors?.['required']">
+                    enter the valid Email
+                </span>
+                <span class="ngClass" *ngIf="loginForm.get('useremail')?.errors?.['pattern']">
+                    enter the correct email Pattern
+                </span>
+            </div>
+        </div>
+        <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+</div>

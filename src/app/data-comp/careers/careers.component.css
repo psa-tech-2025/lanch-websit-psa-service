@@ -1,0 +1,81 @@
+
+.career-container {
+  font-family: 'Arial', sans-serif;
+  color: white;
+  padding: 40px;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+
+/* Job List */
+.job-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #00e6e6;
+  padding: 15px 0;
+}
+
+.job-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.job-exp {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.apply-btn {
+  background: transparent;
+  border: 1px solid #00e6e6;
+  color: white;
+  padding: 6px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.apply-btn:hover {
+  background: #00e6e6;
+  color: #000;
+}
+
+/* Why Join */
+.why-join {
+  margin-top: 40px;
+}
+
+.why-join h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.why-join p {
+  color: #ccc;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* Dropdown */
+.dropdown-section {
+  border-bottom: 1px solid #00e6e6;
+  padding: 12px 0;
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  cursor: pointer;
+  color: #00e6e6;
+}
+
+.dropdown-body {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #bbb;
+}
+
+.arrow {
+  font-weight: bold;
+}
