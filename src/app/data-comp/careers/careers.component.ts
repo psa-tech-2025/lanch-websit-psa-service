@@ -9,8 +9,8 @@ export class CareersComponent implements OnInit {
 
   constructor() { }
   jobs = [
-    { title: 'Java Developer', experience: '2+ Years' },
-    { title: 'Business Analyst', experience: '3+ Years' },
+    // { title: 'Java Developer', experience: '2+ Years' },
+    // { title: 'Business Analyst', experience: '3+ Years' },
     // { title: 'Digital IT Solution Sales Specialist', experience: '10-15 Years' },
     // { title: 'Team Lead Java', experience: '8+ Years' },
     // { title: 'UI Developer', experience: '2+ Years' },
