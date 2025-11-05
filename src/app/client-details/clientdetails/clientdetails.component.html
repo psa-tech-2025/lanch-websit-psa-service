@@ -1,71 +1,64 @@
+<div class="contact-section">
+  <h2 class="section-title">
+    <i class="bi bi-telephone-fill"></i> {{ 'CONTACT_FORM.TITLE' | translate }}
+  </h2>
+  <div class="contact-grid">
+        <!-- Left: Contact Form -->
+    <div class="contact-card form-card">
+      <h3 class="form-title">{{ 'CONTACT_FORM.SEND_MESSAGE' | translate }}</h3>
 
-<form [formGroup]="careerForm" (ngSubmit)="onSubmit()" class="career-form">
-  <h2 class="form-title">{{ 'CAREER_FORM.TITLE' | translate }}</h2>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+        <div class="form-group">
+          <label>{{ 'CONTACT_FORM.NAME' | translate }}</label>
+          <input type="text" formControlName="name" [placeholder]="'CONTACT_FORM.ENTER_NAME' | translate" />
+        </div>
 
-  <div class="form-grid">
-    <label for="type">{{ 'CAREER_FORM.FIELDS.NAME' | translate }}</label>
-    <input id="type" formControlName="type" placeholder="{{ 'CAREER_FORM.PLACEHOLDER.NAME' | translate }}" />
+        <div class="form-group">
+          <label>{{ 'CONTACT_FORM.EMAIL' | translate }}</label>
+          <input type="email" formControlName="email" [placeholder]="'CONTACT_FORM.ENTER_EMAIL' | translate" />
+        </div>
 
-    <label for="mobile">{{ 'CAREER_FORM.FIELDS.MOBILE' | translate }}</label>
-    <input id="mobile" formControlName="mobile" placeholder="{{ 'CAREER_FORM.PLACEHOLDER.MOBILE' | translate }}" required />
+        <div class="form-group">
+          <label>{{ 'CONTACT_FORM.PHONE' | translate }}</label>
+          <input type="text" formControlName="phone" [placeholder]="'CONTACT_FORM.ENTER_PHONE' | translate" />
+        </div>
 
-    <label for="email">{{ 'CAREER_FORM.FIELDS.EMAIL' | translate }}</label>
-    <input id="email" formControlName="email" type="email" placeholder="{{ 'CAREER_FORM.PLACEHOLDER.EMAIL' | translate }}" required />
+        <div class="form-group">
+          <label>{{ 'CONTACT_FORM.MESSAGE' | translate }}</label>
+          <textarea formControlName="message" [placeholder]="'CONTACT_FORM.ENTER_MESSAGE' | translate"></textarea>
+        </div>
 
-    <label for="salutation">{{ 'CAREER_FORM.FIELDS.SALUTATION' | translate }}</label>
-    <select id="salutation" formControlName="salutation">
-      <option value="">{{ 'CAREER_FORM.PLACEHOLDER.SALUTATION' | translate }}</option>
-      <option *ngFor="let s of SALUTATIONS" [value]="s">{{ s }}</option>
-    </select>
+        <div class="form-group">
+          <label>{{ 'CONTACT_FORM.UPLOAD_DOC' | translate }}</label>
+          <input type="file" (change)="onFileSelect($event, 'document')" accept=".pdf,.doc,.docx" />
+        </div>
 
-    <label for="firstName">{{ 'CAREER_FORM.FIELDS.FIRST_NAME' | translate }}</label>
-    <input id="firstName" formControlName="firstName" placeholder="{{ 'CAREER_FORM.PLACEHOLDER.FIRST_NAME' | translate }}" />
+        <button type="submit" class="btn-submit" [disabled]="isUploading || contactForm.invalid">
+          {{ isUploading ? ('CONTACT_FORM.SENDING' | translate) : ('CONTACT_FORM.SEND' | translate) }}
+        </button>
+      </form>
+    </div>
+<div class="contact-card info-card">
+  <h3 class="info-title">Office Information</h3>
+  <!-- <p><i class="bi bi-geo-alt-fill"></i> <strong>Address:</strong> 123 Example Street, City, State, 123456</p> -->
+  <p><i class="bi bi-telephone-fill"></i> <strong>Phone:</strong> +91  8668267967</p>
+  <p><i class="bi bi-envelope-fill"></i> <strong>Email:</strong> sales@psatechall.com</p>
 
-    <label for="lastName">{{ 'CAREER_FORM.FIELDS.LAST_NAME' | translate }}</label>
-    <input id="lastName" formControlName="lastName" placeholder="{{ 'CAREER_FORM.PLACEHOLDER.LAST_NAME' | translate }}" />
+  <div class="contact-card social-card">
+  <h3 class="info-title">Social Media</h3>
+  <a href="https://www.facebook.com/example" target="_blank" class="social-btn fb">
+    <i class="bi bi-facebook"></i> Follow us on Facebook
+  </a>
+  <a href="https://twitter.com/example" target="_blank" class="social-btn tw">
+    <i class="bi bi-twitter"></i> Follow us on Twitter
+  </a>
+  <a href="https://www.instagram.com/example" target="_blank" class="social-btn ig">
+    <i class="bi bi-instagram"></i> Follow us on Instagram
+  </a>
+</div>
 
-    <label for="companyName">{{ 'CAREER_FORM.FIELDS.COMPANY_NAME' | translate }}</label>
-    <input id="companyName" formControlName="companyName" placeholder="{{ 'CAREER_FORM.PLACEHOLDER.COMPANY_NAME' | translate }}" />
 
-    <label for="jobTitle">{{ 'CAREER_FORM.FIELDS.JOB_TITLE' | translate }}</label>
-    <input id="jobTitle" formControlName="jobTitle" placeholder="{{ 'CAREER_FORM.PLACEHOLDER.JOB_TITLE' | translate }}" />
-
-    <label for="industry">{{ 'CAREER_FORM.FIELDS.INDUSTRY' | translate }}</label>
-    <select id="industry" formControlName="industry">
-      <option value="">{{ 'CAREER_FORM.PLACEHOLDER.INDUSTRY' | translate }}</option>
-      <option *ngFor="let i of INDUSTRIES" [value]="i">{{ i }}</option>
-    </select>
-
-    <label for="jobRole">{{ 'CAREER_FORM.FIELDS.JOB_ROLE' | translate }}</label>
-    <select id="jobRole" formControlName="jobRole">
-      <option value="">{{ 'CAREER_FORM.PLACEHOLDER.JOB_ROLE' | translate }}</option>
-      <option *ngFor="let j of JOB_ROLES" [value]="j">{{ j }}</option>
-    </select>
-
-    <label for="countryCode">{{ 'CAREER_FORM.FIELDS.COUNTRY_CODE' | translate }}</label>
-    <input id="countryCode" formControlName="countryCode" placeholder="{{ 'CAREER_FORM.PLACEHOLDER.COUNTRY_CODE' | translate }}" />
-
-    <label for="postalCode">{{ 'CAREER_FORM.FIELDS.POSTAL_CODE' | translate }}</label>
-    <input id="postalCode" formControlName="postalCode" placeholder="{{ 'CAREER_FORM.PLACEHOLDER.POSTAL_CODE' | translate }}" />
-
-    <label for="city">{{ 'CAREER_FORM.FIELDS.CITY' | translate }}</label>
-    <input id="city" formControlName="city" placeholder="{{ 'CAREER_FORM.PLACEHOLDER.CITY' | translate }}" />
-
-    <label for="countryRegion">{{ 'CAREER_FORM.FIELDS.COUNTRY_REGION' | translate }}</label>
-    <input id="countryRegion" formControlName="countryRegion" placeholder="{{ 'CAREER_FORM.PLACEHOLDER.COUNTRY_REGION' | translate }}" />
-
-    <label for="contactType">{{ 'CAREER_FORM.FIELDS.CONTACT_TYPE' | translate }}</label>
-    <select id="contactType" formControlName="contactType">
-      <option value="">{{ 'CAREER_FORM.PLACEHOLDER.CONTACT_TYPE' | translate }}</option>
-      <option *ngFor="let c of CONTACT_TYPES" [value]="c">{{ c }}</option>
-    </select>
-
-    <label class="checkbox-label">
-      {{ 'CAREER_FORM.FIELDS.MARKETING_CONSENT' | translate }}
-      <input type="checkbox" formControlName="marketingConsent" />
-    </label>
-  </div>
-
-  <button type="submit" [disabled]="careerForm.invalid">{{ 'CAREER_FORM.BUTTON.SUBMIT' | translate }}</button>
-</form>
+</div>
+</div>
+</div>
 

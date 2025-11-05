@@ -21,39 +21,17 @@ export class AppComponent implements OnInit {
    emailpattern =CommonConst.EMAIL_PATTERN_STRING;
    mobilenumPattern = CommonConst.MOBILE_PATTERN_STRING;
   userRouteDate = true
-  constructor(private popup:PopupService, public formValidators:FormvalidatorService ,
-     public fb:FormBuilder ,private dialog: DiolougeService, private router:Router) {
-        // this.popup.showPop("1", "","ksjhjdgsdsd", "", "","ClOSE","")
-
-  }
+  constructor(
+  private router:Router) { }
 
   ngOnInit(): void {
-    // this.  dopen();
-    // this.loginForm.setValue({
-    //   number:this.userData.mobile,
-    //   nominainame: this.userData.name,
-    //   useremail: this.userData.email
-    // })
-  
+
   }
 
     isContactRoute(): boolean {
     return this.router.url === '/contact';
   }
-  dopen() {
-    const ref = this.dialog.open(HeaderComponent, { 
-      hasBackdrop: true,
-      width: screen.width > 768 ? "40%" : "100%",
-      height: "inherit",
-      padding: "20px",
-      position: screen.width > 768 ? {} : { bottom: "0", position: screen.width > 768 ? "relative" : "absolute" }
 
-    });
-        ref.afterClosed.subscribe((result) => {
-      console.log(result);
-    });
-
-    }
   }
 // onKeyupMobile(event: any): void {
 //   this.formValidators.IsNumberMobile(event, this.loginForm, 'number');

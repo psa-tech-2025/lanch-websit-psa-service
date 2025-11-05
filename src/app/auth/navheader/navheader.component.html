@@ -1,0 +1,22 @@
+
+<div class="navbar-links">
+  <!-- <button routerLink="/home"><i class="fa-solid fa-house"></i> {{ 'HOME' | translate }}</button>
+  <button routerLink="/news"><i class="fa-solid fa-newspaper"></i> {{ 'NEWSS' | translate }}</button>
+  <button routerLink="/galaryy"><i class="fa-solid fa-camera"></i> {{ 'GALLERY' | translate }}</button>
+  <button routerLink="/about"><i class="fa-solid fa-user"></i> {{ 'ABOUT' | translate }}</button>
+  <button routerLink="/work"><i class="fa-solid fa-trophy"></i> {{ 'WORK' | translate }}</button> -->
+  <button routerLink="event"><i class="fa-solid fa-calendar-days"></i> MARKETPLACE</button>
+  <!-- <button><i class="fa-solid fa-file-lines"></i> {{ 'SCHEME' | translate }}</button> -->
+  <button routerLink="/contact" ><i class="fa-solid fa-phone"></i> {{ 'CONTACT' | translate }}</button>
+  <button routerLink="/admin/dashboard"><i class="fa-solid fa-calendar-days"></i> Admin Only</button> 
+
+  <!-- Admin toggle -->
+  <button *ngIf="!isAdminLoggedIn" (click)="goToLogin()">
+    <i class="fa-solid fa-user-shield"></i> {{ 'ADMIN_LOGIN' | translate }}
+  </button>
+
+  <button *ngIf="isAdminLoggedIn" (click)="logout()">
+    <i class="fa-solid fa-right-from-bracket"></i> {{ 'LOGOUT' | translate }}
+  </button>
+
+</div>

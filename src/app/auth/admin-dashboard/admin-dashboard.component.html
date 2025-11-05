@@ -1,0 +1,49 @@
+
+<div *ngIf="!isAdmin" class="not-admin">
+  <p>🔒 {{ 'ADMIN_CONTACT.UNAUTHORIZED' | translate }}</p>
+</div>
+
+<div *ngIf="isAdmin && !loading" class="admin-contact-container">
+  <h2>📋 {{ 'ADMIN_CONTACT.USER_CONTACTS_TITLE' | translate }}</h2>
+
+  <div class="table-responsive">
+    <table class="contact-table" *ngIf="contacts.length; else noData">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>{{ 'ADMIN_CONTACT.NAME' | translate }}</th>
+          <th>{{ 'ADMIN_CONTACT.EMAIL' | translate }}</th>
+          <th>{{ 'ADMIN_CONTACT.PHONE' | translate }}</th>
+          <th>{{ 'ADMIN_CONTACT.MESSAGE' | translate }}</th>
+          <th>{{ 'ADMIN_CONTACT.DOCUMENT' | translate }}</th>
+          <th>{{ 'ADMIN_CONTACT.PHOTO' | translate }}</th>
+          <th>{{ 'ADMIN_CONTACT.DATE' | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of contacts; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ c.name }}</td>
+          <td>{{ c.email }}</td>
+          <td>{{ c.phone }}</td>
+          <td>{{ c.message }}</td>
+          <td>
+            <a *ngIf="c.documentUrl" [href]="c.documentUrl" target="_blank" class="download-link">
+              📄 {{ 'ADMIN_CONTACT.DOWNLOAD' | translate }}
+            </a>
+          </td>
+          <td>
+            <a *ngIf="c.photoUrl" [href]="c.photoUrl" target="_blank">
+              <img [src]="c.photoUrl" class="contact-photo" />
+            </a>
+          </td>
+          <td>{{ c.date?.toDate?.() | date:'short' || c.date | date:'short' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noData>
+    <p class="no-data">❌ {{ 'ADMIN_CONTACT.NO_MESSAGES' | translate }}</p>
+  </ng-template>
+</div>

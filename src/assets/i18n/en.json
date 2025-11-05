@@ -107,5 +107,60 @@
     "BUTTON": {
       "SUBMIT": "Submit"
     }
+    
+  },
+  "CONTACT_FORM": {
+    "TITLE": "Contact Us",
+    "SEND_MESSAGE": "Send a Message",
+    "NAME": "Full Name",
+    "ENTER_NAME": "Enter your full name",
+    "EMAIL": "Email Address",
+    "ENTER_EMAIL": "Enter your email address",
+    "PHONE": "Phone Number",
+    "ENTER_PHONE": "Enter your phone number",
+    "MESSAGE": "Message",
+    "ENTER_MESSAGE": "Write your message here",
+    "UPLOAD_DOC": "Upload Document (PDF, DOC, DOCX)",
+    "UPLOAD_PHOTO": "Upload Photo",
+    "SENDING": "Sending...",
+    "SEND": "Send Message",
+    "OFFICE_INFO": "Office Information",
+    "ADDRESS": "Address:",
+    "PHONE_LABEL": "Phone:",
+    "EMAIL_LABEL": "Email:",
+    "SOCIAL_MEDIA": "Social Media",
+    "FOLLOW_FB": "Follow us on Facebook",
+    "FOLLOW_TW": "Follow us on Twitter",
+    "FOLLOW_IG": "Follow us on Instagram"
+  },
+    "ADMIN_CONTACT": {
+    "UNAUTHORIZED": "You are not authorized to view this page.",
+    "USER_CONTACTS_TITLE": "User Submitted Contacts",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "PHONE": "Phone",
+    "MESSAGE": "Message",
+    "DOCUMENT": "PDF/DOC",
+    "PHOTO": "Photo",
+    "DATE": "Date",
+    "DOWNLOAD": "Download",
+    "NO_MESSAGES": "No messages received yet.",
+    "ADMIN_INFO_TITLE": "Admin Contact Information",
+    "ADDRESS": "Address",
+    "PHONE_LABEL": "Phone",
+    "EMAIL_LABEL": "Email",
+    "FB_URL": "Facebook URL",
+    "TW_URL": "Twitter URL",
+    "IG_URL": "Instagram URL",
+    "SAVE": "Save",
+    "HEADER_SETTINGS": "Header Settings",
+    "ENTER_PARTY_NAME": "Enter Party Name",
+    "UPDATE_HEADER": "Update Header",
+    "PREVIEW": "Preview",
+    "CONTACT_INFO": "Contact Information",
+       "ASAVE": "Save",
+    "UPDATE_SUCCESS": "✅ Header settings updated successfully!"
   }
+
+
 }

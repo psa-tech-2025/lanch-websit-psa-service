@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { MyCommonModule } from './common/common.module';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { SpinnersInterceptor } from './common/shared/loader/spinners.interceptor';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserinfoComponent } from './userDetails/userinfo/userinfo.component';
 import { DiolougeModule } from './share/Diolouge/diolouge/diolouge.module';
 import { PsaServiceComponent } from './data-comp/psa-service/psa-service.component';
@@ -22,12 +22,20 @@ import { IndustriesInfoComponent } from './industries/industries-info/industries
 import { AboutUsComponent } from './data-comp/about-us/about-us.component';
 import { CareersComponent } from './data-comp/careers/careers.component';
 import { ClientdetailsComponent } from './client-details/clientdetails/clientdetails.component';
-import { LoginComponent } from './client-details/clientdetails/login/login.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BlogComponent } from './data-comp/blog/blog.component';
 import { NavControlsComponent } from './data-comp/nav-controls/nav-controls.component';
+import { AdminDashboardComponent } from './auth/admin-dashboard/admin-dashboard.component';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideStorage, getStorage } from '@angular/fire/storage';
 
+import {AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { NavheaderComponent } from './auth/navheader/navheader.component';
+import { LoginComponent } from './auth/login/login.component';
+import { PsamarketplaceComponent } from './auth/psamarketplace/psamarketplace.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -49,10 +57,13 @@ export function HttpLoaderFactory(http: HttpClient) {
         AboutUsComponent,
         CareersComponent,
         ClientdetailsComponent,
-        LoginComponent,
         BlogComponent,
         NavControlsComponent,
-       
+        AdminDashboardComponent,
+        NavheaderComponent,
+        LoginComponent,
+        PsamarketplaceComponent
+
   ],
   imports: [
     BrowserModule,
@@ -61,6 +72,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     DiolougeModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
+        AngularFireModule.initializeApp(environment.firebase),
+    // Initialize Firebase
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // Firestore
+    provideFirestore(() => getFirestore()),
+    // Storage
+    provideStorage(() => getStorage()),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

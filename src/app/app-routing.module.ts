@@ -13,8 +13,9 @@ import { IndustriesInfoComponent } from './industries/industries-info/industries
 import { AboutUsComponent } from './data-comp/about-us/about-us.component';
 import { CareersComponent } from './data-comp/careers/careers.component';
 import { ClientdetailsComponent } from './client-details/clientdetails/clientdetails.component';
-import { LoginComponent } from './client-details/clientdetails/login/login.component';
 import { BlogComponent } from './data-comp/blog/blog.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AdminDashboardComponent } from './auth/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'about-us', pathMatch: 'full' },
@@ -42,6 +43,9 @@ const routes: Routes = [
     },
     {
       path:'blog', component: BlogComponent
+    },
+    {
+      path:'admin/dashboard', component:AdminDashboardComponent
     }
   
 ];
