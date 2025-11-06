@@ -1,4 +1,3 @@
-
 .footer {
   background-color: #000;
   color: white;
@@ -15,17 +14,29 @@
   display: inline-block;
   margin: 0 10px;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   width: 45px;
   height: 45px;
   line-height: 45px;
   border-radius: 50%;
   background-color: #3a3a3a;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
+  transform: translateY(-4px);
   background-color: #555;
+}
+
+/* ✅ WhatsApp styling */
+.social-icons a.whatsapp {
+  background-color: #25d366; /* WhatsApp green */
+  box-shadow: 0 0 10px rgba(37, 211, 102, 0.4);
+}
+
+.social-icons a.whatsapp:hover {
+  background-color: #1ebc5c;
+  box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
 }
 
 .contact-info p {
@@ -44,4 +55,19 @@
 
 .contact-info a:hover {
   text-decoration: underline;
+}
+
+/* Responsive footer */
+@media (max-width: 600px) {
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    margin: 0 6px;
+  }
+
+  .contact-info p {
+    font-size: 14px;
+  }
 }

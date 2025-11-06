@@ -1,4 +1,3 @@
-
 <div class="news-section">
   <h2 class="section-title">
     <i class="bi bi-newspaper"></i> {{ 'NEWS.TITLE' | translate }}
@@ -25,13 +24,14 @@
     </div>
   </div>
 
+  <!-- Add Button -->
   <div class="toolbar" *ngIf="isAdmin && !showForm">
     <button class="btn-add" (click)="toggleForm()">➕ {{ 'NEWS.ADD_NEWS' | translate }}</button>
   </div>
 
-  <!-- News Display -->
+  <!-- News Grid -->
   <div class="news-grid">
-    <div class="news-card" *ngFor="let item of newsList">
+    <div class="news-card" *ngFor="let item of paginatedNews">
       <div class="news-image" *ngIf="item.image">
         <img [src]="item.image" alt="{{item.title}}" />
       </div>
@@ -40,7 +40,7 @@
         <iframe
           [src]="getEmbedUrl(item.url) | safeUrl"
           width="100%"
-          height="315"
+          height="250"
           frameborder="0"
           allowfullscreen>
         </iframe>
@@ -49,13 +49,49 @@
       <div class="news-content">
         <h3 class="news-title">{{ item.title }}</h3>
         <span class="category">{{ item.category }}</span>
-        <p class="news-text">{{ item.content }}</p>
+        <p class="news-text">{{ item.content | slice:0:100 }}...</p>
         <span class="date">{{ item.date }}</span>
+
+        <!-- Public view button -->
+        <button class="btn-view" (click)="openPost(item)">👁️ View Post</button>
 
         <div *ngIf="isAdmin" class="admin-actions">
           <button class="btn-edit" (click)="edit(item)">✏ {{ 'NEWS.EDIT' | translate }}</button>
           <button class="btn-delete" (click)="delete(item.id, item.image)">🗑 {{ 'NEWS.DELETE' | translate }}</button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination controls -->
+  <div class="pagination-controls" *ngIf="totalPages > 1">
+    <button *ngIf="isAdmin" class="btn-nav" [disabled]="currentPage === 1" (click)="prevPage()">⬅ Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button *ngIf="isAdmin" class="btn-nav" [disabled]="currentPage === totalPages" (click)="nextPage()">Next ➡</button>
+  </div>
+
+  <!-- Zoom Modal -->
+  <div class="post-modal" *ngIf="selectedViewPost" (click)="closePost()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close-btn" (click)="closePost()">✖</span>
+
+      <div class="modal-image" *ngIf="selectedViewPost.image">
+        <img [src]="selectedViewPost.image" alt="{{selectedViewPost.title}}" />
+      </div>
+
+      <h2>{{ selectedViewPost.title }}</h2>
+      <span class="category">{{ selectedViewPost.category }}</span>
+      <p>{{ selectedViewPost.content }}</p>
+      <span class="date">{{ selectedViewPost.date }}</span>
+
+      <div class="modal-embed" *ngIf="selectedViewPost.url">
+        <iframe
+          [src]="getEmbedUrl(selectedViewPost.url) | safeUrl"
+          width="100%"
+          height="300"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
   </div>

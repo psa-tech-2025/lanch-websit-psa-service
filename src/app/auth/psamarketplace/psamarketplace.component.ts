@@ -9,11 +9,18 @@ import { AuthService } from '../auth.service';
 })
 export class PsamarketplaceComponent implements OnInit {
 
-   newsList: NewsItem[] = [];
+  newsList: NewsItem[] = [];
+  paginatedNews: NewsItem[] = [];
   selectedNews: NewsItem = { title: '', category: '', date: '', content: '' };
   selectedFile: File | null = null;
+  selectedViewPost: NewsItem | null = null;  // ✅ For modal view
   showForm = false;
   isAdmin = false;
+
+  // Pagination
+  itemsPerPage = 2;
+  currentPage = 1;
+  totalPages = 1;
 
   constructor(private newsService: MarketService, private auth: AuthService) {}
 
@@ -23,7 +30,34 @@ export class PsamarketplaceComponent implements OnInit {
   }
 
   loadNews() {
-    this.newsService.getAll().subscribe((news) => (this.newsList = news));
+    this.newsService.getAll().subscribe((news) => {
+      this.newsList = news.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      this.calculatePagination();
+    });
+  }
+
+  calculatePagination() {
+    this.totalPages = Math.ceil(this.newsList.length / this.itemsPerPage);
+    this.updatePaginatedNews();
+  }
+
+  updatePaginatedNews() {
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    this.paginatedNews = this.newsList.slice(start, start + this.itemsPerPage);
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updatePaginatedNews();
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updatePaginatedNews();
+    }
   }
 
   toggleForm() {
@@ -38,12 +72,10 @@ export class PsamarketplaceComponent implements OnInit {
 
   saveNews() {
     if (this.selectedNews.id) {
-      this.newsService
-        .update(this.selectedNews.id, this.selectedNews, this.selectedFile || undefined)
+      this.newsService.update(this.selectedNews.id, this.selectedNews, this.selectedFile || undefined)
         .then(() => this.cancel());
     } else {
-      this.newsService
-        .add(this.selectedNews, this.selectedFile || undefined)
+      this.newsService.add(this.selectedNews, this.selectedFile || undefined)
         .then(() => this.cancel());
     }
   }
@@ -65,6 +97,18 @@ export class PsamarketplaceComponent implements OnInit {
     this.selectedFile = null;
   }
 
+  /** ✅ Open post modal */
+  openPost(item: NewsItem) {
+    this.selectedViewPost = item;
+    document.body.style.overflow = 'hidden'; // disable background scroll
+  }
+
+  /** ✅ Close post modal */
+  closePost() {
+    this.selectedViewPost = null;
+    document.body.style.overflow = 'auto';
+  }
+
   getEmbedUrl(url: string): string {
     if (!url) return '';
     if (url.includes('youtube.com')) {
@@ -79,5 +123,4 @@ export class PsamarketplaceComponent implements OnInit {
     }
     return url;
   }
-
 }
