@@ -169,6 +169,19 @@
     "CONTACT_INFO": "संपर्क जानकारी",
     "ASAVE": "सहेजें",
     "UPDATE_SUCCESS": "✅ हेडर सेटिंग्स सफलतापूर्वक अपडेट हो गई हैं!"
+  },
+  "NEWS": {
+    "TITLE": "समाचार और अपडेट्स",
+    "ADD_NEWS": "समाचार जोड़ें",
+    "EDIT_NEWS": "समाचार संपादित करें",
+    "PLACEHOLDER_TITLE": "समाचार शीर्षक",
+    "PLACEHOLDER_CATEGORY": "श्रेणी",
+    "PLACEHOLDER_DESC": "समाचार का विवरण",
+    "PLACEHOLDER_URL": "सोशल मीडिया लिंक (वैकल्पिक)",
+    "SAVE": "सहेजें",
+    "CANCEL": "रद्द करें",
+    "EDIT": "संपादित करें",
+    "DELETE": "हटाएँ"
   }
   
 

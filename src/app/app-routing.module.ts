@@ -16,6 +16,7 @@ import { ClientdetailsComponent } from './client-details/clientdetails/clientdet
 import { BlogComponent } from './data-comp/blog/blog.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AdminDashboardComponent } from './auth/admin-dashboard/admin-dashboard.component';
+import { PsamarketplaceComponent } from './auth/psamarketplace/psamarketplace.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'about-us', pathMatch: 'full' },
@@ -46,6 +47,9 @@ const routes: Routes = [
     },
     {
       path:'admin/dashboard', component:AdminDashboardComponent
+    },
+    {
+      path:'market', component:PsamarketplaceComponent
     }
   
 ];

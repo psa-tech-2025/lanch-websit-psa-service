@@ -167,6 +167,19 @@
     "CONTACT_INFO": "संपर्क माहिती",
     "ASAVE": "जतन करा",
     "UPDATE_SUCCESS": "✅ शीर्षक सेटिंग्ज यशस्वीरित्या अद्यतनित झाल्या!"
+  },
+  "NEWS": {
+    "TITLE": "बातम्या व अपडेट्स",
+    "ADD_NEWS": "बातमी जोडा",
+    "EDIT_NEWS": "बातमी संपादित करा",
+    "PLACEHOLDER_TITLE": "बातमी शीर्षक",
+    "PLACEHOLDER_CATEGORY": "वर्ग",
+    "PLACEHOLDER_DESC": "बातमीचे वर्णन",
+    "PLACEHOLDER_URL": "सोशल मीडिया लिंक (पर्यायी)",
+    "SAVE": "जतन करा",
+    "CANCEL": "रद्द करा",
+    "EDIT": "संपादित करा",
+    "DELETE": "हटवा"
   }
 
 

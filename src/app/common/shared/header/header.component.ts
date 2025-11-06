@@ -45,7 +45,13 @@ toggleDigital() {
 
   constructor(private translate: TranslateService ) {
      this.translate.setDefaultLang('en');
+    // / normalize browser codes like en-US -> en, hi-IN -> hi, etc.
+  const browser = translate.getBrowserLang() || 'en';
+  const lang = browser.toLowerCase().startsWith('hi') ? 'hi'
+            : browser.toLowerCase().startsWith('mr') ? 'mr'
+            : 'en';
 
+  translate.use(lang);   // ✅ make sure we actually load en.json
 }
       switchLang(lang: string) {
     this.translate.use(lang);

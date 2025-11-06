@@ -36,8 +36,10 @@ import { environment } from 'src/environments/environment';
 import { NavheaderComponent } from './auth/navheader/navheader.component';
 import { LoginComponent } from './auth/login/login.component';
 import { PsamarketplaceComponent } from './auth/psamarketplace/psamarketplace.component';
+import { SafeUrlPipe } from './auth/safe-url.pipe';
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  const prefix = (document?.baseURI || './') + 'assets/i18n/';
+  return new TranslateHttpLoader(http, prefix, '.json');
 }
 
 @NgModule({
@@ -62,7 +64,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         AdminDashboardComponent,
         NavheaderComponent,
         LoginComponent,
-        PsamarketplaceComponent
+        PsamarketplaceComponent,
+        SafeUrlPipe
 
   ],
   imports: [

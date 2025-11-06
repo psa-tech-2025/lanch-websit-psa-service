@@ -160,6 +160,19 @@
     "CONTACT_INFO": "Contact Information",
        "ASAVE": "Save",
     "UPDATE_SUCCESS": "✅ Header settings updated successfully!"
+  },
+    "NEWS": {
+    "TITLE": "News & Updates",
+    "ADD_NEWS": "Add News",
+    "EDIT_NEWS": "Edit News",
+    "PLACEHOLDER_TITLE": "News Title",
+    "PLACEHOLDER_CATEGORY": "Category",
+    "PLACEHOLDER_DESC": "News Description",
+    "PLACEHOLDER_URL": "Social Media URL (optional)",
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "EDIT": "Edit",
+    "DELETE": "Delete"
   }
 
 
