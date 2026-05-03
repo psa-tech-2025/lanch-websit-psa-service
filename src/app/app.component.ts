@@ -21,13 +21,21 @@ export class AppComponent implements OnInit {
    emailpattern =CommonConst.EMAIL_PATTERN_STRING;
    mobilenumPattern = CommonConst.MOBILE_PATTERN_STRING;
   userRouteDate = true
+   showPopup = true;
   constructor(
   private router:Router) { }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
+
+    // Show popup after 1 second
+    setTimeout(() => {
+      this.showPopup = true;
+    }, 1000);
 
   }
-
+    closePopup(){
+    this.showPopup = false;
+  }
     isContactRoute(): boolean {
     return this.router.url === '/contact';
   }

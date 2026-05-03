@@ -7,7 +7,24 @@
 <!-- <app-diolouge-comp></app-diolouge-comp> -->
 <app-clientdetails *ngIf="!isContactRoute()"></app-clientdetails>
 
+<div class="popup-overlay" *ngIf="showPopup">
+  <div class="popup-container">
 
+
+    <button class="close-btn" (click)="closePopup()">×</button>
+
+  
+    <img src="../assets/images/DM-1.jpeg" class="popup-img" alt="Academy Ad">
+
+
+<div class="popup-btn">
+  <a  target="_self">
+    <button class="visit-btn" (click)="closePopup()">VISIT WEBSITE</button>
+  </a>
+</div>
+
+  </div>
+</div>
 
  <app-footer></app-footer>
 
