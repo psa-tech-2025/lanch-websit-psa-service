@@ -4,40 +4,78 @@
   </h2>
   <div class="contact-grid">
         <!-- Left: Contact Form -->
-    <div class="contact-card form-card">
-      <h3 class="form-title">{{ 'CONTACT_FORM.SEND_MESSAGE' | translate }}</h3>
+<div class="contact-card form-card">
 
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
-        <div class="form-group">
-          <label>{{ 'CONTACT_FORM.NAME' | translate }}</label>
-          <input type="text" formControlName="name" [placeholder]="'CONTACT_FORM.ENTER_NAME' | translate" />
-        </div>
+<div class="consultation-header">
 
-        <div class="form-group">
-          <label>{{ 'CONTACT_FORM.EMAIL' | translate }}</label>
-          <input type="email" formControlName="email" [placeholder]="'CONTACT_FORM.ENTER_EMAIL' | translate" />
-        </div>
+  <div class="consultation-badge">
+    🚀 FREE CONSULTATION
+  </div>
 
-        <div class="form-group">
-          <label>{{ 'CONTACT_FORM.PHONE' | translate }}</label>
-          <input type="text" formControlName="phone" [placeholder]="'CONTACT_FORM.ENTER_PHONE' | translate" />
-        </div>
+  <!-- <h2 class="consultation-title">
 
-        <div class="form-group">
-          <label>{{ 'CONTACT_FORM.MESSAGE' | translate }}</label>
-          <textarea formControlName="message" [placeholder]="'CONTACT_FORM.ENTER_MESSAGE' | translate"></textarea>
-        </div>
+    Grow Your Business With
 
-        <div class="form-group">
-          <label>{{ 'CONTACT_FORM.UPLOAD_DOC' | translate }}</label>
-          <input type="file" (change)="onFileSelect($event, 'document')" accept=".pdf,.doc,.docx" />
-        </div>
+    <span>PSA Tech Solutions</span>
 
-        <button type="submit" class="btn-submit" [disabled]="isUploading || contactForm.invalid">
-          {{ isUploading ? ('CONTACT_FORM.SENDING' | translate) : ('CONTACT_FORM.SEND' | translate) }}
-        </button>
-      </form>
-    </div>
+  </h2> -->
+
+  <p class="consultation-subtitle">
+
+    Fill in your details and our expert team will contact you shortly
+    to discuss  requirements.
+
+  </p>
+
+</div>
+
+  <div class="lead-form-container">
+
+    <!-- Full Name -->
+
+  <label class="form-label">
+  <i class="fa-solid fa-user me-2 text-primary"></i>
+  Full Name
+</label>
+
+<input
+  type="text"
+  class="form-control"
+  placeholder="Enter Your Full Name"
+  [(ngModel)]="username">
+
+    <!-- WhatsApp Number -->
+
+<label class="form-label  mt-10" >
+  <i class="fa-brands fa-whatsapp me-2 whatsapp-label"></i>
+  WhatsApp Number
+</label>
+
+<input
+  type="tel"
+  class="form-control"
+  maxlength="10"
+  placeholder=" Enter Your WhatsApp Number"
+  [(ngModel)]="mobile"
+  #mobileRef="ngModel"
+  pattern="[6-9][0-9]{9}"
+  required
+  (keypress)="allowOnlyNumbers($event)">
+
+    <!-- Submit -->
+
+  <button
+  class="btn btn-submit w-100 mt-10"
+  (click)="saveLead()"
+  [disabled]="loading || !username || !isValidMobile()">
+
+  {{ loading ? 'Saving...' : 'Submit Request' }}
+
+</button>
+
+  </div>
+
+</div>
 <div class="contact-card info-card">
   <h3 class="info-title">Office Information</h3>
   <!-- <p><i class="bi bi-geo-alt-fill"></i> <strong>Address:</strong> 123 Example Street, City, State, 123456</p> -->
@@ -46,13 +84,13 @@
 
   <div class="contact-card social-card">
   <h3 class="info-title">Social Media</h3>
-  <a href="https://www.facebook.com/profile.php?id=61573044214176" target="_blank" class="social-btn fb">
+  <a href="https://www.facebook.com/" target="_blank" class="social-btn fb">
     <i class="bi bi-facebook"></i> Follow us on Facebook
   </a>
   <a href="https://x.com/?lang=en" target="_blank" class="social-btn tw">
     <i class="bi bi-twitter"></i> Follow us on Twitter
   </a>
-  <a href="https://www.instagram.com/services.psatech/" target="_blank" class="social-btn ig">
+  <a href="https://www.instagram.com/" target="_blank" class="social-btn ig">
     <i class="bi bi-instagram"></i> Follow us on Instagram
   </a>
 </div>
@@ -60,5 +98,53 @@
 
 </div>
 </div>
+</div>
+
+
+<div
+  class="modal fade"
+  id="leadSuccessModal"
+  tabindex="-1"
+  aria-hidden="true">
+
+  <div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content border-0">
+
+      <div class="modal-body text-center p-5">
+
+        <div class="success-icon mb-3">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <h3 class="fw-bold mb-3">
+          Thank You!
+        </h3>
+
+        <p class="text-muted mb-4">
+
+          Thank you for submitting your details.
+
+          <br>
+
+          Our team will contact you shortly via WhatsApp or phone call.
+
+        </p>
+
+        <button
+          type="button"
+          class="btn btn-primary px-4"
+          data-bs-dismiss="modal">
+
+          OK
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 

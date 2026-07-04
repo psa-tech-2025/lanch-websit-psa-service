@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LeadApiService } from 'src/app/auth/api/lead-api.service';
 import { ContactService } from 'src/app/auth/contact.service';
-
+import * as bootstrap from 'bootstrap';
 @Component({
   selector: 'app-clientdetails',
   templateUrl: './clientdetails.component.html',
@@ -13,8 +14,114 @@ export class ClientdetailsComponent implements OnInit {
   selectedPhoto: File | null = null;
   isUploading = false;
   contactInfo: any
+username = '';
+mobile = '';
 
-  constructor(private fb: FormBuilder, private contactService:ContactService) { }
+projectId = 'Ecom-01';
+
+loading = false;
+
+
+
+  constructor(private fb: FormBuilder, private contactService:ContactService,
+    private leadApiService: LeadApiService
+  ) { }
+
+  allowOnlyNumbers(event: KeyboardEvent) {
+
+  const charCode = event.which
+    ? event.which
+    : event.keyCode;
+
+  if (charCode < 48 || charCode > 57) {
+    event.preventDefault();
+  }
+
+}
+
+isValidMobile(): boolean {
+
+  return /^[6-9]\d{9}$/.test(this.mobile);
+
+}
+
+saveLead(): void {
+
+  const name = this.username?.trim();
+  const mobile = this.mobile?.trim();
+
+  if (!name) {
+
+    alert('Please enter Full Name');
+    return;
+
+  }
+
+  if (!mobile) {
+
+    alert('Please enter WhatsApp Number');
+    return;
+
+  }
+
+  const mobileRegex = /^[6-9]\d{9}$/;
+
+  if (!mobileRegex.test(mobile)) {
+
+    alert('Please enter valid 10-digit WhatsApp Number');
+    return;
+
+  }
+
+  if (this.loading) {
+    return;
+  }
+
+  this.loading = true;
+
+  this.leadApiService
+    .captureLead(
+      {
+        username: name,
+        mobile: mobile
+      },
+      this.projectId
+    )
+    .subscribe({
+
+next: (res) => {
+
+  this.loading = false;
+
+  console.log('Lead Saved', res);
+
+  this.username = '';
+  this.mobile = '';
+
+  const modal = new bootstrap.Modal(
+    document.getElementById('leadSuccessModal')!
+  );
+
+  modal.show();
+
+},
+
+      error: (err) => {
+
+        this.loading = false;
+
+        console.error(err);
+
+        alert(
+          err?.error?.message ||
+          'Unable to save lead'
+        );
+
+      }
+
+    });
+
+}
 
 
 

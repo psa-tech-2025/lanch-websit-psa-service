@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
     this.showPopup = false;
   }
     isContactRoute(): boolean {
-    return this.router.url === '/contact';
+    return this.router.url === '/free-consultation';
   }
 
   }
