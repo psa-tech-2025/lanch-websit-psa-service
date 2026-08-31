@@ -36,9 +36,13 @@ export class AppComponent implements OnInit {
     closePopup(){
     this.showPopup = false;
   }
-    isContactRoute(): boolean {
-    return this.router.url === '/free-consultation';
-  }
+isContactRoute(): boolean {
+  return (
+    this.router.url === '/free-consultation' ||
+    this.router.url === '/business-website' ||
+    this.router.url === '/govt-school'
+  );
+}
 
   }
 // onKeyupMobile(event: any): void {

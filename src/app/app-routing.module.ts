@@ -17,6 +17,9 @@ import { BlogComponent } from './data-comp/blog/blog.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AdminDashboardComponent } from './auth/admin-dashboard/admin-dashboard.component';
 import { PsamarketplaceComponent } from './auth/psamarketplace/psamarketplace.component';
+import { BusinessComponent } from './business/business/business.component';
+import { GovtSchoolComponent } from './govt-school/govt-school/govt-school.component';
+import { GovtHospitalComponent } from './govt-hospital/govt-hospital/govt-hospital.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'about-us', pathMatch: 'full' },
@@ -50,12 +53,26 @@ const routes: Routes = [
     },
     {
       path:'market', component:PsamarketplaceComponent
-    }
+    },
+    {
+  path: 'business-website',
+  component: BusinessComponent
+},
+{
+  path: 'govt-school',
+  component: GovtSchoolComponent
+},
+{
+  path: 'govt-hospital',
+  component: GovtHospitalComponent
+},
   
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabledBlocking'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

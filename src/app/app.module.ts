@@ -37,6 +37,9 @@ import { NavheaderComponent } from './auth/navheader/navheader.component';
 import { LoginComponent } from './auth/login/login.component';
 import { PsamarketplaceComponent } from './auth/psamarketplace/psamarketplace.component';
 import { SafeUrlPipe } from './auth/safe-url.pipe';
+import { BusinessComponent } from './business/business/business.component';
+import { GovtSchoolComponent } from './govt-school/govt-school/govt-school.component';
+import { GovtHospitalComponent } from './govt-hospital/govt-hospital/govt-hospital.component';
 export function HttpLoaderFactory(http: HttpClient) {
   const prefix = (document?.baseURI || './') + 'assets/i18n/';
   return new TranslateHttpLoader(http, prefix, '.json');
@@ -65,11 +68,14 @@ export function HttpLoaderFactory(http: HttpClient) {
         NavheaderComponent,
         LoginComponent,
         PsamarketplaceComponent,
-        SafeUrlPipe
+        SafeUrlPipe,
+        BusinessComponent,
+        GovtSchoolComponent,
+        GovtHospitalComponent
 
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     MyCommonModule,
     DiolougeModule,
