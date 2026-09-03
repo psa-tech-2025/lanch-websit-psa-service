@@ -6,85 +6,79 @@ import {
 import { SeoService }
 from '../../common/seo.service';
 
-
 @Component({
-  selector: 'app-business',
-  templateUrl: './business.component.html',
-  styleUrls: ['./business.component.css']
+  selector: 'app-affordable-website',
+  templateUrl: './affordable-website.component.html',
+  styleUrls: ['./affordable-website.component.css']
 })
-export class BusinessComponent implements OnInit {
+export class AffordableWebsiteComponent implements OnInit {
+
 projectId = 'Emmet-01';
   productUrl =
-    'https://psatechall.com/business-website';
-
+    'https://psatechall.com/affordable-website';
 
   constructor(
     private seoService: SeoService
   ) {}
 
-  goToForm(): void {
-
-  window.location.href =
-    '/client-details?projectId=Emmet-01';
-
-}
-
   ngOnInit(): void {
-this.seoService.updateMetaData({
 
-  title:
-    'Take Your Business Online Today! - PSA TECH',
+    this.seoService.updateMetaData({
 
-  description:
-    'Professional Business Website at an Affordable Price. Special Offer Only ₹1499/-',
+      title:
+        'Affordable Professional Website Solutions - PSA TECH',
 
-  url:
-    'https://psatechall.com/business-website'
+      description:
+        'Get a professional, modern and mobile-friendly website for your business with complete digital solutions from PSA TECH.',
 
-});
+      url:
+        'https://psatechall.com/affordable-website'
+
+    });
 
   }
 
+
 private getShareMessage(): string {
 
-  return `🔥 TAKE YOUR BUSINESS ONLINE TODAY! 🔥
+  return `🚀 BUILD YOUR DIGITAL PRESENCE TODAY!
 
-💻 Professional Business Website
+💻 Affordable Professional Website Solution
 
-💰 SPECIAL OFFER – ONLY ₹1499/-
-
-PSA TECH घेऊन आले आहे आपल्या व्यवसायासाठी खास Digital Business Website Solution.
+PSA TECH brings a complete digital website solution for your business.
 
 ━━━━━━━━━━━━━━━━━━
 
-ALL FEATURES INCLUDED:
+✨ ALL FEATURES INCLUDED:
 
-• Dynamic Website Design & Development
-• 10 Pages Professional Website
+• Professional Website Design & Development
+• Modern & Dynamic Website
 • Home, About Us, Services & Contact Pages
 • Photo Gallery & Video Section
-• WhatsApp Chat & Click-to-Call Integration
-• Free Domain Name with SSL Certificate
+• WhatsApp Chat Integration
+• Click-to-Call Feature
+• Domain & SSL Support
 • Professional Business Email
 • Mobile, Tablet & Desktop Friendly
-• Fast Loading & SEO Optimized Website
-• Easy Admin Panel to Manage Content
+• Fast Loading Website
+• SEO Optimized Structure
+• Easy Admin Panel
 • Google Analytics & Search Console Setup
 • Live Chat & WhatsApp Integration
-• 1 Year Technical Support
+• Technical Support
 • Website Content & Basic Training
 
 ━━━━━━━━━━━━━━━━━━
 
-🚀 EXTRA BENEFITS:
+🚀 EXTRA DIGITAL BENEFITS:
 
 • Website QR Code
 • WhatsApp QR Code
-• Google Maps QR Code
+• Google Maps Integration
 
 ━━━━━━━━━━━━━━━━━━
 
-🧾 SMART BILLING & INVENTORY MANAGEMENT:
+🧾 SMART BUSINESS FEATURES:
 
 • Create Invoices
 • Manage Stock
@@ -93,21 +87,25 @@ ALL FEATURES INCLUDED:
 
 ━━━━━━━━━━━━━━━━━━
 
-🌐 Build Trust
-📈 Increase Visibility
+🌐 Build Your Digital Presence
+📈 Increase Online Visibility
 👥 Reach More Customers
-⏰ Stay Online 24×7
+⏰ Stay Available 24×7
 🚀 Grow Your Business
 
 ━━━━━━━━━━━━━━━━━━
 
 📝 REGISTER / CONTACT US
 
-Interested in growing your business online?
+Interested in taking your business online?
 
 👉 Visit our website and fill in your Name and WhatsApp Number.
 
-Our PSA TECH team will contact you shortly with complete details.
+Our PSA TECH team will contact you shortly and provide complete information about our website solutions.
+
+━━━━━━━━━━━━━━━━━━
+
+🔥 START YOUR DIGITAL JOURNEY TODAY!
 
 🔗 Register Now:
 ${this.productUrl}
@@ -117,13 +115,9 @@ ${this.productUrl}
 🌐 Website:
 https://psatechall.com
 
-🔥 TAKE YOUR BUSINESS ONLINE TODAY!
-
-🚀 Don't miss this opportunity to grow your business digitally!`;
+🚀 Build your digital presence and grow your business today!`;
 
 }
-
-
 
 
   shareOnWhatsApp(): void {
@@ -142,6 +136,7 @@ https://psatechall.com
 
   }
 
+
   copyLink(): void {
 
     const message =
@@ -152,7 +147,7 @@ https://psatechall.com
       .then(() => {
 
         alert(
-          'Complete business details copied successfully!'
+          'Complete website details copied successfully!'
         );
 
       })

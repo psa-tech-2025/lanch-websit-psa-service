@@ -33,15 +33,17 @@ export class GovtSchoolComponent implements OnInit {
 
 
   // SAME MESSAGE FOR WHATSAPP AND COPY
-  private getShareMessage(): string {
+private getShareMessage(): string {
 
-    return `आपल्या शाळेला आता डिजिटल बनवा!
+  return `🏫 आपल्या शाळेला आता डिजिटल बनवा!
 
-फक्त ₹999 मध्ये Zilla Parishad / Government School  Website!
+💻 Zilla Parishad / Government School साठी खास Digital School Website Solution
 
-PSA TECH घेऊन आले आहे शाळांसाठी खास Digital School Website Solution.
+PSA TECH घेऊन आले आहे आपल्या शाळेसाठी आधुनिक आणि उपयुक्त Digital School Website Solution.
 
-आपल्या वेबसाइटवर मिळेल —
+━━━━━━━━━━━━━━━━━━
+
+✨ आपल्या वेबसाइटवर मिळेल:
 
 ● शाळेची संपूर्ण माहिती
 ● मुख्याध्यापकांचा संदेश
@@ -52,10 +54,11 @@ PSA TECH घेऊन आले आहे शाळांसाठी खास 
 ● Google Map Location
 ● Mobile Friendly Website
 ● शाळेसाठी Unique Domain Name
-
 ● Website QR Code – QR Code Scan करून वेबसाइट सहज उघडा
 
-महत्त्वाची माहिती एका डिजिटल प्लॅटफॉर्मवर —
+━━━━━━━━━━━━━━━━━━
+
+📚 महत्त्वाची माहिती एका डिजिटल प्लॅटफॉर्मवर:
 
 ● सूचना (Notice)
 ● परिपत्रके (Circular)
@@ -66,22 +69,51 @@ PSA TECH घेऊन आले आहे शाळांसाठी खास 
 ● शिक्षकांची माहिती (Staff Information)
 ● महत्त्वाचे Downloads
 
-AI Basic Training – 3 Days
+━━━━━━━━━━━━━━━━━━
+
+🤖 AI Basic Training – 3 Days
+
 AI चा वापर – सोप्या भाषेत!
 
 ● AI म्हणजे काय?
 ● AI Tools ची ओळख आणि वापर
-● Content, Email आणि Presentation तयार करणे
+● Content तयार करणे
+● Email तयार करणे
+● Presentation तयार करणे
 
-आपल्या शाळेची डिजिटल ओळख निर्माण करा!
+━━━━━━━━━━━━━━━━━━
 
-अधिक माहितीसाठी खालील लिंकला भेट द्या:
+🌐 आपल्या शाळेची डिजिटल ओळख निर्माण करा!
+
+📱 पालक आणि विद्यार्थ्यांना शाळेची महत्त्वाची माहिती सहज उपलब्ध करा.
+
+🏫 आपल्या शाळेला आधुनिक डिजिटल ओळख द्या!
+
+━━━━━━━━━━━━━━━━━━
+
+📝 नोंदणी / अधिक माहितीसाठी संपर्क करा
+
+आपल्या शाळेसाठी Digital School Website तयार करायची आहे का?
+
+👉 खालील वेबसाइटला भेट द्या आणि Form मध्ये आपले नाव व WhatsApp नंबर भरा.
+
+आमची PSA TECH टीम आपल्याशी लवकरच संपर्क करून संपूर्ण माहिती देईल.
+
+━━━━━━━━━━━━━━━━━━
+
+🚀 आजच आपल्या शाळेची डिजिटल सुरुवात करा!
+
+🔗 अधिक माहिती व नोंदणीसाठी:
 ${this.productUrl}
 
-संपर्क: 8668267967
-वेबसाइट: https://psatechall.com`;
+📞 Call / WhatsApp: +91 8668267967
 
-  }
+🌐 Website:
+https://psatechall.com
+
+🏫 आपल्या शाळेला आजच डिजिटल बनवा आणि आधुनिक डिजिटल ओळख निर्माण करा! 🚀`;
+
+}
 
 
   // WHATSAPP SHARE

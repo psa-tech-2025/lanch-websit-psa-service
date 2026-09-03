@@ -1,0 +1,843 @@
+```css
+/* ==========================================
+   PSA TECH BUSINESS PARTNERSHIP PROGRAM
+   SKY BLUE + ORANGE RESPONSIVE CSS
+========================================== */
+
+/* ==========================================
+   COMMON
+========================================== */
+
+.partnership-page {
+  font-family: Arial, "Noto Sans Devanagari", sans-serif;
+  color: #172033;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.partnership-page *,
+.partnership-page *::before,
+.partnership-page *::after {
+  box-sizing: border-box;
+}
+
+.section-heading {
+  max-width: 850px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.section-heading > span {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #0284c7;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  margin: 0 0 16px;
+  font-size: clamp(32px, 4vw, 50px);
+  line-height: 1.2;
+  font-weight: 800;
+  color: #172033;
+}
+
+.section-heading h2 strong {
+  color: #f97316;
+}
+
+.section-heading p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #667085;
+}
+
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.partnership-hero {
+  min-height: 680px;
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  align-items: center;
+  gap: 70px;
+  padding: 90px 8%;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(14, 165, 233, 0.18),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #f0f9ff 0%,
+      #ffffff 55%,
+      #e0f2fe 100%
+    );
+}
+
+.hero-content {
+  max-width: 760px;
+}
+
+.partnership-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 20px;
+  margin-bottom: 24px;
+  border-radius: 50px;
+  background: #e0f2fe;
+  color: #0284c7;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.hero-content h1 {
+  margin: 0;
+  font-size: clamp(46px, 6vw, 78px);
+  line-height: 1.05;
+  font-weight: 900;
+  color: #172033;
+}
+
+.hero-content h1 span {
+  display: block;
+  margin-top: 5px;
+  color: #0284c7;
+}
+
+.earn-heading {
+  margin: 25px 0 20px;
+  font-size: clamp(28px, 3vw, 42px);
+  color: #3d4757;
+}
+
+.earn-heading strong {
+  margin-left: 8px;
+  color: #f97316;
+  font-size: clamp(36px, 4vw, 58px);
+}
+
+.hero-description {
+  max-width: 700px;
+  margin: 0 0 30px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #667085;
+}
+
+
+/* ==========================================
+   HERO HIGHLIGHT
+========================================== */
+
+.hero-highlight {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.hero-highlight > div {
+  min-height: 135px;
+  padding: 20px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(14, 165, 233, 0.18);
+  box-shadow: 0 12px 35px rgba(16, 24, 40, 0.07);
+}
+
+.hero-highlight strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 27px;
+  font-weight: 900;
+  color: #0284c7;
+}
+
+.hero-highlight span {
+  display: block;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #667085;
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.hero-buttons,
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.whatsapp-btn,
+.copy-btn {
+  border: none;
+  outline: none;
+  padding: 15px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.whatsapp-btn {
+  background: #f97316;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.28);
+}
+
+.copy-btn {
+  background: #0ea5e9;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(14, 165, 233, 0.25);
+}
+
+.whatsapp-btn:hover,
+.copy-btn:hover {
+  transform: translateY(-3px);
+}
+
+.whatsapp-btn:active,
+.copy-btn:active {
+  transform: translateY(0);
+}
+
+
+/* ==========================================
+   JOIN CARD
+========================================== */
+
+.hero-side {
+  width: 100%;
+}
+
+.join-card {
+  padding: 35px;
+  border-radius: 28px;
+  background: #ffffff;
+  border: 1px solid rgba(14, 165, 233, 0.18);
+  box-shadow: 0 25px 60px rgba(16, 24, 40, 0.12);
+}
+
+.join-card h2 {
+  margin: 0 0 25px;
+  font-size: 30px;
+  color: #172033;
+}
+
+.join-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 0;
+  border-bottom: 1px solid #edf0f2;
+  font-size: 16px;
+  font-weight: 700;
+  color: #344054;
+}
+
+.join-item:last-child {
+  border-bottom: none;
+}
+
+.join-item span {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: #0284c7;
+  font-weight: 900;
+}
+
+
+/* ==========================================
+   STATS
+========================================== */
+
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 35px 8%;
+  gap: 20px;
+  background: linear-gradient(135deg, #0284c7, #0ea5e9);
+}
+
+.stat-card {
+  padding: 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.stat-card strong {
+  display: block;
+  margin-bottom: 7px;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 900;
+}
+
+.stat-card span {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+
+/* ==========================================
+   ABOUT SECTION
+========================================== */
+
+.about-section {
+  padding: 100px 8%;
+  background: #ffffff;
+}
+
+.opportunity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.opportunity-card {
+  padding: 32px 25px;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid #edf0f2;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.06);
+  transition: all 0.3s ease;
+}
+
+.opportunity-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(14, 165, 233, 0.4);
+  box-shadow: 0 20px 40px rgba(14, 165, 233, 0.12);
+}
+
+.card-icon {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  border-radius: 18px;
+  background: #e0f2fe;
+  font-size: 30px;
+}
+
+.opportunity-card h3 {
+  margin: 0 0 12px;
+  font-size: 21px;
+  color: #172033;
+}
+
+.opportunity-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #667085;
+}
+
+
+/* ==========================================
+   SERVICES
+========================================== */
+
+.services-section {
+  padding: 100px 8%;
+  background: #f8fafc;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.service-card {
+  padding: 30px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.06);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(14, 165, 233, 0.12);
+}
+
+.service-card > span {
+  display: inline-flex;
+  width: 58px;
+  height: 58px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  border-radius: 16px;
+  background: #fff7ed;
+  font-size: 28px;
+}
+
+.service-card h3 {
+  margin: 0 0 10px;
+  font-size: 21px;
+  color: #172033;
+}
+
+.service-card p {
+  margin: 0;
+  line-height: 1.7;
+  color: #667085;
+}
+
+
+/* ==========================================
+   SUPPORT SECTION
+========================================== */
+
+.support-section {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  align-items: center;
+  gap: 70px;
+  padding: 100px 8%;
+  background:
+    linear-gradient(
+      135deg,
+      #f0f9ff,
+      #ffffff
+    );
+}
+
+.support-content > span {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #0284c7;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.support-content h2 {
+  margin: 0 0 20px;
+  font-size: clamp(35px, 4vw, 55px);
+  line-height: 1.15;
+}
+
+.support-content h2 strong {
+  display: block;
+  color: #f97316;
+}
+
+.support-content > p {
+  max-width: 720px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #667085;
+}
+
+.support-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.support-list div {
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 7px 20px rgba(16, 24, 40, 0.06);
+  font-weight: 700;
+  color: #344054;
+}
+
+.support-box {
+  padding: 55px 30px;
+  border-radius: 30px;
+  text-align: center;
+  color: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      #0284c7,
+      #0ea5e9
+    );
+  box-shadow: 0 25px 50px rgba(14, 165, 233, 0.28);
+}
+
+.support-number {
+  margin-bottom: 12px;
+  font-size: 65px;
+  font-weight: 900;
+}
+
+.support-box h3 {
+  margin: 0 0 10px;
+  font-size: 30px;
+}
+
+.support-box p {
+  margin: 0;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+
+/* ==========================================
+   INDUSTRIES
+========================================== */
+
+.industries-section {
+  padding: 100px 8%;
+  background: #ffffff;
+}
+
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.industry-grid div {
+  padding: 18px 14px;
+  border-radius: 14px;
+  text-align: center;
+  background: #f6f8fa;
+  border: 1px solid #edf0f2;
+  font-size: 15px;
+  font-weight: 700;
+  color: #344054;
+  transition: all 0.25s ease;
+}
+
+.industry-grid div:hover {
+  transform: translateY(-4px);
+  background: #e0f2fe;
+  border-color: rgba(14, 165, 233, 0.35);
+  color: #0284c7;
+}
+
+
+/* ==========================================
+   CTA SECTION
+========================================== */
+
+.cta-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin: 70px 8%;
+  padding: 60px;
+  border-radius: 30px;
+  color: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      #0284c7,
+      #0ea5e9
+    );
+  box-shadow: 0 25px 60px rgba(14, 165, 233, 0.25);
+}
+
+.cta-section > div:first-child > span {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #fed7aa;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.cta-section h2 {
+  margin: 0 0 15px;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.2;
+}
+
+.cta-section h2 strong {
+  display: block;
+  color: #fed7aa;
+}
+
+.cta-section p {
+  max-width: 650px;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  margin-top: 0;
+  min-width: 280px;
+  justify-content: flex-end;
+}
+
+.cta-buttons .copy-btn {
+  background: #ffffff;
+  color: #0284c7;
+}
+
+
+/* ==========================================
+   LARGE TABLET
+========================================== */
+
+@media (max-width: 1200px) {
+
+  .partnership-hero {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .hero-side {
+    max-width: 750px;
+  }
+
+  .opportunity-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .industry-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+  .partnership-hero,
+  .about-section,
+  .services-section,
+  .support-section,
+  .industries-section {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .support-section {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .support-box {
+    max-width: 500px;
+  }
+
+  .industry-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cta-section {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 6%;
+    margin-right: 6%;
+  }
+
+  .cta-buttons {
+    justify-content: flex-start;
+  }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+  .partnership-hero {
+    min-height: auto;
+    padding: 60px 5%;
+  }
+
+  .partnership-badge {
+    padding: 9px 15px;
+    font-size: 11px;
+  }
+
+  .hero-content h1 {
+    font-size: 43px;
+  }
+
+  .earn-heading {
+    font-size: 25px;
+  }
+
+  .earn-heading strong {
+    display: block;
+    margin: 5px 0 0;
+    font-size: 48px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .hero-highlight {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-highlight > div {
+    min-height: auto;
+  }
+
+  .hero-buttons,
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons button,
+  .cta-buttons button {
+    width: 100%;
+  }
+
+  .join-card {
+    padding: 25px 20px;
+  }
+
+  .stats-section {
+    grid-template-columns: 1fr 1fr;
+    padding: 25px 5%;
+    gap: 8px;
+  }
+
+  .stat-card {
+    padding: 15px 8px;
+  }
+
+  .stat-card strong {
+    font-size: 32px;
+  }
+
+  .stat-card span {
+    font-size: 12px;
+  }
+
+  .about-section,
+  .services-section,
+  .support-section,
+  .industries-section {
+    padding: 70px 5%;
+  }
+
+  .section-heading {
+    margin-bottom: 35px;
+  }
+
+  .section-heading h2 {
+    font-size: 31px;
+  }
+
+  .section-heading p {
+    font-size: 15px;
+  }
+
+  .opportunity-grid,
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .opportunity-card,
+  .service-card {
+    padding: 25px 20px;
+  }
+
+  .support-content h2 {
+    font-size: 34px;
+  }
+
+  .support-list {
+    grid-template-columns: 1fr;
+  }
+
+  .support-box {
+    width: 100%;
+    padding: 45px 20px;
+  }
+
+  .support-number {
+    font-size: 55px;
+  }
+
+  .industry-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .industry-grid div {
+    padding: 14px 8px;
+    font-size: 13px;
+  }
+
+  .cta-section {
+    margin: 50px 5%;
+    padding: 35px 25px;
+    border-radius: 24px;
+  }
+
+  .cta-section h2 {
+    font-size: 32px;
+  }
+
+  .cta-section p {
+    font-size: 15px;
+  }
+
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+
+  .hero-content h1 {
+    font-size: 37px;
+  }
+
+  .industry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-section {
+    grid-template-columns: 1fr;
+  }
+
+}

@@ -40,6 +40,10 @@ import { SafeUrlPipe } from './auth/safe-url.pipe';
 import { BusinessComponent } from './business/business/business.component';
 import { GovtSchoolComponent } from './govt-school/govt-school/govt-school.component';
 import { GovtHospitalComponent } from './govt-hospital/govt-hospital/govt-hospital.component';
+import { AffordableWebsiteComponent } from './offer/affordable-website/affordable-website.component';
+import { WebsiteOfferComponent } from './offer/website-offer/website-offer.component';
+import { BusinessPartnershipComponent } from './offer/business-partnership/business-partnership.component';
+import { MarathiBusinessOpportunityComponent } from './opportunity/marathi-business-opportunity/marathi-business-opportunity.component';
 export function HttpLoaderFactory(http: HttpClient) {
   const prefix = (document?.baseURI || './') + 'assets/i18n/';
   return new TranslateHttpLoader(http, prefix, '.json');
@@ -71,7 +75,11 @@ export function HttpLoaderFactory(http: HttpClient) {
         SafeUrlPipe,
         BusinessComponent,
         GovtSchoolComponent,
-        GovtHospitalComponent
+        GovtHospitalComponent,
+        AffordableWebsiteComponent,
+        WebsiteOfferComponent,
+        BusinessPartnershipComponent,
+        MarathiBusinessOpportunityComponent
 
   ],
   imports: [

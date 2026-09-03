@@ -20,6 +20,11 @@ import { PsamarketplaceComponent } from './auth/psamarketplace/psamarketplace.co
 import { BusinessComponent } from './business/business/business.component';
 import { GovtSchoolComponent } from './govt-school/govt-school/govt-school.component';
 import { GovtHospitalComponent } from './govt-hospital/govt-hospital/govt-hospital.component';
+import { AffordableWebsiteComponent } from './offer/affordable-website/affordable-website.component';
+import { WebsiteOfferComponent } from './offer/website-offer/website-offer.component';
+import { BusinessPartnershipComponent } from './offer/business-partnership/business-partnership.component';
+import { MarathiBusinessOpportunityComponent } from './opportunity/marathi-business-opportunity/marathi-business-opportunity.component';
+import { BusinessWebsiteMarathiComponent } from './offer/business-website-marathi/business-website-marathi.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'about-us', pathMatch: 'full' },
@@ -66,9 +71,31 @@ const routes: Routes = [
   path: 'govt-hospital',
   component: GovtHospitalComponent
 },
+{
+  path: 'affordable-website',
+  component: AffordableWebsiteComponent
+},
+{
+  path: 'website-offer',
+  component: WebsiteOfferComponent
+},
+{
+  path: 'business-partnership',
+  component: BusinessPartnershipComponent
+},
+  {
+    path: 'offer-business-opportunity',
+    component:
+      MarathiBusinessOpportunityComponent
+  },
+  {
+  path: 'business-website-marathi',
+  component: BusinessWebsiteMarathiComponent
+},
+
   
 ];
-
+  
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     initialNavigation: 'enabledBlocking'
