@@ -1,0 +1,243 @@
+<div class="wa-page">
+
+  <div class="page-header">
+
+    <div>
+      <h2>
+        <i class="fa-solid fa-file-lines"></i>
+        WhatsApp Templates
+      </h2>
+
+      <p>
+        Manage approved WhatsApp message templates.
+      </p>
+    </div>
+
+    <button
+      class="btn btn-success"
+      (click)="showForm = true"
+      *ngIf="!showForm"
+    >
+      <i class="fa-solid fa-plus"></i>
+      <small class="text-muted">
+  Create/approve the template in Meta WhatsApp Manager.
+  This page stores the local campaign template catalogue.
+</small>
+    </button>
+
+  </div>
+
+
+  <div
+    class="wa-card mb-4"
+    *ngIf="showForm"
+  >
+
+    <h5>Create Template</h5>
+
+    <div class="row g-3 mt-1">
+
+      <div class="col-md-6">
+
+        <label class="form-label">
+          Template Name
+        </label>
+
+        <input
+          class="form-control"
+          [(ngModel)]="form.name"
+          placeholder="psa_campaign_message"
+        />
+
+      </div>
+
+
+      <div class="col-md-3">
+
+        <label class="form-label">
+          Language
+        </label>
+
+        <select
+          class="form-select"
+          [(ngModel)]="form.language"
+        >
+
+          <option value="en_US">
+            English (US)
+          </option>
+
+          <option value="en_GB">
+            English (UK)
+          </option>
+
+          <option value="mr">
+            Marathi
+          </option>
+
+          <option value="hi">
+            Hindi
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="col-md-3">
+
+        <label class="form-label">
+          Category
+        </label>
+
+        <select
+          class="form-select"
+          [(ngModel)]="form.category"
+        >
+
+          <option value="UTILITY">
+            Utility
+          </option>
+
+          <option value="MARKETING">
+            Marketing
+          </option>
+
+          <option value="AUTHENTICATION">
+            Authentication
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="col-12">
+
+        <label class="form-label">
+          Message Body
+        </label>
+
+        <textarea
+          class="form-control"
+          rows="5"
+          [(ngModel)]="form.body"
+          placeholder="Hello {{1}}, your message..."
+        ></textarea>
+
+      </div>
+
+    </div>
+
+
+    <div class="mt-3">
+
+      <button
+        class="btn btn-secondary me-2"
+        (click)="closeForm()"
+      >
+        Cancel
+      </button>
+
+      <button
+        class="btn btn-success"
+        [disabled]="saving"
+        (click)="createTemplate()"
+      >
+        {{ saving ? 'Saving...' : 'Save Template' }}
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="wa-card">
+
+    <div *ngIf="loading" class="loading">
+      Loading templates...
+    </div>
+
+    <div
+      class="table-responsive"
+      *ngIf="!loading"
+    >
+
+      <table
+        class="table align-middle"
+        *ngIf="templates.length"
+      >
+
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Language</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let template of templates">
+
+            <td>
+              <strong>{{ template.name }}</strong>
+            </td>
+
+            <td>
+              {{ template.language }}
+            </td>
+
+            <td>
+              {{ template.category }}
+            </td>
+
+            <td>
+              <span
+                class="status-badge"
+                [ngClass]="{
+                  'approved': template.status === 'APPROVED',
+                  'pending': template.status === 'PENDING',
+                  'rejected': template.status === 'REJECTED'
+                }"
+              >
+                {{ template.status }}
+              </span>
+            </td>
+
+            <td>
+
+              <button
+                class="btn btn-sm btn-outline-danger"
+                (click)="deleteTemplate(template._id)"
+              >
+                Delete
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+
+      <div
+        class="empty-state"
+        *ngIf="templates.length === 0"
+      >
+
+        <i class="fa-solid fa-file-lines"></i>
+
+        <h5>No templates found</h5>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

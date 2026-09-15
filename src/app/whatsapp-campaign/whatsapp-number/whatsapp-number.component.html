@@ -1,0 +1,251 @@
+<div class="wa-page">
+
+  <div class="page-header">
+
+    <div>
+      <h2>
+        <i class="fa-brands fa-whatsapp"></i>
+        WhatsApp Numbers
+      </h2>
+
+      <p>
+        Connect and manage your WhatsApp Business numbers.
+      </p>
+    </div>
+
+    <button
+      class="btn btn-success"
+      (click)="openAddForm()"
+      *ngIf="!showForm"
+    >
+      <i class="fa-solid fa-plus"></i>
+      Connect Number
+    </button>
+
+  </div>
+
+
+  <!-- CONNECT FORM -->
+
+  <div
+    class="wa-card mb-4"
+    *ngIf="showForm"
+  >
+
+    <h5 class="mb-3">
+      Connect WhatsApp Business Number
+    </h5>
+
+    <div class="row g-3">
+
+      <div class="col-md-6">
+
+        <label class="form-label">
+          WhatsApp Number
+        </label>
+
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="form.displayNumber"
+          placeholder="+919876543210"
+        />
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <label class="form-label">
+          Business Name
+        </label>
+
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="form.businessName"
+          placeholder="PSA TECH"
+        />
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <label class="form-label">
+          WhatsApp Phone Number ID
+        </label>
+
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="form.phoneNumberId"
+          placeholder="Meta Phone Number ID"
+        />
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <label class="form-label">
+          WhatsApp Business Account ID
+        </label>
+
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="form.businessAccountId"
+          placeholder="Business Account ID"
+        />
+
+      </div>
+
+    </div>
+
+
+    <div class="form-note mt-3">
+
+      <i class="fa-solid fa-shield-halved"></i>
+
+      WhatsApp access tokens must remain on the backend.
+      Do not enter your permanent Meta access token here.
+
+    </div>
+
+
+    <div class="actions mt-4">
+
+      <button
+        class="btn btn-secondary me-2"
+        (click)="closeForm()"
+      >
+        Cancel
+      </button>
+
+      <button
+        class="btn btn-success"
+        [disabled]="saving"
+        (click)="connectNumber()"
+      >
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+        {{ saving ? 'Connecting...' : 'Connect Number' }}
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- NUMBER LIST -->
+
+  <div class="wa-card">
+
+    <div
+      class="loading"
+      *ngIf="loading"
+    >
+      Loading WhatsApp numbers...
+    </div>
+
+
+    <div
+      class="table-responsive"
+      *ngIf="!loading"
+    >
+
+      <table
+        class="table align-middle"
+        *ngIf="numbers.length > 0"
+      >
+
+        <thead>
+
+          <tr>
+            <th>Business</th>
+            <th>Number</th>
+            <th>Phone Number ID</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let number of numbers">
+
+            <td>
+              <strong>
+                {{ number.businessName }}
+              </strong>
+            </td>
+
+            <td>
+              {{ number.displayNumber }}
+            </td>
+
+            <td>
+              {{ number.phoneNumberId }}
+            </td>
+
+            <td>
+
+              <span
+                class="status-badge"
+                [ngClass]="{
+                  'connected': number.status === 'CONNECTED',
+                  'pending': number.status === 'PENDING',
+                  'disconnected': number.status === 'DISCONNECTED'
+                }"
+              >
+                {{ number.status }}
+              </span>
+
+            </td>
+
+            <td>
+
+              <button
+                class="btn btn-sm btn-outline-danger"
+                (click)="removeNumber(number._id)"
+              >
+
+                <i class="fa-solid fa-trash"></i>
+
+                Remove
+
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+
+      <div
+        class="empty-state"
+        *ngIf="numbers.length === 0"
+      >
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+        <h5>No WhatsApp numbers connected</h5>
+
+        <p>
+          Connect your first WhatsApp Business number.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

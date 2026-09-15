@@ -1,0 +1,1486 @@
+<div class="campaign-page">
+
+  <!-- ================================================= -->
+  <!-- HEADER -->
+  <!-- ================================================= -->
+
+  <div class="page-header">
+
+    <div class="header-content">
+
+      <div class="header-icon">
+        <i class="fa-brands fa-whatsapp"></i>
+      </div>
+
+      <div>
+        <h2>WhatsApp Campaign</h2>
+
+        <p>
+          Import contacts and send approved WhatsApp campaigns.
+        </p>
+      </div>
+
+    </div>
+
+    <button
+      type="button"
+      class="btn btn-outline-primary refresh-btn"
+      [disabled]="loadingCampaigns"
+      (click)="loadCampaigns()"
+    >
+      <i
+        class="fa-solid fa-rotate"
+        [class.fa-spin]="loadingCampaigns"
+      ></i>
+
+      Refresh
+    </button>
+
+  </div>
+
+
+  <!-- ================================================= -->
+  <!-- TEST MODE WARNING -->
+  <!-- ================================================= -->
+
+  <div
+    class="test-mode-alert"
+    *ngIf="testMode"
+  >
+
+    <div class="alert-icon">
+      <i class="fa-solid fa-flask"></i>
+    </div>
+
+    <div>
+      <strong>WhatsApp Test Mode is Active</strong>
+
+      <p>
+        This campaign was started in TEST MODE.
+        No real WhatsApp messages were sent.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- ================================================= -->
+  <!-- CREATE CAMPAIGN -->
+  <!-- ================================================= -->
+
+  <div class="card campaign-card">
+
+    <div class="card-header-custom">
+
+      <div>
+        <h4>
+          <i class="fa-solid fa-paper-plane"></i>
+          Create Campaign
+        </h4>
+
+        <p>
+          Configure your campaign and import recipient contacts.
+        </p>
+      </div>
+
+      <span class="step-badge">
+        Campaign Setup
+      </span>
+
+    </div>
+
+
+    <div class="card-body">
+
+      <div class="row g-4">
+
+        <!-- CAMPAIGN NAME -->
+        <div class="col-md-6">
+
+          <label class="form-label">
+            Campaign Name
+            <span>*</span>
+          </label>
+
+          <div class="input-icon-wrapper">
+
+            <i class="fa-solid fa-bullhorn"></i>
+
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="campaignName"
+              placeholder="September Business Offer"
+            />
+
+          </div>
+
+        </div>
+
+
+        <!-- WHATSAPP NUMBER -->
+        <div class="col-md-6">
+
+          <label class="form-label">
+            WhatsApp Number
+            <span>*</span>
+          </label>
+
+          <select
+            class="form-select"
+            [(ngModel)]="selectedWhatsappNumberId"
+            [disabled]="loadingNumbers"
+          >
+
+            <option value="">
+              {{
+                loadingNumbers
+                  ? 'Loading WhatsApp numbers...'
+                  : 'Select WhatsApp Number'
+              }}
+            </option>
+
+            <option
+              *ngFor="let number of whatsappNumbers"
+              [value]="number._id"
+            >
+              {{ number.businessName }}
+              -
+              {{ number.displayNumber }}
+            </option>
+
+          </select>
+
+          <small
+            class="field-help"
+            *ngIf="!loadingNumbers && whatsappNumbers.length === 0"
+          >
+            No connected WhatsApp number found.
+          </small>
+
+        </div>
+
+
+        <!-- TEMPLATE -->
+        <div class="col-md-6">
+
+          <label class="form-label">
+            Approved Template
+            <span>*</span>
+          </label>
+
+          <select
+            class="form-select"
+            [(ngModel)]="templateName"
+            (change)="onTemplateChange()"
+            [disabled]="loadingTemplates"
+          >
+
+            <option value="">
+              {{
+                loadingTemplates
+                  ? 'Loading approved templates...'
+                  : 'Select Approved Template'
+              }}
+            </option>
+
+            <option
+              *ngFor="let template of templates"
+              [value]="template.name"
+            >
+              {{ template.name }}
+              -
+              {{ template.language }}
+            </option>
+
+          </select>
+
+          <small
+            class="field-help"
+            *ngIf="!loadingTemplates && templates.length === 0"
+          >
+            No APPROVED templates available.
+          </small>
+
+        </div>
+
+
+        <!-- LANGUAGE -->
+        <div class="col-md-6">
+
+          <label class="form-label">
+            Template Language
+          </label>
+
+          <select
+            class="form-select"
+            [(ngModel)]="languageCode"
+          >
+
+            <option value="en_US">
+              English (US)
+            </option>
+
+            <option value="en_GB">
+              English (UK)
+            </option>
+
+            <option value="mr">
+              Marathi
+            </option>
+
+            <option value="hi">
+              Hindi
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- FILE -->
+        <div class="col-12">
+
+          <label class="form-label">
+            Import Contacts
+            <span>*</span>
+          </label>
+
+          <div class="upload-box">
+
+            <div class="upload-icon">
+              <i class="fa-solid fa-file-excel"></i>
+            </div>
+
+            <div class="upload-content">
+
+              <strong>
+                Upload Excel / CSV Contact File
+              </strong>
+
+              <p>
+                Supported formats:
+                XLSX, XLS, CSV
+                &nbsp;•&nbsp;
+                Maximum size: 10 MB
+              </p>
+
+              <input
+                type="file"
+                class="form-control"
+                accept=".xlsx,.xls,.csv"
+                (change)="onFileSelected($event)"
+              />
+
+            </div>
+
+          </div>
+
+          <div class="file-format-help">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            Required columns:
+            <strong>name</strong>,
+            <strong>mobile</strong>,
+            <strong>optIn</strong>
+
+          </div>
+
+        </div>
+
+
+        <!-- SELECTED FILE -->
+        <div
+          class="col-12"
+          *ngIf="selectedFile"
+        >
+
+          <div class="file-selected">
+
+            <div class="file-selected-icon">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div class="file-info">
+
+              <strong>
+                {{ selectedFile.name }}
+              </strong>
+
+              <small>
+                {{
+                  (selectedFile.size / 1024 / 1024)
+                    | number:'1.2-2'
+                }}
+                MB
+              </small>
+
+            </div>
+
+            <span class="file-ready">
+              Ready
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================================================= -->
+      <!-- CONTACT SUMMARY -->
+      <!-- ================================================= -->
+
+      <div
+        class="summary-section"
+        *ngIf="totalContacts > 0"
+      >
+
+        <div class="section-heading">
+
+          <div>
+            <h5>
+              <i class="fa-solid fa-address-book"></i>
+              Contact Summary
+            </h5>
+
+            <p>
+              Contacts processed from uploaded file.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="row g-3">
+
+          <!-- TOTAL -->
+          <div class="col-xl-3 col-md-6">
+
+            <div class="summary-box total-box">
+
+              <div class="summary-icon">
+                <i class="fa-solid fa-users"></i>
+              </div>
+
+              <div>
+                <span>Total Contacts</span>
+                <strong>
+                  {{ totalContacts }}
+                </strong>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- OPT IN -->
+          <div class="col-xl-3 col-md-6">
+
+            <div class="summary-box optin-box">
+
+              <div class="summary-icon">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+
+              <div>
+                <span>Opt-in</span>
+                <strong>
+                  {{ optInContacts }}
+                </strong>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- SKIPPED -->
+          <div class="col-xl-3 col-md-6">
+
+            <div class="summary-box skipped-box">
+
+              <div class="summary-icon">
+                <i class="fa-solid fa-forward"></i>
+              </div>
+
+              <div>
+                <span>Skipped</span>
+                <strong>
+                  {{ skippedWithoutOptIn }}
+                </strong>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- INVALID / DUPLICATE -->
+          <div class="col-xl-3 col-md-6">
+
+            <div class="summary-box invalid-box">
+
+              <div class="summary-icon">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+              </div>
+
+              <div>
+                <span>Invalid / Duplicate</span>
+
+                <strong>
+                  {{
+                    invalidContacts +
+                    duplicateContacts
+                  }}
+                </strong>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- DETAIL COUNTS -->
+
+        <div class="summary-footer">
+
+          <span>
+            <i class="fa-solid fa-ban"></i>
+            Invalid:
+            <strong>{{ invalidContacts }}</strong>
+          </span>
+
+          <span>
+            <i class="fa-solid fa-copy"></i>
+            Duplicate:
+            <strong>{{ duplicateContacts }}</strong>
+          </span>
+
+          <span>
+            <i class="fa-solid fa-shield-halved"></i>
+            Only opted-in contacts will be sent.
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================================================= -->
+      <!-- ACTIONS -->
+      <!-- ================================================= -->
+
+      <div class="campaign-actions">
+
+        <button
+          type="button"
+          class="btn btn-primary action-btn"
+          [disabled]="
+            loading ||
+            sending ||
+            loadingTemplates ||
+            loadingNumbers
+          "
+          (click)="importContacts()"
+        >
+
+          <i
+            class="fa-solid"
+            [class.fa-upload]="!loading"
+            [class.fa-spinner]="loading"
+            [class.fa-spin]="loading"
+          ></i>
+
+          {{
+            loading
+              ? 'Importing Contacts...'
+              : 'Import Contacts'
+          }}
+
+        </button>
+
+
+        <button
+          type="button"
+          class="btn btn-success action-btn"
+          [disabled]="
+            !campaignId ||
+            sending ||
+            loading ||
+            campaignStatus === 'processing' ||
+            optInContacts === 0
+          "
+          (click)="sendCampaign()"
+        >
+
+          <i
+            class="fa-brands fa-whatsapp"
+          ></i>
+
+          {{
+            sending
+              ? 'Starting...'
+              : 'Send Campaign'
+          }}
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================================================= -->
+  <!-- CURRENT CAMPAIGN STATUS -->
+  <!-- ================================================= -->
+
+  <div
+    class="card status-card"
+    *ngIf="selectedCampaign"
+  >
+
+    <div class="status-card-header">
+
+      <div>
+
+        <h4>
+          <i class="fa-solid fa-chart-line"></i>
+          Campaign Status
+        </h4>
+
+        <p>
+          {{ selectedCampaign.name }}
+        </p>
+
+      </div>
+
+      <div class="status-actions">
+
+        <span
+          class="status-badge"
+          [ngClass]="
+            getStatusClass(
+              selectedCampaign.status
+            )
+          "
+        >
+          {{ selectedCampaign.status | uppercase }}
+        </span>
+
+        <button
+          type="button"
+          class="close-details-btn"
+          (click)="closeDetails()"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="status-card-body">
+
+      <!-- PROGRESS -->
+
+      <div class="progress-area">
+
+        <div class="progress-label">
+
+          <span>
+            Campaign Progress
+          </span>
+
+          <strong>
+            {{ getProgress(selectedCampaign) }}%
+          </strong>
+
+        </div>
+
+        <div class="progress">
+
+          <div
+            class="progress-bar"
+            [style.width.%]="
+              getProgress(selectedCampaign)
+            "
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- STATUS STATS -->
+
+      <div class="row g-3">
+
+        <div class="col-lg-2 col-md-4 col-6">
+
+          <div class="mini-stat">
+            <span>Total</span>
+            <strong>
+              {{ selectedCampaign.total || 0 }}
+            </strong>
+          </div>
+
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+
+          <div class="mini-stat">
+            <span>Queued</span>
+            <strong>
+              {{ selectedCampaign.queued || 0 }}
+            </strong>
+          </div>
+
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+
+          <div class="mini-stat">
+            <span>Sent</span>
+            <strong>
+              {{ selectedCampaign.sent || 0 }}
+            </strong>
+          </div>
+
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+
+          <div class="mini-stat">
+            <span>Delivered</span>
+            <strong>
+              {{ selectedCampaign.delivered || 0 }}
+            </strong>
+          </div>
+
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+
+          <div class="mini-stat">
+            <span>Read</span>
+            <strong>
+              {{ selectedCampaign.read || 0 }}
+            </strong>
+          </div>
+
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+
+          <div class="mini-stat">
+            <span>Failed</span>
+            <strong>
+              {{ selectedCampaign.failed || 0 }}
+            </strong>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="status-info">
+
+        <div>
+          <span>Template</span>
+          <strong>
+            {{ selectedCampaign.templateName }}
+          </strong>
+        </div>
+
+        <div>
+          <span>Language</span>
+          <strong>
+            {{ selectedCampaign.languageCode }}
+          </strong>
+        </div>
+
+        <div>
+          <span>WhatsApp Number</span>
+          <strong>
+            {{
+              getWhatsappNumberName(
+                selectedCampaign.whatsappNumberId
+              )
+            }}
+          </strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <!-- ================================================= -->
+<!-- RECIPIENT DETAILS -->
+<!-- ================================================= -->
+
+<div
+  class="card recipients-card"
+  *ngIf="selectedCampaign"
+>
+
+  <div class="recipients-header">
+
+    <div>
+
+      <h4>
+        <i class="fa-solid fa-users"></i>
+        Recipient Details
+      </h4>
+
+      <p>
+        Individual contact delivery status for this campaign.
+      </p>
+
+    </div>
+
+    <div class="recipient-total">
+
+      <strong>
+        {{ recipientTotal }}
+      </strong>
+
+      <span>
+        Recipients
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- FILTERS -->
+
+  <div class="recipient-filters">
+
+    <div class="search-wrapper">
+
+      <i class="fa-solid fa-magnifying-glass"></i>
+
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="recipientSearch"
+        placeholder="Search name or mobile..."
+        (keyup.enter)="searchRecipients()"
+      />
+
+    </div>
+
+
+    <select
+      class="form-select status-filter"
+      [(ngModel)]="recipientStatus"
+      (change)="filterRecipients()"
+    >
+
+      <option value="">
+        All Status
+      </option>
+
+      <option value="queued">
+        Queued
+      </option>
+
+      <option value="sent">
+        Sent
+      </option>
+
+      <option value="delivered">
+        Delivered
+      </option>
+
+      <option value="read">
+        Read
+      </option>
+
+      <option value="failed">
+        Failed
+      </option>
+
+      <option value="skipped">
+        Skipped
+      </option>
+
+    </select>
+
+
+    <button
+      type="button"
+      class="btn btn-primary recipient-search-btn"
+      (click)="searchRecipients()"
+    >
+
+      <i class="fa-solid fa-search"></i>
+
+      Search
+
+    </button>
+
+
+    <button
+      type="button"
+      class="btn btn-light recipient-clear-btn"
+      (click)="clearRecipientFilters()"
+    >
+
+      <i class="fa-solid fa-filter-circle-xmark"></i>
+
+      Clear
+
+    </button>
+
+  </div>
+
+
+  <!-- LOADING -->
+
+  <div
+    class="recipient-loading"
+    *ngIf="loadingRecipients"
+  >
+
+    <i class="fa-solid fa-spinner fa-spin"></i>
+
+    Loading recipients...
+
+  </div>
+
+
+  <!-- EMPTY -->
+
+  <div
+    class="recipient-empty"
+    *ngIf="
+      !loadingRecipients &&
+      recipients.length === 0
+    "
+  >
+
+    <i class="fa-solid fa-users-slash"></i>
+
+    <h5>
+      No recipients found
+    </h5>
+
+    <p>
+      No recipients match the current search or status filter.
+    </p>
+
+  </div>
+
+
+  <!-- TABLE -->
+
+  <div
+    class="table-responsive"
+    *ngIf="
+      !loadingRecipients &&
+      recipients.length > 0
+    "
+  >
+
+    <table class="table recipient-table">
+
+      <thead>
+
+        <tr>
+
+          <th>
+            #
+          </th>
+
+          <th>
+            Contact
+          </th>
+
+          <th>
+            Mobile
+          </th>
+
+          <th>
+            Opt-in
+          </th>
+
+          <th>
+            Status
+          </th>
+
+          <th>
+            Message ID
+          </th>
+
+          <th>
+            Error
+          </th>
+
+          <th>
+            Updated
+          </th>
+
+        </tr>
+
+      </thead>
+
+
+      <tbody>
+
+        <tr
+          *ngFor="
+            let recipient of recipients;
+            let i = index
+          "
+        >
+
+          <!-- NUMBER -->
+
+          <td>
+
+            <span class="row-number">
+              {{
+                ((recipientPage - 1) *
+                recipientLimit) +
+                i + 1
+              }}
+            </span>
+
+          </td>
+
+
+          <!-- NAME -->
+
+          <td>
+
+            <div class="recipient-name">
+
+              <div class="recipient-avatar">
+
+                {{
+                  recipient.name
+                    ? recipient.name
+                        .charAt(0)
+                        .toUpperCase()
+                    : '?'
+                }}
+
+              </div>
+
+              <strong>
+                {{
+                  recipient.name ||
+                  'Unknown'
+                }}
+              </strong>
+
+            </div>
+
+          </td>
+
+
+          <!-- MOBILE -->
+
+          <td>
+
+            <span class="mobile-number">
+
+              <i class="fa-solid fa-phone"></i>
+
+              {{ recipient.mobile }}
+
+            </span>
+
+          </td>
+
+
+          <!-- OPT IN -->
+
+          <td>
+
+            <span
+              class="optin-badge"
+              [class.optin-yes]="recipient.optIn"
+              [class.optin-no]="!recipient.optIn"
+            >
+
+              <i
+                class="fa-solid"
+                [class.fa-circle-check]="recipient.optIn"
+                [class.fa-circle-xmark]="!recipient.optIn"
+              ></i>
+
+              {{
+                recipient.optIn
+                  ? 'Yes'
+                  : 'No'
+              }}
+
+            </span>
+
+          </td>
+
+
+          <!-- STATUS -->
+
+          <td>
+
+            <span
+              class="recipient-status"
+              [ngClass]="
+                getRecipientStatusClass(
+                  recipient.status
+                )
+              "
+            >
+
+              <i
+                class="fa-solid"
+                [ngClass]="
+                  'fa-solid ' +
+                  getRecipientStatusIcon(
+                    recipient.status
+                  )
+                "
+              ></i>
+
+              {{ recipient.status | uppercase }}
+
+            </span>
+
+          </td>
+
+
+          <!-- MESSAGE ID -->
+
+          <td>
+
+            <span
+              class="message-id"
+              *ngIf="recipient.messageId"
+              [title]="recipient.messageId"
+            >
+              {{ recipient.messageId }}
+            </span>
+
+            <span
+              class="not-available"
+              *ngIf="!recipient.messageId"
+            >
+              -
+            </span>
+
+          </td>
+
+
+          <!-- ERROR -->
+
+          <td>
+
+            <span
+              class="recipient-error"
+              *ngIf="recipient.error"
+            >
+              {{ recipient.error }}
+            </span>
+
+            <span
+              class="not-available"
+              *ngIf="!recipient.error"
+            >
+              -
+            </span>
+
+          </td>
+
+
+          <!-- UPDATED -->
+
+          <td>
+
+            <span class="updated-date">
+
+              {{
+                recipient.updatedAt
+                  | date:'dd MMM yyyy, hh:mm a'
+              }}
+
+            </span>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <!-- PAGINATION -->
+
+  <div
+    class="recipient-pagination"
+    *ngIf="
+      !loadingRecipients &&
+      recipientTotal > recipientLimit
+    "
+  >
+
+    <div class="pagination-info">
+
+      Showing
+
+      <strong>
+        {{
+          ((recipientPage - 1) *
+          recipientLimit) + 1
+        }}
+      </strong>
+
+      -
+
+      <strong>
+        {{
+          Math.min(
+            recipientPage *
+            recipientLimit,
+            recipientTotal
+          )
+        }}
+      </strong>
+
+      of
+
+      <strong>
+        {{ recipientTotal }}
+      </strong>
+
+    </div>
+
+
+    <div class="pagination-buttons">
+
+      <button
+        type="button"
+        class="pagination-btn"
+        [disabled]="recipientPage <= 1"
+        (click)="
+          changeRecipientPage(
+            recipientPage - 1
+          )
+        "
+      >
+
+        <i class="fa-solid fa-chevron-left"></i>
+
+      </button>
+
+
+      <span class="page-number">
+
+        Page
+        <strong>
+          {{ recipientPage }}
+        </strong>
+        of
+        <strong>
+          {{ recipientPages }}
+        </strong>
+
+      </span>
+
+
+      <button
+        type="button"
+        class="pagination-btn"
+        [disabled]="
+          recipientPage >= recipientPages
+        "
+        (click)="
+          changeRecipientPage(
+            recipientPage + 1
+          )
+        "
+      >
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+  <!-- ================================================= -->
+  <!-- CAMPAIGN HISTORY -->
+  <!-- ================================================= -->
+
+  <div class="card history-card">
+
+    <div class="history-header">
+
+      <div>
+
+        <h4>
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          Campaign History
+        </h4>
+
+        <p>
+          View your previous WhatsApp campaigns and their status.
+        </p>
+
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-light refresh-small"
+        [disabled]="loadingCampaigns"
+        (click)="loadCampaigns()"
+      >
+        <i
+          class="fa-solid fa-rotate"
+          [class.fa-spin]="loadingCampaigns"
+        ></i>
+      </button>
+
+    </div>
+
+
+    <!-- LOADING -->
+
+    <div
+      class="history-loading"
+      *ngIf="loadingCampaigns"
+    >
+
+      <i class="fa-solid fa-spinner fa-spin"></i>
+
+      Loading campaign history...
+
+    </div>
+
+
+    <!-- EMPTY -->
+
+    <div
+      class="empty-state"
+      *ngIf="
+        !loadingCampaigns &&
+        campaigns.length === 0
+      "
+    >
+
+      <div class="empty-icon">
+        <i class="fa-solid fa-paper-plane"></i>
+      </div>
+
+      <h5>No campaigns yet</h5>
+
+      <p>
+        Import contacts above to create your first campaign.
+      </p>
+
+    </div>
+
+
+    <!-- TABLE -->
+
+    <div
+      class="table-responsive"
+      *ngIf="
+        !loadingCampaigns &&
+        campaigns.length > 0
+      "
+    >
+
+      <table class="table campaign-table">
+
+        <thead>
+
+          <tr>
+            <th>Campaign</th>
+            <th>Template</th>
+            <th>WhatsApp Number</th>
+            <th>Total</th>
+            <th>Sent</th>
+            <th>Delivered</th>
+            <th>Failed</th>
+            <th>Status</th>
+            <th>Created</th>
+            <th>Action</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr
+            *ngFor="let campaign of campaigns"
+          >
+
+            <td>
+
+              <div class="campaign-name-cell">
+
+                <div class="campaign-list-icon">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+
+                <div>
+
+                  <strong>
+                    {{ campaign.name }}
+                  </strong>
+
+                  <small>
+                    {{ campaign._id }}
+                  </small>
+
+                </div>
+
+              </div>
+
+            </td>
+
+
+            <td>
+              <span class="template-name">
+                {{ campaign.templateName }}
+              </span>
+            </td>
+
+
+            <td>
+              {{
+                getWhatsappNumberName(
+                  campaign.whatsappNumberId
+                )
+              }}
+            </td>
+
+
+            <td>
+              <strong>
+                {{ campaign.total || 0 }}
+              </strong>
+            </td>
+
+
+            <td>
+              {{ campaign.sent || 0 }}
+            </td>
+
+
+            <td>
+              {{ campaign.delivered || 0 }}
+            </td>
+
+
+            <td>
+              <span
+                class="failed-count"
+                *ngIf="campaign.failed > 0"
+              >
+                {{ campaign.failed }}
+              </span>
+
+              <span
+                *ngIf="!campaign.failed"
+              >
+                0
+              </span>
+            </td>
+
+
+            <td>
+
+              <span
+                class="status-badge"
+                [ngClass]="
+                  getStatusClass(
+                    campaign.status
+                  )
+                "
+              >
+                {{ campaign.status | uppercase }}
+              </span>
+
+            </td>
+
+
+            <td>
+
+              <span class="date-text">
+                {{
+                  campaign.createdAt
+                    | date:'dd MMM yyyy, hh:mm a'
+                }}
+              </span>
+
+            </td>
+
+
+            <td>
+
+              <button
+                type="button"
+                class="btn btn-sm btn-outline-primary view-btn"
+                [disabled]="loadingDetails"
+                (click)="viewCampaign(campaign._id)"
+              >
+
+                <i class="fa-solid fa-eye"></i>
+
+                View
+
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================================================= -->
+  <!-- FOOTER NOTE -->
+  <!-- ================================================= -->
+
+  <div class="campaign-note">
+
+    <i class="fa-solid fa-shield-halved"></i>
+
+    <span>
+      Only contacts with valid WhatsApp opt-in are queued for sending.
+      Business-initiated WhatsApp messages must use an approved template.
+    </span>
+
+  </div>
+
+</div>

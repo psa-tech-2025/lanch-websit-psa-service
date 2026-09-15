@@ -92,6 +92,12 @@ const routes: Routes = [
   path: 'business-website-marathi',
   component: BusinessWebsiteMarathiComponent
 },
+  {
+    path: 'whatsapp-campaign',
+    loadChildren: () =>
+      import('./whatsapp-campaign/whatsapp-campaign.module')
+        .then(m => m.WhatsappCampaignModule)
+  }
 
   
 ];

@@ -1,0 +1,282 @@
+<div class="wa-page">
+
+  <div class="page-header">
+
+    <div>
+
+      <h2>
+        <i class="fa-solid fa-chart-column"></i>
+        WhatsApp Campaign Reports
+      </h2>
+
+      <p>
+        Monitor campaign delivery and messaging performance.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- FILTER -->
+
+  <div class="wa-card mb-4">
+
+    <div class="row g-3 align-items-end">
+
+      <div class="col-md-4">
+
+        <label class="form-label">
+          From Date
+        </label>
+
+        <input
+          type="date"
+          class="form-control"
+          [(ngModel)]="from"
+        />
+
+      </div>
+
+
+      <div class="col-md-4">
+
+        <label class="form-label">
+          To Date
+        </label>
+
+        <input
+          type="date"
+          class="form-control"
+          [(ngModel)]="to"
+        />
+
+      </div>
+
+
+      <div class="col-md-2">
+
+        <button
+          class="btn btn-primary w-100"
+          (click)="loadReports()"
+        >
+
+          <i class="fa-solid fa-filter"></i>
+
+          Filter
+
+        </button>
+
+      </div>
+
+
+      <div class="col-md-2">
+
+        <button
+          class="btn btn-outline-secondary w-100"
+          (click)="clearFilter()"
+        >
+          Clear
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- SUMMARY -->
+
+  <div class="row g-4 mb-4">
+
+    <div class="col-xl col-md-6">
+
+      <div class="report-card">
+
+        <span>Total Messages</span>
+
+        <strong>
+          {{ summary.total }}
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="col-xl col-md-6">
+
+      <div class="report-card">
+
+        <span>Sent</span>
+
+        <strong>
+          {{ summary.sent }}
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="col-xl col-md-6">
+
+      <div class="report-card">
+
+        <span>Delivered</span>
+
+        <strong>
+          {{ summary.delivered }}
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="col-xl col-md-6">
+
+      <div class="report-card">
+
+        <span>Read</span>
+
+        <strong>
+          {{ summary.read }}
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="col-xl col-md-6">
+
+      <div class="report-card">
+
+        <span>Failed</span>
+
+        <strong>
+          {{ summary.failed }}
+        </strong>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- REPORT TABLE -->
+
+  <div class="wa-card">
+
+    <div
+      class="loading"
+      *ngIf="loading"
+    >
+      Loading reports...
+    </div>
+
+
+    <div
+      class="table-responsive"
+      *ngIf="!loading"
+    >
+
+      <table
+        class="table align-middle"
+        *ngIf="reports.length > 0"
+      >
+
+        <thead>
+
+          <tr>
+
+            <th>Campaign</th>
+            <th>Total</th>
+            <th>Sent</th>
+            <th>Delivered</th>
+            <th>Read</th>
+            <th>Failed</th>
+            <th>Status</th>
+            <th>Date</th>
+
+          </tr>
+
+        </thead>
+
+
+        <tbody>
+
+          <tr
+            *ngFor="let report of reports"
+          >
+
+            <td>
+              <strong>
+                {{ report.name || report.campaignName }}
+              </strong>
+            </td>
+
+            <td>
+              {{ report.total || 0 }}
+            </td>
+
+            <td>
+              {{ report.sent || 0 }}
+            </td>
+
+            <td>
+              {{ report.delivered || 0 }}
+            </td>
+
+            <td>
+              {{ report.read || 0 }}
+            </td>
+
+            <td>
+              {{ report.failed || 0 }}
+            </td>
+
+            <td>
+
+              <span class="status-badge">
+                {{ report.status || 'UNKNOWN' }}
+              </span>
+
+            </td>
+
+            <td>
+              {{ report.createdAt | date:'dd-MM-yyyy HH:mm' }}
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+
+      <div
+        class="empty-state"
+        *ngIf="reports.length === 0"
+      >
+
+        <i class="fa-solid fa-chart-column"></i>
+
+        <h5>
+          No reports found
+        </h5>
+
+        <p>
+          Campaign reports will appear here after campaigns are created.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

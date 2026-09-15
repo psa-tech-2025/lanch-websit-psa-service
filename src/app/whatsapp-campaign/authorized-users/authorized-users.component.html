@@ -1,0 +1,254 @@
+<div class="wa-page">
+
+  <div class="page-header">
+
+    <div>
+      <h2>
+        <i class="fa-solid fa-user-shield"></i>
+        Authorized Users
+      </h2>
+
+      <p>
+        Manage users who can access WhatsApp campaign numbers.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- SELECT NUMBER -->
+
+  <div class="wa-card mb-4">
+
+    <div class="row g-3 align-items-end">
+
+      <div class="col-md-6">
+
+        <label class="form-label">
+          WhatsApp Number
+        </label>
+
+        <select
+          class="form-select"
+          [(ngModel)]="selectedNumberId"
+          (change)="onNumberChange()"
+        >
+
+          <option value="">
+            Select WhatsApp Number
+          </option>
+
+          <option
+            *ngFor="let number of numbers"
+            [value]="number._id"
+          >
+            {{ number.businessName }}
+            - {{ number.displayNumber }}
+          </option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ADD USER -->
+
+  <div
+    class="wa-card mb-4"
+    *ngIf="selectedNumberId"
+  >
+
+    <h5>
+      Add Authorized User
+    </h5>
+
+    <div class="row g-3 mt-1">
+
+
+      <div class="col-md-5">
+
+        <label class="form-label">
+          User Email
+        </label>
+
+        <input
+          type="email"
+          class="form-control"
+          [(ngModel)]="form.email"
+          placeholder="manager@example.com"
+        />
+
+      </div>
+      <div class="col-md-4">
+
+  <label class="form-label">
+    User Name
+  </label>
+
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="form.name"
+    placeholder="Campaign Manager"
+  />
+
+</div>
+
+
+      <div class="col-md-4">
+
+        <label class="form-label">
+          Role
+        </label>
+
+        <select
+          class="form-select"
+          [(ngModel)]="form.role"
+        >
+
+          <option value="CAMPAIGN_MANAGER">
+            Campaign Manager
+          </option>
+
+          <option value="VIEWER">
+            Viewer
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="col-md-3 d-flex align-items-end">
+
+        <button
+          class="btn btn-success w-100"
+          [disabled]="saving"
+          (click)="authorizeUser()"
+        >
+
+          <i class="fa-solid fa-user-plus"></i>
+
+          {{ saving ? 'Adding...' : 'Add User' }}
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- USERS -->
+
+  <div class="wa-card">
+
+    <div
+      *ngIf="loadingUsers"
+      class="loading"
+    >
+      Loading authorized users...
+    </div>
+
+
+    <div
+      class="table-responsive"
+      *ngIf="!loadingUsers"
+    >
+
+      <table
+        class="table align-middle"
+        *ngIf="users.length > 0"
+      >
+
+        <thead>
+
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let user of users">
+
+            <td>
+              <strong>
+                {{ user.name || '-' }}
+              </strong>
+            </td>
+
+            <td>
+              {{ user.email }}
+            </td>
+
+            <td>
+              {{ user.role }}
+            </td>
+
+            <td>
+
+              <span
+                class="status-badge"
+                [class.active]="user.active"
+                [class.inactive]="!user.active"
+              >
+                {{ user.active ? 'ACTIVE' : 'INACTIVE' }}
+              </span>
+
+            </td>
+
+            <td>
+
+              <button
+                class="btn btn-sm btn-outline-danger"
+                (click)="removeUser(user._id)"
+              >
+
+                <i class="fa-solid fa-trash"></i>
+
+                Remove
+
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+
+      <div
+        class="empty-state"
+        *ngIf="users.length === 0"
+      >
+
+        <i class="fa-solid fa-users"></i>
+
+        <h5>
+          No authorized users
+        </h5>
+
+        <p>
+          Add a campaign manager or viewer to this WhatsApp number.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
