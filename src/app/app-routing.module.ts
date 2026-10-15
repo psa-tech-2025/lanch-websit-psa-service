@@ -97,6 +97,17 @@ const routes: Routes = [
     loadChildren: () =>
       import('./whatsapp-campaign/whatsapp-campaign.module')
         .then(m => m.WhatsappCampaignModule)
+  },
+{
+  path: 'tech',
+  loadChildren: () =>
+    import('./tech/tech.module')
+      .then(m => m.TechModule)
+},
+  {
+    path: 'live',
+    loadChildren: () =>
+      import('./live/live.module').then(m => m.LiveModule)
   }
 
   
@@ -107,5 +118,6 @@ const routes: Routes = [
     initialNavigation: 'enabledBlocking'
 })],
   exports: [RouterModule]
+  
 })
 export class AppRoutingModule { }

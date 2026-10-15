@@ -1,0 +1,296 @@
+
+<div class="live-page">
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="live-hero">
+    <div class="hero-glow hero-glow-one"></div>
+    <div class="hero-glow hero-glow-two"></div>
+
+    <div class="container hero-container">
+      <div class="row align-items-center g-5">
+
+        <!-- HERO LEFT CONTENT -->
+        <div class="col-lg-7">
+
+          <span class="hero-label">
+            <span class="live-dot"></span>
+            {{ 'LIVE.HERO.LABEL' | translate }}
+          </span>
+
+          <h1>
+            {{ 'LIVE.HERO.TITLE_LINE1' | translate }}<br>
+            <span>{{ 'LIVE.HERO.TITLE_LINE2' | translate }}</span>
+          </h1>
+
+          <p class="hero-description">
+            {{ 'LIVE.HERO.DESCRIPTION' | translate }}
+          </p>
+
+          <div class="hero-actions">
+
+            <button
+              type="button"
+              class="btn btn-hero-primary"
+              (click)="exploreCourses()">
+
+              {{ 'LIVE.HERO.EXPLORE_COURSES' | translate }}
+              <span>→</span>
+            </button>
+
+            <a
+              href="#learning-sections"
+              class="btn btn-hero-secondary">
+
+              {{ 'LIVE.HERO.DISCOVER_CATEGORIES' | translate }}
+            </a>
+
+          </div>
+
+          <div class="hero-highlights">
+
+            <div>
+              <span class="highlight-icon">📚</span>
+              <span>
+                {{ 'LIVE.HERO.HIGHLIGHT_CATEGORIES' | translate }}
+              </span>
+            </div>
+
+            <div>
+              <span class="highlight-icon">💻</span>
+              <span>
+                {{ 'LIVE.HERO.HIGHLIGHT_ONLINE' | translate }}
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- HERO RIGHT VISUAL -->
+        <div class="col-lg-5">
+
+          <div class="hero-visual">
+
+            <div class="visual-orbit orbit-one"></div>
+            <div class="visual-orbit orbit-two"></div>
+
+            <!-- MAIN LEARNING CARD -->
+            <div class="learning-main-card">
+
+              <div class="learning-card-top">
+                <span class="learning-symbol">🎓</span>
+
+                <span class="learning-status">
+                  {{ 'LIVE.HERO.CARD_STATUS' | translate }}
+                </span>
+              </div>
+
+              <h3>
+                {{ 'LIVE.HERO.CARD_TITLE' | translate }}
+              </h3>
+
+              <p>
+                {{ 'LIVE.HERO.CARD_DESCRIPTION' | translate }}
+              </p>
+
+              <div class="mini-learning-list">
+
+                <div>
+                  <span>💻</span>
+                  {{ 'LIVE.HERO.TOPIC_TECHNOLOGY' | translate }}
+                </div>
+
+                <div>
+                  <span>📊</span>
+                  {{ 'LIVE.HERO.TOPIC_BUSINESS' | translate }}
+                </div>
+
+                <div>
+                  <span>🎨</span>
+                  {{ 'LIVE.HERO.TOPIC_DESIGN' | translate }}
+                </div>
+
+                <div>
+                  <span>🎥</span>
+                  {{ 'LIVE.HERO.TOPIC_SESSIONS' | translate }}
+                </div>
+
+              </div>
+
+              <button
+                type="button"
+                class="visual-explore"
+                (click)="exploreCourses()">
+
+                {{ 'LIVE.HERO.FIND_COURSE' | translate }}
+                <span>↗</span>
+              </button>
+
+            </div>
+
+            <!-- FLOATING CARD TOP -->
+            <div class="floating-card floating-card-top">
+              <span>🚀</span>
+
+              <div>
+                <strong>
+                  {{ 'LIVE.HERO.FLOATING_GROW_TITLE' | translate }}
+                </strong>
+
+                <small>
+                  {{ 'LIVE.HERO.FLOATING_GROW_SUBTITLE' | translate }}
+                </small>
+              </div>
+            </div>
+
+            <!-- FLOATING CARD BOTTOM -->
+            <div class="floating-card floating-card-bottom">
+              <span>✨</span>
+
+              <div>
+                <strong>
+                  {{ 'LIVE.HERO.FLOATING_DISCOVER_TITLE' | translate }}
+                </strong>
+
+                <small>
+                  {{ 'LIVE.HERO.FLOATING_DISCOVER_SUBTITLE' | translate }}
+                </small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <!-- END HERO ROW -->
+    </div>
+    <!-- END HERO CONTAINER -->
+  </section>
+  <!-- END HERO SECTION -->
+
+
+  <!-- ================= LEARNING SECTIONS ================= -->
+  <section
+    class="learning-sections"
+    id="learning-sections">
+
+    <div class="container">
+
+      <!-- MAIN SECTION HEADING -->
+      <div class="main-section-heading">
+
+        <span class="section-eyebrow">
+          {{ 'LIVE.CATEGORIES.EYEBROW' | translate }}
+        </span>
+
+        <h2>
+          {{ 'LIVE.CATEGORIES.TITLE' | translate }}
+        </h2>
+
+        <p>
+          {{ 'LIVE.CATEGORIES.DESCRIPTION' | translate }}
+        </p>
+
+      </div>
+
+
+      <!-- DYNAMIC COURSE SECTIONS -->
+      <div
+        class="learning-section-block"
+        *ngFor="let section of sections">
+
+        <!-- SECTION HEADING -->
+        <div class="learning-section-heading">
+
+          <div class="section-heading-left">
+
+            <div class="section-icon">
+              {{ section.icon }}
+            </div>
+
+            <div>
+              <h3>{{ section.title }}</h3>
+              <p>{{ section.subtitle }}</p>
+            </div>
+
+          </div>
+
+          <button
+            type="button"
+            class="section-explore-btn"
+            (click)="exploreCourses()">
+
+            Explore Courses
+            <span>→</span>
+          </button>
+
+        </div>
+
+
+        <!-- CATEGORY CARDS -->
+        <div class="row g-4">
+
+          <div
+            class="col-sm-6 col-lg-4"
+            *ngFor="let category of section.categories">
+
+            <article
+              class="category-card"
+              [ngClass]="'theme-' + category.value">
+
+              <!-- CATEGORY CARD TOP -->
+              <div class="category-card-top">
+
+                <div class="category-icon">
+                  {{ category.icon }}
+                </div>
+
+                <span class="category-badge">
+                  {{ category.label }}
+                </span>
+
+                <span class="category-arrow">
+                  ↗
+                </span>
+
+              </div>
+
+              <!-- CATEGORY TITLE -->
+              <h4>
+                {{ category.label }}
+              </h4>
+
+              <!-- CATEGORY DESCRIPTION -->
+              <p>
+                {{ category.description }}
+              </p>
+
+              <!-- EXPLORE CATEGORY -->
+              <button
+                type="button"
+                class="category-explore"
+                (click)="exploreCategory(category)">
+
+                Explore Category
+                <span>→</span>
+
+              </button>
+
+            </article>
+
+          </div>
+          <!-- END CATEGORY COLUMN -->
+
+        </div>
+        <!-- END CATEGORY ROW -->
+
+      </div>
+      <!-- END COURSE SECTION LOOP -->
+
+    </div>
+    <!-- END LEARNING CONTAINER -->
+
+  </section>
+  <!-- END LEARNING SECTIONS -->
+
+</div>
+<!-- END LIVE PAGE -->

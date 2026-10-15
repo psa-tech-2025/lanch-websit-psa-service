@@ -1,0 +1,344 @@
+
+<div class="product-details-page">
+
+
+  <!-- ==========================================
+       LOADING
+  =========================================== -->
+
+  <div
+    class="loading-state"
+    *ngIf="loading"
+  >
+
+    <div class="spinner"></div>
+
+    <h3>
+      Loading Product...
+    </h3>
+
+    <p>
+      Please wait while we load the product details.
+    </p>
+
+  </div>
+
+
+  <!-- ==========================================
+       ERROR
+  =========================================== -->
+
+  <div
+    class="error-state"
+    *ngIf="!loading && error"
+  >
+
+    <div class="error-icon">
+
+      <i class="bi bi-exclamation-circle"></i>
+
+    </div>
+
+    <h2>
+      Product Not Found
+    </h2>
+
+    <p>
+      We could not load the requested product.
+    </p>
+
+
+    <div class="error-actions">
+
+      <button
+        type="button"
+        class="retry-btn"
+        (click)="retry()"
+      >
+
+        <i class="bi bi-arrow-clockwise"></i>
+
+        Retry
+
+      </button>
+
+
+      <button
+        type="button"
+        class="back-btn"
+        (click)="goBack()"
+      >
+
+        <i class="bi bi-arrow-left"></i>
+
+        Back to Products
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==========================================
+       PRODUCT DETAILS
+  =========================================== -->
+
+  <section
+    class="details-section"
+    *ngIf="
+      !loading &&
+      !error &&
+      product
+    "
+  >
+
+    <div class="container">
+
+
+      <!-- ======================================
+           BACK
+      ======================================= -->
+
+      <button
+        type="button"
+        class="back-link"
+        (click)="goBack()"
+      >
+
+        <i class="bi bi-arrow-left"></i>
+
+        Back to Products
+
+      </button>
+
+
+      <!-- ======================================
+           PRODUCT CARD
+      ======================================= -->
+
+      <div class="details-card">
+
+
+        <!-- ====================================
+             IMAGE
+        ===================================== -->
+
+        <div class="details-image-section">
+
+          <div class="details-image-wrapper">
+
+            <img
+              class="details-image"
+              [src]="getProductImage()"
+              [alt]="product.name"
+              loading="lazy"
+              (error)="onImageError($event)"
+            />
+
+          </div>
+
+        </div>
+
+
+        <!-- ====================================
+             PRODUCT INFORMATION
+        ===================================== -->
+
+        <div class="details-content">
+
+
+          <!-- Category -->
+
+          <div class="category-badge">
+
+            {{ getCategory() }}
+
+          </div>
+
+
+          <!-- Product Name -->
+
+          <h1>
+            {{ product.name }}
+          </h1>
+
+
+          <!-- Product Code -->
+
+          <div
+            class="product-code"
+            *ngIf="product.code"
+          >
+
+            <span>
+              Product Code:
+            </span>
+
+            <strong>
+              {{ product.code }}
+            </strong>
+
+          </div>
+          
+
+
+          <!-- Description -->
+
+<div
+  class="description-section"
+  *ngIf="getDescriptionPoints().length > 0"
+>
+
+  <h3>Description</h3>
+
+  <div class="description-points">
+
+    <div
+      class="description-point"
+      *ngFor="let point of getDescriptionPoints()"
+    >
+
+      <span class="description-bullet">◉</span>
+
+      <span class="description-text">
+        {{ point }}
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+          <!-- Price -->
+
+          <div class="price-section">
+
+
+            <!-- Original Price -->
+
+            <span
+              class="old-price"
+              *ngIf="getDiscountPrice()"
+            >
+
+              ₹{{ getPrice() }}
+
+            </span>
+
+
+            <!-- Discount / Current Price -->
+
+            <span
+              class="current-price"
+              *ngIf="
+                getPrice() !== null &&
+                getPrice() !== undefined
+              "
+            >
+
+              ₹{{
+                getDiscountPrice() ||
+                getPrice()
+              }}
+
+            </span>
+
+
+            <!-- Requirement -->
+
+            <span
+              class="requirement-price"
+              *ngIf="
+                getPrice() === null ||
+                getPrice() === undefined
+              "
+            >
+
+              As Per Requirement
+
+            </span>
+
+          </div>
+
+
+          <!-- Stock -->
+
+          <div
+            class="stock-badge"
+            [class.out-of-stock]="
+              !isInStock()
+            "
+          >
+
+            <i
+              class="bi"
+              [class.bi-check-circle]="
+                isInStock()
+              "
+              [class.bi-x-circle]="
+                !isInStock()
+              "
+            ></i>
+
+            {{ getStockText() }}
+
+          </div>
+
+
+          <!-- Divider -->
+
+          <div class="details-divider"></div>
+
+
+          <!-- Action -->
+
+          <div class="details-actions">
+
+            <button
+              type="button"
+              class="back-products-btn"
+              (click)="goBack()"
+            >
+
+              <i class="bi bi-arrow-left"></i>
+
+              Back to Products
+
+            </button>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+  <!-- =====================================================
+     COPY PRODUCT MESSAGE
+===================================================== -->
+
+<div class="copy-message-wrapper">
+
+  <button
+    type="button"
+    class="copy-product-btn"
+    (click)="copyProductMessage()"
+  >
+
+    <i class="bi bi-copy"></i>
+
+    Copy Product Message
+
+  </button>
+
+</div>
+
+</div>
+<app-clientdetails></app-clientdetails>

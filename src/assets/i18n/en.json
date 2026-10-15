@@ -173,7 +173,65 @@
     "CANCEL": "Cancel",
     "EDIT": "Edit",
     "DELETE": "Delete"
-  }
+  },
+  
 
-
+  "PSA_TECH": {
+    "HERO_TAG": "WELCOME TO PSA TECH",
+    "HERO_TITLE": "Products, Services, Learning & Career Opportunities",
+    "HERO_DESCRIPTION": "Discover useful products and services, develop new skills, and explore career opportunities across different fields. PSA Tech brings business solutions, learning resources, and career discovery together in one place.",
+    "PRODUCTS_TITLE": "Products & Services",
+    "PRODUCTS_DESCRIPTION": "Explore business products, website development, software solutions, digital services, industrial supplies, and business solutions.",
+    "PRODUCTS_KEYWORDS": "Business Solutions · Products · Digital Services",
+    "PRODUCTS_BUTTON": "Explore Products & Services",
+    "PRODUCTS_ARIA": "Explore products and services",
+    "COURSES_TITLE": "Courses & Learning",
+    "COURSES_DESCRIPTION": "Discover courses, practical training, skill-development resources, and professional learning for personal and career growth.",
+    "COURSES_KEYWORDS": "Courses · Practical Learning · Skill Development",
+    "COURSES_BUTTON": "Explore Courses",
+    "COURSES_ARIA": "Explore courses and learning",
+    "JOBS_TITLE": "Jobs & Careers",
+    "JOBS_DESCRIPTION": "Explore available job opportunities, internships, entry-level openings, experienced roles, and career options across different industries.",
+    "JOBS_KEYWORDS": "Job Opportunities · Internships · Career Growth",
+    "JOBS_BUTTON": "Explore Opportunities",
+    "JOBS_ARIA": "Explore jobs and career opportunities",
+    "CTA_TAG": "ONE PLACE, MORE POSSIBILITIES",
+    "CTA_TITLE": "Discover What's Possible with PSA Tech",
+    "CTA_DESCRIPTION": "Find products and services for your needs, discover learning opportunities, and take the next step in your career."
+  },
+  
+"LIVE": {
+"HERO": {
+"LABEL": "LEARN • GROW • ACHIEVE",
+"TITLE_LINE1": "Learn New Skills.",
+"TITLE_LINE2": "Unlock Your Future.",
+"DESCRIPTION": "Discover online courses, live webinars and practical learning experiences designed to help you grow your skills, confidence and career.",
+"EXPLORE_COURSES": "Explore All Courses",
+"DISCOVER_CATEGORIES": "Discover Categories",
+"HIGHLIGHT_CATEGORIES": "Multiple Learning Categories",
+"HIGHLIGHT_ONLINE": "Online Learning Opportunities",
+"CARD_STATUS": "LEARNING STARTS HERE",
+"CARD_TITLE": "Your Next Skill Starts Today",
+"CARD_DESCRIPTION": "Explore technology, business, creativity and personal growth.",
+"TOPIC_TECHNOLOGY": "Technology & Programming",
+"TOPIC_BUSINESS": "Business & Finance",
+"TOPIC_DESIGN": "Design & Creativity",
+"TOPIC_SESSIONS": "Live Sessions & Workshops",
+"FIND_COURSE": "Find Your Course",
+"FLOATING_GROW_TITLE": "Grow Your Skills",
+"FLOATING_GROW_SUBTITLE": "One step at a time",
+"FLOATING_DISCOVER_TITLE": "Discover More",
+"FLOATING_DISCOVER_SUBTITLE": "Explore your interests"
+},
+"CATEGORIES": {
+"EYEBROW": "EXPLORE YOUR POSSIBILITIES",
+"TITLE": "Learning for Every Goal",
+"DESCRIPTION": "Browse our learning categories and discover topics that match your interests, ambitions and future plans."
 }
+}
+}
+
+
+
+
+

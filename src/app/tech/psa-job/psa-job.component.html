@@ -1,0 +1,364 @@
+<div class="jobs-page">
+
+  <!-- ======================================
+       HERO
+  ======================================= -->
+
+  <section class="jobs-hero">
+
+    <div class="hero-content">
+
+      <span class="hero-badge">
+        PSA TECH
+      </span>
+
+      <h1>
+        Find Your Next Opportunity
+      </h1>
+
+      <p>
+        Explore jobs, internships,
+        freelance opportunities and
+        career opportunities.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       FILTERS
+  ======================================= -->
+
+  <section class="filter-section">
+
+    <div class="filter-container">
+
+
+      <!-- CATEGORY -->
+
+      <div class="filter-group">
+
+        <label for="jobCategory">
+          Job Category
+        </label>
+
+        <select
+          id="jobCategory"
+          class="form-select"
+          [(ngModel)]="selectedCategory"
+          (change)="filterJobs()">
+
+          <option value="all">
+            All Job Categories
+          </option>
+
+          <option
+            *ngFor="let category of jobCategories"
+            [value]="category.value">
+
+            {{ category.label }}
+
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- SEARCH -->
+
+      <div class="filter-group search-group">
+
+        <label for="jobSearch">
+          Search Jobs
+        </label>
+
+        <input
+          id="jobSearch"
+          type="text"
+          class="form-control"
+          placeholder="Search job, code, description..."
+          [(ngModel)]="searchText"
+          (input)="filterJobs()">
+
+      </div>
+
+
+      <!-- RESET -->
+
+      <button
+        type="button"
+        class="reset-btn"
+        (click)="resetFilters()">
+
+        Reset
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       JOB CONTENT
+  ======================================= -->
+
+  <section class="jobs-section">
+
+    <div class="jobs-container">
+
+
+      <!-- LOADING -->
+
+      <div
+        class="loading-state"
+        *ngIf="loading">
+
+        <div class="spinner"></div>
+
+        <p>
+          Loading jobs...
+        </p>
+
+      </div>
+
+
+      <!-- ERROR -->
+
+      <div
+        class="error-state"
+        *ngIf="!loading && error">
+
+        <div class="error-icon">
+          ⚠️
+        </div>
+
+        <h3>
+          Unable to load jobs
+        </h3>
+
+        <p>
+          Please try again.
+        </p>
+
+        <button
+          type="button"
+          class="retry-btn"
+          (click)="retry()">
+
+          Retry
+
+        </button>
+
+      </div>
+
+
+      <!-- EMPTY -->
+
+      <div
+        class="empty-state"
+        *ngIf="
+          !loading &&
+          !error &&
+          products.length === 0
+        ">
+
+        <div class="empty-icon">
+          💼
+        </div>
+
+        <h3>
+          No jobs found
+        </h3>
+
+        <p>
+          Try another category or search.
+        </p>
+
+        <button
+          type="button"
+          class="reset-btn"
+          (click)="resetFilters()">
+
+          View All Jobs
+
+        </button>
+
+      </div>
+
+
+      <!-- JOB GRID -->
+
+      <div
+        class="job-grid"
+        *ngIf="
+          !loading &&
+          !error &&
+          products.length > 0
+        ">
+
+        <article
+          class="job-card"
+          *ngFor="
+            let job of products;
+            trackBy: trackByJob
+          ">
+
+
+          <!-- IMAGE -->
+
+          <div class="job-image-wrapper">
+
+            <img
+              [src]="getJobImage(job)"
+              [alt]="job.name"
+              class="job-image"
+              (error)="onImageError($event)">
+
+
+            <!-- CATEGORY -->
+
+            <span class="category-badge">
+
+              {{ prettyCategory(job.category) }}
+
+            </span>
+
+          </div>
+
+
+          <!-- BODY -->
+
+          <div class="job-body">
+
+
+            <!-- CODE -->
+
+            <div
+              class="job-code"
+              *ngIf="job.code">
+
+              {{ job.code }}
+
+            </div>
+
+
+            <!-- NAME -->
+
+            <h2 class="job-title">
+
+              {{ job.name }}
+
+            </h2>
+
+
+            <!-- DESCRIPTION -->
+
+            <p class="job-description">
+
+              {{ job.description }}
+
+            </p>
+
+
+            <!-- PRICE / SALARY -->
+
+            <div class="job-price">
+
+              <ng-container
+                *ngIf="
+                  hasDiscount(job);
+                  else normalPrice
+                ">
+
+                <span class="old-price">
+
+                  ₹{{ getPrice(job) | number:'1.2-2' }}
+
+                </span>
+
+                <span class="current-price">
+
+                  ₹{{ getDiscountPrice(job) | number:'1.2-2' }}
+
+                </span>
+
+              </ng-container>
+
+
+              <ng-template #normalPrice>
+
+                <span class="current-price">
+
+                  ₹{{ getPrice(job) | number:'1.2-2' }}
+
+                </span>
+
+              </ng-template>
+
+            </div>
+
+
+            <!-- FOOTER -->
+
+            <div class="job-footer">
+
+              <span
+                class="availability"
+                [class.available]="isAvailable(job)"
+                [class.closed]="!isAvailable(job)">
+
+                {{ getAvailabilityText(job) }}
+
+              </span>
+
+
+              <button
+                type="button"
+                class="details-btn"
+                (click)="viewDetails(job)">
+
+                View Details
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <!-- COUNT -->
+
+      <div
+        class="job-count"
+        *ngIf="
+          !loading &&
+          !error &&
+          products.length > 0
+        ">
+
+        Showing
+
+        <strong>
+          {{ products.length }}
+        </strong>
+
+        job<span
+          *ngIf="products.length !== 1">
+          s
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

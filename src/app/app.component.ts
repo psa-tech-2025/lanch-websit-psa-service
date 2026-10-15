@@ -7,7 +7,9 @@ import { DiolougeService } from './share/Diolouge/diolouge/diolouge.service';
 import { UserinfoComponent } from './userDetails/userinfo/userinfo.component';
 import { PopupComponent } from './common/component/popup/popup.component';
 import { HeaderComponent } from './common/shared/header/header.component';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { filter } from 'rxjs/internal/operators/filter';
 
 @Component({
   selector: 'app-root',
@@ -22,10 +24,21 @@ export class AppComponent implements OnInit {
    mobilenumPattern = CommonConst.MOBILE_PATTERN_STRING;
   userRouteDate = true
    showPopup = true;
+     showNavHeader = true;
+  private routerSubscription?: Subscription;
   constructor(
   private router:Router) { }
 
     ngOnInit(): void {
+          this.updateHeaderVisibility();
+
+    this.routerSubscription = this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd)
+      )
+      .subscribe(() => {
+        this.updateHeaderVisibility();
+      });
 
     // Show popup after 1 second
     setTimeout(() => {
@@ -43,6 +56,18 @@ isContactRoute(): boolean {
     this.router.url === '/govt-school'
   );
 }
+private updateHeaderVisibility(): void {
+  this.showNavHeader = !(
+    this.router.url === '/tech' ||
+    this.router.url.startsWith('/tech/') ||
+    this.router.url === '/live' ||
+    this.router.url.startsWith('/live/')
+  );
+}
+
+  ngOnDestroy(): void {
+    this.routerSubscription?.unsubscribe();
+  }
 
   }
 // onKeyupMobile(event: any): void {

@@ -1,11 +1,11 @@
 <app-header></app-header>
-<app-navheader></app-navheader>
+<app-navheader *ngIf="showNavHeader"></app-navheader>
 <!-- <app-popup></app-popup> -->
 <!-- <app-loader></app-loader> -->
 <!-- <app-userinfo></app-userinfo> -->
 <router-outlet></router-outlet>
 <!-- <app-diolouge-comp></app-diolouge-comp> -->
-<app-clientdetails *ngIf="!isContactRoute()"></app-clientdetails>
+<!-- <app-clientdetails *ngIf=" showNavHeader && !isContactRoute()"></app-clientdetails> -->
 
 <div class="popup-overlay" *ngIf="!showPopup">
   <div class="popup-container">

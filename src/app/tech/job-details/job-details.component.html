@@ -1,0 +1,273 @@
+<div class="job-details-page">
+
+
+  <!-- ======================================
+       LOADING
+  ======================================= -->
+
+  <div
+    class="loading-state"
+    *ngIf="loading">
+
+    <div class="spinner"></div>
+
+    <p>
+      Loading job details...
+    </p>
+
+  </div>
+
+
+  <!-- ======================================
+       ERROR
+  ======================================= -->
+
+  <div
+    class="error-state"
+    *ngIf="!loading && error">
+
+    <div class="error-icon">
+      ⚠️
+    </div>
+
+    <h2>
+      Job Not Found
+    </h2>
+
+    <p>
+      We could not load this job.
+    </p>
+
+    <div class="error-actions">
+
+      <button
+        type="button"
+        class="primary-btn"
+        (click)="retry()">
+
+        Retry
+
+      </button>
+
+      <button
+        type="button"
+        class="secondary-btn"
+        (click)="goBack()">
+
+        Back to Jobs
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- ======================================
+       DETAILS
+  ======================================= -->
+
+  <section
+    class="details-section"
+    *ngIf="
+      !loading &&
+      !error &&
+      job
+    ">
+
+    <div class="details-container">
+
+
+      <!-- BACK -->
+
+      <button
+        type="button"
+        class="back-button"
+        (click)="goBack()">
+
+        ← Back to Jobs
+
+      </button>
+
+
+      <!-- CARD -->
+
+      <div class="details-card">
+
+
+        <!-- IMAGE -->
+
+        <div class="details-image-wrapper">
+
+          <img
+            [src]="getJobImage()"
+            [alt]="job.name"
+            class="details-image"
+            (error)="onImageError($event)">
+
+        </div>
+
+
+        <!-- CONTENT -->
+
+        <div class="details-content">
+
+
+          <!-- CATEGORY -->
+
+          <span class="category-badge">
+
+            {{ getCategory() }}
+
+          </span>
+
+
+          <!-- JOB TITLE -->
+
+          <h1>
+
+            {{ job.name }}
+
+          </h1>
+
+
+          <!-- CODE -->
+
+          <div
+            class="job-code"
+            *ngIf="job.code">
+
+            Job Code:
+
+            <strong>
+              {{ job.code }}
+            </strong>
+
+          </div>
+
+
+          <!-- DESCRIPTION -->
+
+          <div class="description-section">
+
+            <h3>
+              Job Description
+            </h3>
+
+            <p>
+              {{ job.description }}
+            </p>
+
+          </div>
+
+
+          <!-- PRICE / PACKAGE -->
+
+          <div class="price-section">
+
+            <span class="price-label">
+              Salary / Package
+            </span>
+
+
+            <div
+              class="price"
+              *ngIf="
+                hasDiscount();
+                else normalPrice
+              ">
+
+              <span class="old-price">
+
+                ₹{{ getPrice() | number:'1.2-2' }}
+
+              </span>
+
+              <span class="current-price">
+
+                ₹{{ getDiscountPrice() | number:'1.2-2' }}
+
+              </span>
+
+              <span class="discount">
+
+                {{ job.discountPercent }}% OFF
+
+              </span>
+
+            </div>
+
+
+            <ng-template #normalPrice>
+
+              <div class="price">
+
+                <span class="current-price">
+
+                  ₹{{ getPrice() | number:'1.2-2' }}
+
+                </span>
+
+              </div>
+
+            </ng-template>
+
+          </div>
+
+
+          <!-- GST -->
+
+          <div
+            class="gst-info"
+            *ngIf="job.gstPercent">
+
+            GST:
+            {{ job.gstPercent }}%
+
+          </div>
+
+
+          <!-- AVAILABILITY -->
+
+          <div
+            class="availability-badge"
+            [class.available]="isAvailable()"
+            [class.closed]="!isAvailable()">
+
+            <span class="status-dot"></span>
+
+            {{ getAvailabilityText() }}
+
+          </div>
+
+
+          <!-- DIVIDER -->
+
+          <div class="divider"></div>
+
+
+          <!-- ACTION -->
+
+          <div class="action-buttons">
+
+            <button
+              type="button"
+              class="primary-btn"
+              (click)="goBack()">
+
+              ← Back to Jobs
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+<app-clientdetails></app-clientdetails>

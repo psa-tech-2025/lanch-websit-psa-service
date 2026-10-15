@@ -1,0 +1,177 @@
+
+<div class="course-details-page">
+
+  <!-- BACK BUTTON -->
+  <div class="container py-3">
+    <button
+      type="button"
+      class="btn btn-outline-secondary"
+      (click)="goBack()">
+      <i class="bi bi-arrow-left"></i>
+      Back to Courses
+    </button>
+  </div>
+
+  <!-- LOADING -->
+  <div class="container py-5 text-center" *ngIf="loading">
+    <div
+      class="spinner-border text-primary"
+      role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+
+    <p class="mt-3">Loading course details...</p>
+  </div>
+
+  <!-- ERROR -->
+  <div class="container py-5" *ngIf="!loading && error">
+    <div class="alert alert-danger text-center">
+      <h5>Unable to load course details</h5>
+      <p>Please try again.</p>
+
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="retry()">
+        Retry
+      </button>
+    </div>
+  </div>
+
+  <!-- COURSE DETAILS -->
+  <div
+    class="container py-4"
+    *ngIf="!loading && !error && course">
+
+    <div class="row g-4">
+
+      <!-- COURSE IMAGE -->
+      <div class="col-lg-6">
+        <div class="course-image-wrapper">
+          <img
+            [src]="getCourseImage()"
+            [alt]="getCourseTitle()"
+            class="course-main-image"
+            (error)="onImageError($event)">
+
+          <span class="course-category-badge">
+            {{ getCategoryLabel() }}
+          </span>
+        </div>
+      </div>
+
+      <!-- COURSE INFORMATION -->
+      <div class="col-lg-6">
+
+        <div class="course-info">
+
+          <span class="text-primary fw-semibold">
+            Live Learning Program
+          </span>
+
+          <h1 class="course-title mt-2">
+            {{ getCourseTitle() }}
+          </h1>
+
+          <!-- COURSE CODE -->
+          <p class="text-muted mb-2" *ngIf="getCourseCode()">
+            Course Code: {{ getCourseCode() }}
+          </p>
+
+          <!-- DESCRIPTION -->
+          <div class="course-description mt-3">
+            <h5>About This Course</h5>
+            <p>{{ getDescription() }}</p>
+          </div>
+
+          <!-- DURATION -->
+          <div class="course-extra-info" *ngIf="getDuration()">
+            <p>
+              <i class="bi bi-clock me-2"></i>
+              <strong>Duration:</strong>
+              {{ getDuration() }}
+            </p>
+          </div>
+
+          <!-- INSTRUCTOR -->
+          <div class="course-extra-info" *ngIf="getInstructor()">
+            <p>
+              <i class="bi bi-person-video3 me-2"></i>
+              <strong>Instructor:</strong>
+              {{ getInstructor() }}
+            </p>
+          </div>
+
+          <!-- AVAILABILITY -->
+          <div class="mb-3">
+            <span
+              class="badge"
+              [ngClass]="isInStock() ? 'bg-success' : 'bg-danger'">
+              {{ getStockText() }}
+            </span>
+          </div>
+
+          <!-- PRICE -->
+          <div class="course-price-section">
+
+            <div *ngIf="hasDiscount(); else regularPrice">
+
+              <span class="original-price">
+                ₹{{ getPrice() | number:'1.2-2' }}
+              </span>
+
+              <span class="discounted-price">
+                ₹{{ getDiscountPrice() | number:'1.2-2' }}
+              </span>
+
+              <span class="discount-badge">
+                {{ getDiscountPercent() }}% OFF
+              </span>
+
+            </div>
+
+            <ng-template #regularPrice>
+              <span class="discounted-price">
+                ₹{{ getPrice() | number:'1.2-2' }}
+              </span>
+            </ng-template>
+
+          </div>
+
+          <!-- ACTION BUTTONS -->
+          <div class="course-actions mt-4">
+
+            <button
+              type="button"
+              class="btn btn-primary btn-lg"
+              [disabled]="!isInStock()"
+              (click)="goBack()">
+              Explore More Courses
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NO COURSE -->
+  <div
+    class="container py-5 text-center"
+    *ngIf="!loading && !error && !course">
+
+    <h4>Course not found</h4>
+    <p>This course may have been removed or is unavailable.</p>
+
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="goBack()">
+      View All Courses
+    </button>
+
+  </div>
+
+</div>
+<app-clientdetails></app-clientdetails>

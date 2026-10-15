@@ -1,0 +1,101 @@
+
+<section class="tech-landing">
+
+  <!-- Hero Section -->
+  <div class="tech-hero">
+    <span class="hero-tag">
+      {{ 'PSA_TECH.HERO_TAG' | translate }}
+    </span>
+
+    <!-- <h1>
+      {{ 'PSA_TECH.HERO_TITLE' | translate }}
+    </h1>
+
+    <p>
+      {{ 'PSA_TECH.HERO_DESCRIPTION' | translate }}
+    </p> -->
+  </div>
+
+  <!-- Main Categories -->
+  <div class="tech-cards">
+
+    <!-- Products and Services -->
+    <article class="tech-card products-card">
+      <div class="card-icon" aria-hidden="true">🛍️</div>
+
+      <h2>{{ 'PSA_TECH.PRODUCTS_TITLE' | translate }}</h2>
+
+      <p>{{ 'PSA_TECH.PRODUCTS_DESCRIPTION' | translate }}</p>
+
+      <div class="keywords">
+        {{ 'PSA_TECH.PRODUCTS_KEYWORDS' | translate }}
+      </div>
+
+      <button
+        type="button"
+        (click)="openPage('product')"
+        [attr.aria-label]="'PSA_TECH.PRODUCTS_ARIA' | translate">
+
+        {{ 'PSA_TECH.PRODUCTS_BUTTON' | translate }}
+        <span aria-hidden="true">→</span>
+      </button>
+    </article>
+
+    <!-- Courses and Learning -->
+    <!-- <article class="tech-card courses-card">
+      <div class="card-icon" aria-hidden="true">📚</div>
+
+      <h2>{{ 'PSA_TECH.COURSES_TITLE' | translate }}</h2>
+
+      <p>{{ 'PSA_TECH.COURSES_DESCRIPTION' | translate }}</p>
+
+      <div class="keywords">
+        {{ 'PSA_TECH.COURSES_KEYWORDS' | translate }}
+      </div>
+
+      <button
+        type="button"
+        (click)="openPage('courses')"
+        [attr.aria-label]="'PSA_TECH.COURSES_ARIA' | translate">
+
+        {{ 'PSA_TECH.COURSES_BUTTON' | translate }}
+        <span aria-hidden="true">→</span>
+      </button>
+    </article> -->
+
+    <!-- Jobs and Careers -->
+    <article class="tech-card jobs-card">
+      <div class="card-icon" aria-hidden="true">🌟</div>
+
+      <h2>{{ 'PSA_TECH.JOBS_TITLE' | translate }}</h2>
+
+      <p>{{ 'PSA_TECH.JOBS_DESCRIPTION' | translate }}</p>
+
+      <div class="keywords">
+        {{ 'PSA_TECH.JOBS_KEYWORDS' | translate }}
+      </div>
+
+      <button
+        type="button"
+        (click)="openPage('jobs')"
+        [attr.aria-label]="'PSA_TECH.JOBS_ARIA' | translate">
+
+        {{ 'PSA_TECH.JOBS_BUTTON' | translate }}
+        <span aria-hidden="true">→</span>
+      </button>
+    </article>
+
+  </div>
+
+  <!-- Call to Action -->
+  <!-- <div class="tech-cta">
+    <span class="cta-tag">
+      {{ 'PSA_TECH.CTA_TAG' | translate }}
+    </span>
+
+    <h2>{{ 'PSA_TECH.CTA_TITLE' | translate }}</h2>
+
+    <p>{{ 'PSA_TECH.CTA_DESCRIPTION' | translate }}</p>
+  </div> -->
+
+</section>

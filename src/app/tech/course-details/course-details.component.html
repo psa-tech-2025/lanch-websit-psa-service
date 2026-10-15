@@ -1,0 +1,242 @@
+<div class="course-details-page">
+
+
+  <!-- LOADING -->
+  <div
+    class="loading-state"
+    *ngIf="loading">
+
+    <div class="spinner"></div>
+
+    <p>
+      Loading course details...
+    </p>
+
+  </div>
+
+
+  <!-- ERROR -->
+  <div
+    class="error-state"
+    *ngIf="!loading && error">
+
+    <div class="error-icon">
+      ⚠️
+    </div>
+
+    <h2>
+      Course Not Found
+    </h2>
+
+    <p>
+      We could not load this course.
+    </p>
+
+    <div class="error-actions">
+
+      <button
+        type="button"
+        class="primary-btn"
+        (click)="retry()">
+
+        Retry
+
+      </button>
+
+      <button
+        type="button"
+        class="secondary-btn"
+        (click)="goBack()">
+
+        Back to Courses
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- COURSE DETAILS -->
+  <section
+    class="details-section"
+    *ngIf="!loading && !error && course">
+
+    <div class="details-container">
+
+
+      <!-- BACK -->
+      <button
+        type="button"
+        class="back-button"
+        (click)="goBack()">
+
+        ← Back to Courses
+
+      </button>
+
+
+      <!-- DETAILS CARD -->
+      <div class="details-card">
+
+
+        <!-- IMAGE -->
+        <div class="details-image-wrapper">
+
+          <img
+            [src]="getCourseImage()"
+            [alt]="course.name"
+            class="details-image"
+            (error)="onImageError($event)">
+
+        </div>
+
+
+        <!-- CONTENT -->
+        <div class="details-content">
+
+
+          <!-- CATEGORY -->
+          <span class="category-badge">
+
+            {{ getCategory() }}
+
+          </span>
+
+
+          <!-- NAME -->
+          <h1>
+
+            {{ course.name }}
+
+          </h1>
+
+
+          <!-- CODE -->
+          <div
+            class="course-code"
+            *ngIf="course.code">
+
+            Course Code:
+            <strong>
+              {{ course.code }}
+            </strong>
+
+          </div>
+
+
+          <!-- DESCRIPTION -->
+          <div class="description-section">
+
+            <h3>
+              Course Description
+            </h3>
+
+            <p>
+              {{ course.description }}
+            </p>
+
+          </div>
+
+
+          <!-- PRICE -->
+          <div class="price-section">
+
+            <span class="price-label">
+              Course Fee
+            </span>
+
+
+            <div
+              class="price"
+              *ngIf="hasDiscount(); else normalPrice">
+
+              <span class="old-price">
+
+                ₹{{ getPrice() | number:'1.2-2' }}
+
+              </span>
+
+              <span class="current-price">
+
+                ₹{{ getDiscountPrice() | number:'1.2-2' }}
+
+              </span>
+
+              <span class="discount">
+
+                {{ course.discountPercent }}% OFF
+
+              </span>
+
+            </div>
+
+
+            <ng-template #normalPrice>
+
+              <div class="price">
+
+                <span class="current-price">
+
+                  ₹{{ getPrice() | number:'1.2-2' }}
+
+                </span>
+
+              </div>
+
+            </ng-template>
+
+          </div>
+
+
+          <!-- GST -->
+          <div
+            class="gst-info"
+            *ngIf="course.gstPercent">
+
+            GST:
+            {{ course.gstPercent }}%
+
+          </div>
+
+
+          <!-- STOCK -->
+          <div
+            class="stock-badge"
+            [class.available]="isInStock()"
+            [class.unavailable]="!isInStock()">
+
+            <span class="status-dot"></span>
+
+            {{ getStockText() }}
+
+          </div>
+
+
+          <!-- DIVIDER -->
+          <div class="divider"></div>
+
+
+          <!-- ACTIONS -->
+          <div class="action-buttons">
+
+            <button
+              type="button"
+              class="primary-btn"
+              (click)="goBack()">
+
+              ← Back to Courses
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

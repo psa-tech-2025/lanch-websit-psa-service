@@ -1,0 +1,534 @@
+
+/* ==========================================
+   PSA TECH - RESPONSIVE TECH LANDING PAGE
+   Desktop | Tablet | Mobile
+========================================== */
+
+:host {
+  display: block;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #172554;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Main page background */
+.tech-landing {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 64px 32px;
+  color: #172554;
+  background:
+    radial-gradient(
+      circle at 8% 8%,
+      rgba(96, 165, 250, 0.16),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 92% 25%,
+      rgba(167, 139, 250, 0.15),
+      transparent 30%
+    ),
+    linear-gradient(135deg, #f5f8ff, #eef2ff 50%, #f8faff);
+  border-radius: 22px;
+}
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.tech-hero {
+  max-width: 850px;
+  margin: 0 auto 48px;
+  padding: 12px 10px;
+  text-align: center;
+}
+
+.hero-tag {
+  display: inline-block;
+  padding: 9px 18px;
+  border: 1px solid #c7d2fe;
+  border-radius: 30px;
+  background: #e0e7ff;
+  color: #3730a3;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.tech-hero h1 {
+  margin: 22px 0 16px;
+  color: #172554;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.tech-hero p {
+  max-width: 740px;
+  margin: 0 auto;
+  color: #475569;
+  font-size: 16px;
+  line-height: 1.9;
+  font-weight: 500;
+}
+
+/* ==========================================
+   THREE CARDS - DESKTOP
+========================================== */
+
+.tech-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 26px;
+}
+
+.tech-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 32px 28px;
+  overflow: hidden;
+
+  background: linear-gradient(160deg, #ffffff, #f8faff);
+  border: 1px solid #dbe5f5;
+  border-top: 5px solid #2563eb;
+  border-radius: 20px;
+
+  box-shadow: 0 12px 32px rgba(30, 58, 138, 0.09);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Decorative corner effect */
+.tech-card::after {
+  content: "";
+  position: absolute;
+  top: -48px;
+  right: -48px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.07);
+  pointer-events: none;
+}
+
+.tech-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 22px 44px rgba(30, 58, 138, 0.15);
+}
+
+/* ==========================================
+   PRODUCTS & SERVICES
+   HTML class: products-card
+========================================== */
+
+.products-card {
+  border-top-color: #2563eb;
+}
+
+.products-card::after {
+  background: rgba(37, 99, 235, 0.09);
+}
+
+.products-card .card-icon {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.products-card .keywords {
+  background: #eff6ff;
+  color: #1e40af;
+}
+
+.products-card button {
+  background: linear-gradient(135deg, #2563eb, #4338ca);
+}
+
+/* ==========================================
+   COURSES & TRAINING
+========================================== */
+
+.courses-card {
+  border-top-color: #059669;
+}
+
+.courses-card::after {
+  background: rgba(16, 185, 129, 0.09);
+}
+
+.courses-card .card-icon {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.courses-card .keywords {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.courses-card button {
+  background: linear-gradient(135deg, #059669, #047857);
+}
+
+/* ==========================================
+   JOBS & CAREERS
+========================================== */
+
+.jobs-card {
+  border-top-color: #ea580c;
+}
+
+.jobs-card::after {
+  background: rgba(249, 115, 22, 0.09);
+}
+
+.jobs-card .card-icon {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.jobs-card .keywords {
+  background: #fff7ed;
+  color: #9a3412;
+}
+
+.jobs-card button {
+  background: linear-gradient(135deg, #ea580c, #c2410c);
+}
+
+/* ==========================================
+   ICONS
+========================================== */
+
+.card-icon {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  width: 66px;
+  height: 66px;
+  margin-bottom: 24px;
+
+  border-radius: 18px;
+  font-size: 32px;
+
+  box-shadow: 0 6px 15px rgba(15, 23, 42, 0.06);
+}
+
+/* ==========================================
+   CARD HEADINGS & DESCRIPTIONS
+========================================== */
+
+.tech-card h2 {
+  position: relative;
+  z-index: 1;
+
+  margin: 0 0 14px;
+  color: #172554;
+
+  font-size: 23px;
+  line-height: 1.4;
+  font-weight: 800;
+}
+
+.tech-card p {
+  position: relative;
+  z-index: 1;
+
+  margin: 0 0 20px;
+  color: #475569;
+
+  font-size: 15px;
+  line-height: 1.85;
+  font-weight: 500;
+}
+
+/* Keywords section */
+.keywords {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 24px;
+  padding: 10px 12px;
+
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 1.8;
+  font-weight: 700;
+}
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.tech-card button {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+
+  width: 100%;
+  min-height: 48px;
+  padding: 14px 17px;
+
+  border: none;
+  border-radius: 10px;
+
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: left;
+
+  cursor: pointer;
+
+  box-shadow: 0 5px 12px rgba(30, 58, 138, 0.13);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.tech-card button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 9px 18px rgba(30, 58, 138, 0.2);
+}
+
+.tech-card button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 4px;
+}
+
+.tech-card button span {
+  flex-shrink: 0;
+  font-size: 22px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.tech-card button:hover span {
+  transform: translateX(4px);
+}
+
+/* ==========================================
+   BOTTOM CALL-TO-ACTION
+========================================== */
+
+.tech-cta {
+  position: relative;
+  margin-top: 42px;
+  padding: 36px 24px;
+  overflow: hidden;
+
+  text-align: center;
+
+  background: linear-gradient(
+    120deg,
+    #172554 0%,
+    #3730a3 55%,
+    #4f46e5 100%
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+
+  box-shadow: 0 14px 32px rgba(49, 46, 129, 0.18);
+}
+
+.tech-cta h2 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.4;
+  font-weight: 900;
+}
+
+.tech-cta p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #e0e7ff;
+  font-size: 15px;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+/* ==========================================
+   TABLET - TWO COLUMNS
+========================================== */
+
+@media (max-width: 1000px) {
+  .tech-landing {
+    padding: 48px 24px;
+  }
+
+  .tech-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .tech-card {
+    padding: 28px 24px;
+  }
+
+  /* Center the third card */
+  .tech-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc(50% - 11px);
+    justify-self: center;
+  }
+}
+
+/* ==========================================
+   MOBILE - ONE COLUMN
+========================================== */
+
+@media (max-width: 600px) {
+  .tech-landing {
+    padding: 32px 15px;
+    border-radius: 14px;
+  }
+
+  .tech-hero {
+    margin-bottom: 28px;
+    padding: 8px 2px;
+  }
+
+  .hero-tag {
+    padding: 8px 12px;
+    font-size: 10px;
+    letter-spacing: 1.1px;
+  }
+
+  .tech-hero h1 {
+    margin: 18px 0 12px;
+    font-size: clamp(27px, 7vw, 34px);
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+  }
+
+  .tech-hero p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .tech-cards {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .tech-card {
+    width: 100%;
+    padding: 25px 21px;
+    border-radius: 16px;
+  }
+
+  .tech-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .card-icon {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 18px;
+    border-radius: 15px;
+    font-size: 28px;
+  }
+
+  .tech-card h2 {
+    font-size: 21px;
+  }
+
+  .tech-card p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .keywords {
+    margin-bottom: 20px;
+    font-size: 11px;
+  }
+
+  .tech-card button {
+    min-height: 46px;
+    padding: 13px 15px;
+    font-size: 13px;
+  }
+
+  .tech-cta {
+    margin-top: 26px;
+    padding: 28px 18px;
+    border-radius: 16px;
+  }
+
+  .tech-cta h2 {
+    font-size: 22px;
+  }
+
+  .tech-cta p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+}
+
+/* ==========================================
+   EXTRA SMALL MOBILE
+========================================== */
+
+@media (max-width: 360px) {
+  .tech-landing {
+    padding: 26px 11px;
+  }
+
+  .tech-card {
+    padding: 22px 17px;
+  }
+
+  .tech-hero h1 {
+    font-size: 26px;
+  }
+
+  .tech-card h2 {
+    font-size: 19px;
+  }
+
+  .tech-card button {
+    gap: 8px;
+    font-size: 12px;
+  }
+}
+
+/* Accessibility: reduce motion when requested */
+@media (prefers-reduced-motion: reduce) {
+  .tech-card,
+  .tech-card button,
+  .tech-card button span {
+    transition: none;
+  }
+
+  .tech-card:hover,
+  .tech-card button:hover {
+    transform: none;
+  }
+}

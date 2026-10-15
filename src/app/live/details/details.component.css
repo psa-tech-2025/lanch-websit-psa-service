@@ -1,0 +1,105 @@
+
+.course-details-page {
+  min-height: 70vh;
+  background: #f8fafc;
+}
+
+.course-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.course-main-image {
+  display: block;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.course-category-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 8px 14px;
+  color: #ffffff;
+  background: #0d6efd;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.course-info {
+  padding: 10px 5px;
+}
+
+.course-title {
+  color: #172033;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.course-description {
+  color: #5b6472;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.course-description h5 {
+  color: #172033;
+  font-weight: 700;
+}
+
+.course-extra-info p {
+  margin-bottom: 10px;
+  color: #475569;
+}
+
+.course-price-section {
+  margin-top: 20px;
+}
+
+.original-price {
+  margin-right: 12px;
+  color: #7b8494;
+  font-size: 20px;
+  text-decoration: line-through;
+}
+
+.discounted-price {
+  color: #0d6efd;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.discount-badge {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 5px 9px;
+  color: #198754;
+  background: #d1e7dd;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.course-actions .btn {
+  border-radius: 8px;
+}
+
+@media (max-width: 767px) {
+  .course-main-image {
+    height: 260px;
+  }
+
+  .course-title {
+    font-size: 25px;
+  }
+
+  .discounted-price {
+    font-size: 25px;
+  }
+}

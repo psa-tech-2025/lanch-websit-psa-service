@@ -1,7 +1,9 @@
 export const environment = {
   production: false,
-
+apiBase: 'http://localhost:5000',
   apiUrl: 'http://localhost:3000/api',
+   uploadUrl: 'http://localhost:5000/uploads',
+
 
 whatsappCampaignApiUrl: 'http://localhost:3011/api/whatsapp',
   firebase: {

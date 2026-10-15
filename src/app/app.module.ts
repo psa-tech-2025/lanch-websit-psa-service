@@ -21,7 +21,6 @@ import { SocialMediaMarketingComponent } from './data-comp/digital-marketing/soc
 import { IndustriesInfoComponent } from './industries/industries-info/industries-info.component';
 import { AboutUsComponent } from './data-comp/about-us/about-us.component';
 import { CareersComponent } from './data-comp/careers/careers.component';
-import { ClientdetailsComponent } from './client-details/clientdetails/clientdetails.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BlogComponent } from './data-comp/blog/blog.component';
@@ -30,7 +29,6 @@ import { AdminDashboardComponent } from './auth/admin-dashboard/admin-dashboard.
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
-
 import {AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { NavheaderComponent } from './auth/navheader/navheader.component';
@@ -65,7 +63,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         IndustriesInfoComponent,
         AboutUsComponent,
         CareersComponent,
-        ClientdetailsComponent,
+   
         BlogComponent,
         NavControlsComponent,
         AdminDashboardComponent,

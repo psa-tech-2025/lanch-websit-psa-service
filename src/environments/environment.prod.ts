@@ -1,5 +1,14 @@
 export const environment = {
   production: true,
+    // Uploads (Images/PDF)
+
+  uploadUrl: 'https://api.psatechall.com/ecom-uploads',
+
+  apiBase: 'https://api.psatechall.com/api/ecom',
+
+  apiUrl: 'https://api.psatechall.com/api',
+
+whatsappCampaignApiUrl: 'https://api.psatechall.com/api/whatsapp',
    firebase: {
   projectName: 'psaweb',
   apiKey: "AIzaSyB2IXjhzxDC42VOchg92_6H1wsiZvfa33U",

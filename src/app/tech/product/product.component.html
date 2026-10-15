@@ -1,0 +1,348 @@
+
+<div class="psa-products-page">
+
+  <!-- Page Header -->
+  <section class="products-hero">
+
+    <div class="container">
+
+      <div class="hero-content">
+
+        <span class="hero-badge">
+          PSA TECH
+        </span>
+
+        <h1>
+          Digital Products & Services
+        </h1>
+
+        <p>
+          Explore our professional digital solutions,
+          websites, applications, software and services.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Filter Section -->
+  <section class="filter-section">
+
+    <div class="container">
+
+      <div class="filter-wrapper">
+
+        <!-- Category -->
+   <div class="filter-group">
+  <label for="category">Category</label>
+
+  <select
+    id="category"
+    class="form-select"
+    [(ngModel)]="selectedCategory"
+    (change)="filterProducts()">
+
+    <option value="all">
+      All Categories
+    </option>
+
+    <option
+      *ngFor="let category of categories"
+      [value]="category.value">
+
+      {{ category.label }}
+
+    </option>
+
+  </select>
+</div>
+
+
+        <!-- Search -->
+        <div class="filter-group search-group">
+
+          <label for="search">
+            Search Products
+          </label>
+
+          <div class="search-box">
+
+            <input
+              id="search"
+              type="text"
+              class="form-control"
+              [(ngModel)]="searchText"
+              (keyup.enter)="searchProducts()"
+              placeholder="Search by product name, code..."
+            />
+
+            <button
+              type="button"
+              class="search-btn"
+              (click)="searchProducts()"
+            >
+              <i class="bi bi-search"></i>
+              Search
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Products -->
+  <section class="products-section">
+
+    <div class="container">
+
+      <!-- Loading -->
+      <div
+        class="loading-state"
+        *ngIf="loading"
+      >
+
+        <div class="spinner"></div>
+
+        <p>
+          Loading products...
+        </p>
+
+      </div>
+
+
+      <!-- No Products -->
+      <div
+        class="empty-state"
+        *ngIf="!loading && products.length === 0"
+      >
+
+        <div class="empty-icon">
+          <i class="bi bi-box-seam"></i>
+        </div>
+
+        <h3>
+          No Products Found
+        </h3>
+
+        <p>
+          No products are available for the selected
+          category or search.
+        </p>
+
+        <button
+          type="button"
+          class="reset-btn"
+          (click)="resetFilters()"
+        >
+          View All Products
+        </button>
+
+      </div>
+
+
+      <!-- Product Grid -->
+      <div
+        class="product-grid"
+        *ngIf="!loading && products.length > 0"
+      >
+
+        <div
+          class="product-card"
+          *ngFor="
+            let product of products;
+            trackBy: trackByProduct
+          "
+        >
+
+          <!-- Product Image -->
+          <div
+            class="product-image-wrapper"
+            (click)="viewDetails(product)"
+          >
+
+            <img
+              class="product-image"
+              [src]="getProductImage(product)"
+              [alt]="product.name"
+              loading="lazy"
+              (error)="onImageError($event)"
+            />
+
+            <div class="image-overlay">
+
+              <span>
+                View Details
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- Product Content -->
+          <div class="product-content">
+
+            <!-- Category -->
+            <div class="product-category">
+
+              {{ getProductCategory(product) }}
+
+            </div>
+
+
+            <!-- Product Name -->
+            <h3
+              class="product-title"
+              (click)="viewDetails(product)"
+            >
+              {{ product.name }}
+            </h3>
+
+
+            <!-- Code -->
+            <div
+              class="product-code"
+              *ngIf="product.code"
+            >
+
+              Product Code:
+
+              <strong>
+                {{ product.code }}
+              </strong>
+
+            </div>
+
+
+            <!-- Description -->
+            <p
+              class="product-description"
+              *ngIf="product.description"
+            >
+              {{ product.description }}
+            </p>
+
+
+            <!-- Bottom -->
+            <div class="product-footer">
+
+
+              <!-- Price -->
+              <div class="product-price">
+
+                <ng-container
+                  *ngIf="
+                    getPrice(product) !== null &&
+                    getPrice(product) !== undefined
+                  "
+                >
+
+                  <span
+                    class="old-price"
+                    *ngIf="getDiscountPrice(product)"
+                  >
+                    ₹{{ getPrice(product) }}
+                  </span>
+
+                  <span class="current-price">
+
+                    ₹{{
+                      getDiscountPrice(product) ||
+                      getPrice(product)
+                    }}
+
+                  </span>
+
+                </ng-container>
+
+
+                <span
+                  class="requirement-price"
+                  *ngIf="
+                    getPrice(product) === null ||
+                    getPrice(product) === undefined
+                  "
+                >
+                  As Per Requirement
+                </span>
+
+              </div>
+
+
+              <!-- Stock -->
+              <div
+                class="stock-badge"
+                [class.out-of-stock]="
+                  !isInStock(product)
+                "
+              >
+
+                <i
+                  class="bi"
+                  [class.bi-check-circle]="
+                    isInStock(product)
+                  "
+                  [class.bi-x-circle]="
+                    !isInStock(product)
+                  "
+                ></i>
+
+                {{ getStockText(product) }}
+
+              </div>
+
+            </div>
+
+
+            <!-- Details Button -->
+            <button
+              type="button"
+              class="details-btn"
+              (click)="viewDetails(product)"
+            >
+
+              View Details
+
+              <i class="bi bi-arrow-right"></i>
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Product Count -->
+      <div
+        class="product-count"
+        *ngIf="!loading && products.length > 0"
+      >
+
+        Showing
+
+        <strong>
+          {{ products.length }}
+        </strong>
+
+        product<span
+          *ngIf="products.length !== 1"
+        >s</span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
