@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-
+readonly projectId = 'Ecom-02';
   product: Product | null = null;
 
   loading = false;
@@ -79,52 +79,29 @@ readonly facebookUrl =
   // =========================================================
   // LOAD PRODUCT
   // =========================================================
+loadProduct(id: string): void {
+  this.loading = true;
+  this.error = false;
+  this.product = null;
 
-  loadProduct(id: string): void {
+  this.productService
+    .getProductById(id, this.projectId)
+    .subscribe({
+      next: (product) => {
+        console.log('Ecom-01 product details:', product);
 
-    this.loading = true;
+        this.product = product;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error loading Ecom-01 product:', error);
 
-    this.error = false;
-
-    this.product = null;
-
-
-    this.productService
-      .getProductById(id)
-      .subscribe({
-
-        next: (product) => {
-
-          console.log(
-            'Product details:',
-            product
-          );
-
-          this.product = product;
-
-          this.loading = false;
-
-        },
-
-        error: (error) => {
-
-          console.error(
-            'Error loading product details:',
-            error
-          );
-
-          this.product = null;
-
-          this.error = true;
-
-          this.loading = false;
-
-        }
-
-      });
-
-  }
-
+        this.product = null;
+        this.error = true;
+        this.loading = false;
+      }
+    });
+}
 
   // =========================================================
   // PRODUCT IMAGE

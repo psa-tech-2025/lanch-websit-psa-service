@@ -341,4 +341,7 @@
 </div>
 
 </div>
-<app-clientdetails></app-clientdetails>
+<app-clientdetails
+  [projectId]="projectId"
+  [productName]="product?.name || ''">
+</app-clientdetails>

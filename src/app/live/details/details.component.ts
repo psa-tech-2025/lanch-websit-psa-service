@@ -13,8 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class DetailsComponent implements OnInit {
 
-  private readonly PROJECT_ID = 'Ecom-02';
-
+  projectId = 'Ecom-02';
   course: LiveCourse | null = null;
 
   loading = false;
@@ -50,7 +49,7 @@ export class DetailsComponent implements OnInit {
     this.course = null;
 
     this.liveCourseService
-      .getProductById(id, this.PROJECT_ID)
+      .getProductById(id, this.projectId)
       .subscribe({
         next: (response: LiveCourse) => {
           this.course = response;

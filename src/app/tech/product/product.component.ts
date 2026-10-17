@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-
+ readonly projectId = 'Ecom-02';
   allProducts: any[] = [];
   products: any[] = [];
 
@@ -100,7 +100,7 @@ categories = [
 
     this.loading = true;
 
-    this.productService.getAllProducts().subscribe({
+    this.productService.getAllProducts(this.projectId).subscribe({
 
       next: (products) => {
 

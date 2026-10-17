@@ -12,7 +12,7 @@ import { LiveCourseService } from '../live/services/live-course.service';
 })
 export class CourseComponent implements OnInit {
 
-  private readonly PROJECT_ID = 'Ecom-02';
+  private readonly projectId  = 'Ecom-02';
 
   // COURSE LIST
   allCourses: LiveCourse[] = [];
@@ -61,7 +61,7 @@ export class CourseComponent implements OnInit {
     this.error = false;
 
 this.liveCourseService
-  .getAllProducts(this.PROJECT_ID)
+.getAllProducts(this.projectId)
   .subscribe({
     next: (response: LiveCourse[]) => {
       this.allCourses = response || [];

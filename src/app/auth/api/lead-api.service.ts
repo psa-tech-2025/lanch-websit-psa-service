@@ -1,45 +1,46 @@
-import { Injectable } from '@angular/core';
-import {
-HttpClient,
-HttpHeaders
-} from '@angular/common/http';
 
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 export interface LeadPayload {
-username: string;
-mobile: string;
+  username: string;
+  mobile: string;
+  productName?: string;
 }
 
 @Injectable({
-providedIn: 'root'
+  providedIn: 'root'
 })
 export class LeadApiService {
 
-private apiUrl =
-'https://api.psatechall.com/api/ecom/api/auth/capture-lead';
+  private readonly apiUrl =
+    `${environment.apiBase}/api/auth/capture-lead`;
 
-constructor(
-private http: HttpClient
-) {}
+  constructor(private http: HttpClient) {}
 
-captureLead(
-payload: LeadPayload,
-projectId: string
-): Observable<any> {
+  captureLead(
+    payload: LeadPayload,
+    projectId: string
+  ): Observable<any> {
 
+    const headers = new HttpHeaders({
+      'x-project-id': projectId
+    });
 
-const headers = new HttpHeaders({
-  'x-project-id': projectId
-});
+    const requestPayload: LeadPayload = {
+      username: payload.username,
+      mobile: payload.mobile,
+      ...(payload.productName?.trim()
+        ? { productName: payload.productName.trim() }
+        : {})
+    };
 
-return this.http.post(
-  this.apiUrl,
-  payload,
-  { headers }
-);
-
-
-}
-
+    return this.http.post(
+      this.apiUrl,
+      requestPayload,
+      { headers }
+    );
+  }
 }

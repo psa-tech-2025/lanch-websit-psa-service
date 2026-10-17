@@ -44,9 +44,9 @@ const routes: Routes = [
     {
       path:'careers', component:CareersComponent
     },
-    {
-      path:'free-consultation', component:ClientdetailsComponent
-    },
+    // {
+    //   path:'free-consultation', component:ClientdetailsComponent
+    // },
     {
       path:'login', component:LoginComponent
     },

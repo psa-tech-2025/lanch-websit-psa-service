@@ -22,8 +22,7 @@ export class JobDetailsComponent implements OnInit {
   // PROJECT ID
   // ==========================================
 
-  private readonly PROJECT_ID = 'Ecom-02';
-
+readonly projectId = 'Ecom-02';
   // ==========================================
   // JOB
   // ==========================================
@@ -79,7 +78,7 @@ export class JobDetailsComponent implements OnInit {
     this.productService
       .getProductById(
         id,
-        this.PROJECT_ID
+        this.projectId
       )
       .subscribe({
 

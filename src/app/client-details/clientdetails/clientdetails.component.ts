@@ -11,7 +11,8 @@ import * as bootstrap from 'bootstrap';
   styleUrls: ['./clientdetails.component.css']
 })
 export class ClientdetailsComponent implements OnInit {
-
+@Input() productName = '';
+@Input() projectId = '';
   contactForm!: FormGroup;
 
   selectedDocument: File | null = null;
@@ -23,8 +24,7 @@ export class ClientdetailsComponent implements OnInit {
   username = '';
   mobile = '';
 
-@Input()
-projectId: string = 'Ecom-01';
+
 
   loading = false;
 
@@ -41,12 +41,12 @@ projectId: string = 'Ecom-01';
       Project ID from route
     */
 
-    const projectId =
-      this.route.snapshot.queryParamMap.get('projectId');
+    // const projectId =
+    //   this.route.snapshot.queryParamMap.get('projectId');
 
-    if (projectId) {
-      this.projectId = projectId;
-    }
+    // if (projectId) {
+    //   this.projectId = projectId;
+    // }
 
     /*
       Contact Form
@@ -159,17 +159,14 @@ projectId: string = 'Ecom-01';
     this.loading = true;
 
 
-    this.leadApiService
-      .captureLead(
-
-        {
-          username: name,
-          mobile: mobile
-        },
-
-        this.projectId
-
-      )
+  this.leadApiService.captureLead(
+  {
+    username: name,
+    mobile: mobile,
+    productName: this.productName?.trim() || undefined
+  },
+  this.projectId
+)
       .subscribe({
 
         next: (res) => {

@@ -270,4 +270,7 @@
   </section>
 
 </div>
-<app-clientdetails></app-clientdetails>
+<app-clientdetails
+  [projectId]="projectId"
+  [productName]="job?.name || ''">
+</app-clientdetails>
