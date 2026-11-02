@@ -30,6 +30,7 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.2",
     "express": "^4.15.2",
     "firebase": "^9.23.0",
     "rxfire": "^6.0.3",

@@ -1,0 +1,1277 @@
+
+
+
+<!-- NAVIGATION -->
+<!-- <header class="main-header">
+  <div class="container nav-container">
+
+
+    <button class="menu-toggle" (click)="toggleMenu()"
+            aria-label="Toggle navigation">
+      <i class="bi" [ngClass]="menuOpen ? 'bi-x-lg' : 'bi-list'"></i>
+    </button>
+
+    <nav class="nav-menu" [class.active]="menuOpen">
+      <a href="/" (click)="closeMenu()">Home</a>
+      <a href="#ai-solutions" (click)="closeMenu()">AI Solutions</a>
+      <a href="#services" (click)="closeMenu()">Services</a>
+      <a href="#events" (click)="closeMenu()">Events</a>
+      <a href="#courses" (click)="closeMenu()">Courses</a>
+      <a href="/jobs" (click)="closeMenu()">Jobs</a>
+      <a href="#business-partner" (click)="closeMenu()">Earn With Us</a>
+
+      <a [href]="whatsappUrl" target="_blank"
+         rel="noopener" class="nav-cta"
+         (click)="closeMenu()">
+        <i class="bi bi-whatsapp"></i> Contact Us
+      </a>
+    </nav>
+
+  </div>
+</header> -->
+
+
+
+<!-- FIXED BOTTOM TRUST STRIP -->
+<div class="trust-strip-fixed">
+  <div class="trust-floating-container">
+
+    <a href="#services"
+       class="trust-item trust-tech"
+       (click)="scrollToSection($event, 'services')">
+      <i class="bi bi-laptop trust-icon"></i>
+      <span>Technology</span>
+    </a>
+
+    <a href="#ai-solutions"
+       class="trust-item trust-ai"
+       (click)="scrollToSection($event, 'ai-solutions')">
+      <i class="bi bi-robot trust-icon"></i>
+      <span>AI Solutions</span>
+    </a>
+
+    <a href="#courses"
+       class="trust-item trust-education"
+       (click)="scrollToSection($event, 'courses')">
+      <i class="bi bi-mortarboard trust-icon"></i>
+      <span>Education</span>
+    </a>
+
+    <a href="#events"
+       class="trust-item trust-events"
+       (click)="scrollToSection($event, 'events')">
+      <i class="bi bi-calendar-event trust-icon"></i>
+      <span>Events</span>
+    </a>
+
+    <a href="#business-partner"
+       class="trust-item trust-partner"
+       (click)="scrollToSection($event, 'business-partner')">
+      <i class="bi bi-people trust-icon"></i>
+      <span>Partner</span>
+    </a>
+
+    <a href="#amc-services"
+       class="trust-item trust-amc"
+       (click)="scrollToSection($event, 'amc-services')">
+      <i class="bi bi-tools trust-icon"></i>
+      <span>AMC Services</span>
+    </a>
+
+  </div>
+</div>
+
+
+<!-- RIGHT SIDE FLOATING PAGE NAVIGATION -->
+
+<nav
+  class="section-floating-nav"
+  [class.nav-hidden]="!showFloatingNav"
+  aria-label="Page sections">
+
+  <!-- Close Button -->
+  <button
+    type="button"
+    class="nav-close-btn"
+    (click)="toggleFloatingNav()"
+    [attr.aria-label]="showFloatingNav ? 'Hide navigation' : 'Show navigation'">
+
+    <i class="bi"
+       [ngClass]="showFloatingNav ? 'bi-x-lg' : 'bi-list'">
+    </i>
+
+  </button>
+
+  <!-- Navigation Items -->
+  <a *ngFor="let section of pageSections"
+     [href]="'#' + section.id"
+     [class.active]="activeSection === section.id"
+     [attr.aria-label]="section.name"
+     [attr.title]="section.name"
+     (click)="scrollToSection($event, section.id)">
+
+    <i class="bi" [ngClass]="section.icon"></i>
+
+    <span>{{ section.name }}</span>
+
+  </a>
+
+</nav>
+
+
+<!-- HERO SECTION -->
+<section class="hero-section" id="home">
+  <div class="hero-pattern"></div>
+
+  <div class="container hero-content">
+    <div class="row align-items-center">
+
+      <!-- Left Section -->
+      <div class="col-lg-7 hero-left">
+
+        <div class="hero-label">
+          <i class="bi bi-stars"></i>
+          {{ 'HOME.HERO_LABEL' | translate }}
+        </div>
+
+        <h1>
+          {{ 'HOME.HERO_TITLE' | translate }}
+          <span>{{ 'HOME.HERO_TITLE_HIGHLIGHT' | translate }}</span>
+        </h1>
+
+        <p class="hero-description">
+          {{ 'HOME.HERO_DESCRIPTION' | translate }}
+        </p>
+
+        <div class="hero-buttons">
+          <a  class="btn-primary-custom">
+            {{ 'HOME.EXPLORE_SERVICES' | translate }}
+            <i class="bi bi-arrow-right-circle-fill"></i>
+          </a>
+
+          <a  class="btn-outline-custom">
+            <i class="bi bi-stars"></i>
+            {{ 'HOME.DISCOVER_AI' | translate }}
+          </a>
+        </div>
+
+        <div class="hero-highlights">
+          <div>
+            <i class="bi bi-patch-check-fill"></i>
+            {{ 'HOME.HIGHLIGHT_DIGITAL' | translate }}
+          </div>
+
+          <div>
+            <i class="bi bi-patch-check-fill"></i>
+            {{ 'HOME.HIGHLIGHT_AI' | translate }}
+          </div>
+
+          <div>
+            <i class="bi bi-patch-check-fill"></i>
+            {{ 'HOME.HIGHLIGHT_CAREER' | translate }}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Section -->
+      <div class="col-lg-5 hero-right">
+        <div class="hero-visual">
+
+          <div class="visual-main">
+
+            <div class="visual-icon">
+              <i class="bi bi-laptop"></i>
+            </div>
+
+            <h3>{{ 'HOME.VISUAL_TITLE' | translate }}</h3>
+
+            <p>
+              {{ 'HOME.VISUAL_DESCRIPTION' | translate }}
+            </p>
+
+            <div class="visual-services">
+              <span>
+                <i class="bi bi-code-slash"></i>
+                {{ 'HOME.TECHNOLOGY' | translate }}
+              </span>
+
+              <span>
+                <i class="bi bi-robot"></i>
+                {{ 'HOME.AI_SOLUTIONS' | translate }}
+              </span>
+
+              <span>
+                <i class="bi bi-mortarboard-fill"></i>
+                {{ 'HOME.EDUCATION' | translate }}
+              </span>
+            </div>
+
+          </div>
+
+          <div class="floating-card floating-one">
+            <i class="bi bi-cloud-check-fill"></i>
+
+            <div>
+              <strong>{{ 'HOME.DIGITAL_SOLUTIONS' | translate }}</strong>
+              <small>{{ 'HOME.SMART_TECHNOLOGY' | translate }}</small>
+            </div>
+          </div>
+
+          <div class="floating-card floating-two">
+            <i class="bi bi-graph-up-arrow"></i>
+
+            <div>
+              <strong>{{ 'HOME.PERSONAL_GROWTH' | translate }}</strong>
+              <small>{{ 'HOME.BUILD_FUTURE' | translate }}</small>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- Process Timeline -->
+
+</section>
+
+<hr class="section-divider">
+
+
+
+
+
+
+
+<section class="ai-section section-padding" id="ai-solutions">
+
+  <div class="container">
+
+    <!-- AI Banner -->
+    <div class="ai-banner">
+
+      <div class="ai-banner-content">
+
+        <span class="ai-label">
+          <i class="bi bi-stars"></i>
+          {{ 'AI_SECTION.BANNER_LABEL' | translate }}
+        </span>
+
+        <h2>
+          {{ 'AI_SECTION.BANNER_TITLE' | translate }}
+          <span>
+            {{ 'AI_SECTION.BANNER_TITLE_HIGHLIGHT' | translate }}
+          </span>
+        </h2>
+
+        <p>
+          {{ 'AI_SECTION.BANNER_DESCRIPTION' | translate }}
+        </p>
+
+        <a  class="ai-explore-btn">
+          {{ 'AI_SECTION.EXPLORE_BUTTON' | translate }}
+          <i class="bi bi-arrow-right-circle-fill"></i>
+        </a>
+
+      </div>
+
+      <div class="ai-banner-visual">
+
+        <div class="ai-orbit">
+          <i class="bi bi-robot"></i>
+        </div>
+
+        <span class="ai-floating ai-f1">
+          <i class="bi bi-stars"></i>
+        </span>
+
+        <span class="ai-floating ai-f2">
+          <i class="bi bi-cpu-fill"></i>
+        </span>
+
+        <span class="ai-floating ai-f3">
+          <i class="bi bi-brain"></i>
+        </span>
+
+      </div>
+
+    </div>
+
+    <!-- AI Section Heading -->
+    <div class="section-heading" id="ai-features">
+
+      <span class="section-tag">
+        <i class="bi bi-lightning-charge-fill"></i>
+        {{ 'AI_SECTION.HUB_LABEL' | translate }}
+      </span>
+
+      <h2>
+        {{ 'AI_SECTION.SECTION_TITLE' | translate }}
+        <span>
+          {{ 'AI_SECTION.SECTION_TITLE_HIGHLIGHT' | translate }}
+        </span>
+      </h2>
+
+      <p>
+        {{ 'AI_SECTION.SECTION_DESCRIPTION' | translate }}
+      </p>
+
+    </div>
+
+    <!-- AI Features -->
+    <div class="row g-4">
+
+      <div class="col-12 col-md-6 col-lg-4"
+           *ngFor="let ai of aiFeatures; let i = index">
+
+        <div class="ai-card" [ngClass]="'ai-card-' + (i % 6)">
+
+          <div class="ai-icon" [ngClass]="ai.color">
+            <i class="bi" [ngClass]="ai.icon"></i>
+          </div>
+
+          <h3>{{ ai.title }}</h3>
+
+          <p>{{ ai.description }}</p>
+
+          <a [href]="getWhatsappUrl(ai.title)"
+             target="_blank"
+             rel="noopener"
+             class="ai-whatsapp-btn">
+
+            <i class="bi bi-whatsapp"></i>
+            {{ 'AI_SECTION.WHATSAPP_BUTTON' | translate }}
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- OUR SERVICES SECTION -->
+
+<section class="section-padding services-section" id="services">
+
+  <div class="container">
+
+    <!-- Services Heading -->
+    <div class="section-heading" id="services-heading">
+
+      <span class="section-tag">
+        <i class="bi bi-grid-fill"></i>
+        {{ 'SERVICES_SECTION.TAG' | translate }}
+      </span>
+
+      <h2>
+        {{ 'SERVICES_SECTION.TITLE' | translate }}
+        <span>
+          {{ 'SERVICES_SECTION.TITLE_HIGHLIGHT' | translate }}
+        </span>
+      </h2>
+
+      <p>
+        {{ 'SERVICES_SECTION.DESCRIPTION' | translate }}
+      </p>
+
+    </div>
+
+    <!-- Services Cards -->
+    <div class="row g-4">
+
+      <div class="col-12 col-md-6 col-lg-4"
+           *ngFor="let service of services; let i = index">
+
+        <div class="service-card"
+             [ngClass]="'service-card-' + (i % 9)">
+
+          <div class="service-icon">
+            <i class="bi" [ngClass]="service.icon"></i>
+          </div>
+
+          <h3>{{ service.title }}</h3>
+
+          <p>{{ service.description }}</p>
+
+          <a [href]="getWhatsappUrl(service.title)"
+             target="_blank"
+             rel="noopener"
+             class="service-whatsapp-btn">
+
+            <i class="bi bi-whatsapp"></i>
+            {{ 'SERVICES_SECTION.WHATSAPP' | translate }}
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<hr class="section-divider">
+
+
+
+
+
+
+<!-- EVENT MANAGEMENT SECTION -->
+<section class="event-section section-padding" id="events">
+
+  <div class="container">
+
+    <!-- SECTION HEADING -->
+    <div class="section-heading" id="events-heading">
+
+      <span class="section-tag">
+        <i class="bi bi-calendar2-check-fill"></i>
+        {{ 'EVENT_SECTION.TAG' | translate }}
+      </span>
+
+      <h2>
+        {{ 'EVENT_SECTION.TITLE' | translate }}
+        <span>{{ 'EVENT_SECTION.TITLE_HIGHLIGHT' | translate }}</span>
+      </h2>
+
+      <p>
+        {{ 'EVENT_SECTION.DESCRIPTION' | translate }}
+      </p>
+
+    </div>
+
+    <!-- EVENT MANAGEMENT SERVICES -->
+    <div class="row g-4 mb-5">
+
+      <div class="col-12 col-md-6 col-lg-3"
+           *ngFor="let item of eventServices; let i = index">
+
+        <div class="event-service-card"
+             [ngClass]="'event-service-card-' + (i % 4)">
+
+          <div class="event-service-icon">
+            <i class="bi" [ngClass]="item.icon"></i>
+          </div>
+
+          <h3>{{ item.title }}</h3>
+
+          <p>{{ item.description }}</p>
+
+          <a [href]="getWhatsappUrl(item.title)"
+             target="_blank"
+             rel="noopener"
+             class="event-whatsapp-btn">
+            <i class="bi bi-whatsapp"></i>
+            {{ 'EVENT_SECTION.ENQUIRE_NOW' | translate }}
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- EVENT TYPES HEADING -->
+    <div class="event-subheading">
+
+      <h3>{{ 'EVENT_SECTION.EVENT_TYPES_TITLE' | translate }}</h3>
+
+      <p>{{ 'EVENT_SECTION.EVENT_TYPES_DESCRIPTION' | translate }}</p>
+
+    </div>
+
+    <!-- EVENT TYPES -->
+    <div class="row g-4 mb-5">
+
+      <div class="col-12 col-md-6 col-lg-4"
+           *ngFor="let event of eventTypes; let i = index">
+
+        <div class="event-card"
+             [ngClass]="'event-card-' + (i % 6)">
+
+          <div class="event-card-icon">
+            <i class="bi" [ngClass]="event.icon"></i>
+          </div>
+
+          <span class="event-category">{{ event.category }}</span>
+
+          <h4>{{ event.title }}</h4>
+
+          <p>{{ event.description }}</p>
+
+          <a [href]="getWhatsappUrl(event.title)"
+             target="_blank"
+             rel="noopener"
+             class="event-whatsapp-btn">
+            <i class="bi bi-whatsapp"></i>
+            {{ 'EVENT_SECTION.DISCUSS_EVENT' | translate }}
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- DIGITAL EVENT SOLUTIONS INFORMATION -->
+    <div class="event-registration">
+
+      <div class="row g-4 align-items-center">
+
+        <div class="col-lg-8">
+
+          <span class="section-tag">
+            <i class="bi bi-calendar-check"></i>
+            {{ 'EVENT_SECTION.DIGITAL_TAG' | translate }}
+          </span>
+
+          <h3>{{ 'EVENT_SECTION.DIGITAL_TITLE' | translate }}</h3>
+
+          <p>
+            {{ 'EVENT_SECTION.DIGITAL_DESCRIPTION' | translate }}
+          </p>
+
+        </div>
+
+        <div class="col-lg-4 text-lg-end">
+
+          <a [href]="whatsappUrl"
+             target="_blank"
+             rel="noopener"
+             class="register-btn">
+            <i class="bi bi-whatsapp"></i>
+            {{ 'EVENT_SECTION.DIGITAL_BUTTON' | translate }}
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- EVENT MANAGEMENT CTA -->
+    <div class="event-bottom-cta">
+
+      <div>
+
+        <h3>{{ 'EVENT_SECTION.CTA_TITLE' | translate }}</h3>
+
+        <p>
+          {{ 'EVENT_SECTION.CTA_DESCRIPTION' | translate }}
+        </p>
+
+      </div>
+
+      <a [href]="whatsappUrl"
+         target="_blank"
+         rel="noopener">
+        <i class="bi bi-whatsapp"></i>
+        {{ 'EVENT_SECTION.CTA_BUTTON' | translate }}
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+<hr class="section-divider">
+
+<!-- BUSINESS PARTNER -->
+
+<!-- BUSINESS PARTNER SECTION -->
+<section class="partner-section section-padding" id="business-partner">
+
+  <div class="container">
+
+    <!-- MAIN PARTNER BANNER -->
+    <div class="partner-banner">
+
+      <div class="partner-content">
+
+        <span class="partner-label">
+          <i class="bi bi-stars"></i>
+          {{ 'PARTNER_SECTION.LABEL' | translate }}
+        </span>
+
+        <h2>
+          {{ 'PARTNER_SECTION.TITLE' | translate }}
+          <span>{{ 'PARTNER_SECTION.TITLE_HIGHLIGHT' | translate }}</span>
+        </h2>
+
+        <p>
+          {{ 'PARTNER_SECTION.DESCRIPTION' | translate }}
+        </p>
+
+        <!-- PARTNER HIGHLIGHTS -->
+        <div class="partner-highlight">
+
+          <div class="partner-highlight-item">
+            <i class="bi bi-wallet2"></i>
+            <strong>{{ 'PARTNER_SECTION.INVESTMENT_VALUE' | translate }}</strong>
+            <small>{{ 'PARTNER_SECTION.INVESTMENT_LABEL' | translate }}</small>
+          </div>
+
+          <div class="partner-highlight-item">
+            <i class="bi bi-people-fill"></i>
+            <strong>{{ 'PARTNER_SECTION.NETWORK_VALUE' | translate }}</strong>
+            <small>{{ 'PARTNER_SECTION.NETWORK_LABEL' | translate }}</small>
+          </div>
+
+          <div class="partner-highlight-item">
+            <i class="bi bi-cash-coin"></i>
+            <strong>{{ 'PARTNER_SECTION.COMMISSION_VALUE' | translate }}</strong>
+            <small>{{ 'PARTNER_SECTION.COMMISSION_LABEL' | translate }}</small>
+          </div>
+
+        </div>
+
+        <!-- WHATSAPP CTA -->
+        <a [href]="partnerWhatsappUrl"
+           target="_blank"
+           rel="noopener"
+           class="partner-cta">
+
+          <i class="bi bi-whatsapp"></i>
+          {{ 'PARTNER_SECTION.CTA' | translate }}
+          <i class="bi bi-arrow-right-circle-fill partner-cta-arrow"></i>
+
+        </a>
+
+        <small class="partner-note">
+          {{ 'PARTNER_SECTION.NOTE' | translate }}
+        </small>
+
+      </div>
+
+      <!-- RIGHT VISUAL -->
+      <div class="partner-side-visual">
+
+        <div class="partner-circle">
+          <i class="bi bi-people-fill"></i>
+          <strong>{{ 'PARTNER_SECTION.GROW' | translate }}</strong>
+          <span>{{ 'PARTNER_SECTION.WITH_PSA' | translate }}</span>
+        </div>
+
+        <div class="partner-floating partner-floating-one">
+          <i class="bi bi-graph-up-arrow"></i>
+        </div>
+
+        <div class="partner-floating partner-floating-two">
+          <i class="bi bi-rocket-takeoff-fill"></i>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PARTNER BENEFITS -->
+    <div class="partner-benefits-heading" id="partner-benefits-heading">
+
+      <span class="section-tag">
+        <i class="bi bi-gem"></i>
+        {{ 'PARTNER_SECTION.BENEFITS_LABEL' | translate }}
+      </span>
+
+      <h3>
+        {{ 'PARTNER_SECTION.BENEFITS_TITLE' | translate }}
+        <span>{{ 'PARTNER_SECTION.BENEFITS_HIGHLIGHT' | translate }}</span>
+      </h3>
+
+      <p>{{ 'PARTNER_SECTION.BENEFITS_DESCRIPTION' | translate }}</p>
+
+    </div>
+
+    <div class="row g-4 mt-2">
+
+      <div class="col-12 col-md-6 col-lg-3"
+           *ngFor="let benefit of partnerBenefits; let i = index">
+
+        <div class="benefit-card"
+             [ngClass]="'benefit-card-' + (i % 8)">
+
+          <div class="benefit-icon">
+            <i class="bi" [ngClass]="benefit.icon"></i>
+          </div>
+
+          <h4>{{ benefit.title }}</h4>
+
+          <p>{{ benefit.description }}</p>
+
+          <div class="benefit-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ABOUT SECTION -->
+<section class="about-section section-padding" id="about">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <!-- ABOUT VISUAL -->
+      <div class="col-lg-6">
+
+        <div class="about-visual">
+
+          <div class="about-visual-glow"></div>
+
+          <div class="about-main-icon">
+            <i class="bi bi-lightbulb-fill"></i>
+          </div>
+
+          <div class="about-caption">
+
+            <span>
+              {{ 'ABOUT_SECTION.WELCOME' | translate }}
+            </span>
+
+            <h3>
+              {{ 'ABOUT_SECTION.VISUAL_TITLE' | translate }}
+            </h3>
+
+            <p>
+              {{ 'ABOUT_SECTION.TAGLINE' | translate }}
+            </p>
+
+          </div>
+
+          <div class="about-floating-icon about-float-one">
+            <i class="bi bi-cpu-fill"></i>
+          </div>
+
+          <div class="about-floating-icon about-float-two">
+            <i class="bi bi-mortarboard-fill"></i>
+          </div>
+
+          <div class="about-floating-icon about-float-three">
+            <i class="bi bi-rocket-takeoff-fill"></i>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ABOUT CONTENT -->
+      <div class="col-lg-6">
+
+        <span class="section-tag about-section-tag">
+          <i class="bi bi-buildings-fill"></i>
+          {{ 'ABOUT_SECTION.LABEL' | translate }}
+        </span>
+
+        <h2 class="about-title">
+
+          {{ 'ABOUT_SECTION.TITLE' | translate }}
+
+          <span>
+            {{ 'ABOUT_SECTION.TITLE_HIGHLIGHT' | translate }}
+          </span>
+
+          {{ 'ABOUT_SECTION.TITLE_END' | translate }}
+
+        </h2>
+
+        <p class="about-description">
+          {{ 'ABOUT_SECTION.DESCRIPTION' | translate }}
+        </p>
+
+        <p class="about-description">
+          {{ 'ABOUT_SECTION.DESCRIPTION_SECOND' | translate }}
+        </p>
+
+        <!-- WHATSAPP CTA -->
+        <a [href]="whatsappUrl"
+           target="_blank"
+           rel="noopener"
+           class="about-whatsapp-btn">
+
+          <i class="bi bi-whatsapp"></i>
+
+          {{ 'ABOUT_SECTION.BUTTON' | translate }}
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<hr class="section-divider">
+
+
+<!-- COURSES SECTION -->
+<section class="courses-section section-padding" id="courses">
+
+  <div class="container">
+
+    <!-- SECTION HEADING -->
+    <div class="section-heading" id="courses-heading">
+
+      <span class="section-tag">
+        <i class="bi bi-mortarboard-fill"></i>
+        {{ 'COURSES_SECTION.TAG' | translate }}
+      </span>
+
+      <h2>
+        {{ 'COURSES_SECTION.TITLE' | translate }}
+        <span>{{ 'COURSES_SECTION.TITLE_HIGHLIGHT' | translate }}</span>
+      </h2>
+
+      <p>
+        {{ 'COURSES_SECTION.DESCRIPTION' | translate }}
+      </p>
+
+    </div>
+
+    <!-- LEARNING AREAS -->
+    <div class="row g-4">
+
+      <div class="col-6 col-md-4 col-lg-3"
+           *ngFor="let course of learningAreas; let i = index">
+
+        <div class="learning-card"
+             [ngClass]="'learning-card-' + (i % 8)">
+
+          <div class="learning-icon">
+            <i class="bi" [ngClass]="course.icon"></i>
+          </div>
+
+          <h4>{{ course.title }}</h4>
+
+          <a [href]="getWhatsappUrl(course.title)"
+             target="_blank"
+             rel="noopener"
+             class="learning-whatsapp-btn">
+
+            <i class="bi bi-whatsapp"></i>
+
+            {{ 'COURSES_SECTION.ENQUIRE_NOW' | translate }}
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- MAIN CTA -->
+    <div class="text-center mt-5">
+
+      <a [href]="whatsappUrl"
+         target="_blank"
+         rel="noopener"
+         class="courses-main-btn">
+
+        <i class="bi bi-whatsapp"></i>
+
+        {{ 'COURSES_SECTION.MAIN_BUTTON' | translate }}
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- AMC SUPPORT SECTION -->
+<section class="section-padding amc-sector-section" id="amc-services">
+
+  <div class="container">
+
+    <!-- SECTION HEADING -->
+    <div class="section-heading" id="amc-heading">
+
+      <span class="section-tag">
+        <i class="bi bi-building-check"></i>
+        {{ 'AMC_SECTION.TAG' | translate }}
+      </span>
+
+      <h2>
+        {{ 'AMC_SECTION.TITLE' | translate }}
+        <span>{{ 'AMC_SECTION.TITLE_HIGHLIGHT' | translate }}</span>
+      </h2>
+
+      <p>
+        {{ 'AMC_SECTION.DESCRIPTION' | translate }}
+      </p>
+
+    </div>
+
+    <!-- AMC SECTORS -->
+    <div class="row g-4">
+
+      <!-- Industrial -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="amc-sector-card sector-industrial">
+          <div class="amc-sector-icon">
+            <i class="bi bi-buildings"></i>
+          </div>
+          <h3>{{ 'AMC_SECTION.INDUSTRIAL_TITLE' | translate }}</h3>
+          <p>{{ 'AMC_SECTION.INDUSTRIAL_DESCRIPTION' | translate }}</p>
+        </div>
+      </div>
+
+      <!-- Hospitals -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="amc-sector-card sector-healthcare">
+          <div class="amc-sector-icon">
+            <i class="bi bi-hospital"></i>
+          </div>
+          <h3>{{ 'AMC_SECTION.HEALTHCARE_TITLE' | translate }}</h3>
+          <p>{{ 'AMC_SECTION.HEALTHCARE_DESCRIPTION' | translate }}</p>
+        </div>
+      </div>
+
+      <!-- Colleges -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="amc-sector-card sector-college">
+          <div class="amc-sector-icon">
+            <i class="bi bi-mortarboard"></i>
+          </div>
+          <h3>{{ 'AMC_SECTION.COLLEGE_TITLE' | translate }}</h3>
+          <p>{{ 'AMC_SECTION.COLLEGE_DESCRIPTION' | translate }}</p>
+        </div>
+      </div>
+
+      <!-- Schools -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="amc-sector-card sector-school">
+          <div class="amc-sector-icon">
+            <i class="bi bi-book-half"></i>
+          </div>
+          <h3>{{ 'AMC_SECTION.SCHOOL_TITLE' | translate }}</h3>
+          <p>{{ 'AMC_SECTION.SCHOOL_DESCRIPTION' | translate }}</p>
+        </div>
+      </div>
+
+      <!-- Government -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="amc-sector-card sector-government">
+          <div class="amc-sector-icon">
+            <i class="bi bi-bank"></i>
+          </div>
+          <h3>{{ 'AMC_SECTION.GOVERNMENT_TITLE' | translate }}</h3>
+          <p>{{ 'AMC_SECTION.GOVERNMENT_DESCRIPTION' | translate }}</p>
+        </div>
+      </div>
+
+      <!-- Corporate -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="amc-sector-card sector-corporate">
+          <div class="amc-sector-icon">
+            <i class="bi bi-briefcase"></i>
+          </div>
+          <h3>{{ 'AMC_SECTION.CORPORATE_TITLE' | translate }}</h3>
+          <p>{{ 'AMC_SECTION.CORPORATE_DESCRIPTION' | translate }}</p>
+        </div>
+      </div>
+
+      <!-- Retail -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="amc-sector-card sector-retail">
+          <div class="amc-sector-icon">
+            <i class="bi bi-shop"></i>
+          </div>
+          <h3>{{ 'AMC_SECTION.RETAIL_TITLE' | translate }}</h3>
+          <p>{{ 'AMC_SECTION.RETAIL_DESCRIPTION' | translate }}</p>
+        </div>
+      </div>
+
+      <!-- Hospitality -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="amc-sector-card sector-hospitality">
+          <div class="amc-sector-icon">
+            <i class="bi bi-buildings-fill"></i>
+          </div>
+          <h3>{{ 'AMC_SECTION.HOSPITALITY_TITLE' | translate }}</h3>
+          <p>{{ 'AMC_SECTION.HOSPITALITY_DESCRIPTION' | translate }}</p>
+        </div>
+      </div>
+
+      <!-- Construction -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="amc-sector-card sector-construction">
+          <div class="amc-sector-icon">
+            <i class="bi bi-cone-striped"></i>
+          </div>
+          <h3>{{ 'AMC_SECTION.CONSTRUCTION_TITLE' | translate }}</h3>
+          <p>{{ 'AMC_SECTION.CONSTRUCTION_DESCRIPTION' | translate }}</p>
+        </div>
+      </div>
+
+      <!-- Finance -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="amc-sector-card sector-finance">
+          <div class="amc-sector-icon">
+            <i class="bi bi-cash-coin"></i>
+          </div>
+          <h3>{{ 'AMC_SECTION.FINANCE_TITLE' | translate }}</h3>
+          <p>{{ 'AMC_SECTION.FINANCE_DESCRIPTION' | translate }}</p>
+        </div>
+      </div>
+
+      <!-- Agriculture -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="amc-sector-card sector-agriculture">
+          <div class="amc-sector-icon">
+            <i class="bi bi-tree"></i>
+          </div>
+          <h3>{{ 'AMC_SECTION.AGRICULTURE_TITLE' | translate }}</h3>
+          <p>{{ 'AMC_SECTION.AGRICULTURE_DESCRIPTION' | translate }}</p>
+        </div>
+      </div>
+
+      <!-- Other Organizations -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="amc-sector-card sector-other">
+          <div class="amc-sector-icon">
+            <i class="bi bi-grid"></i>
+          </div>
+          <h3>{{ 'AMC_SECTION.OTHER_TITLE' | translate }}</h3>
+          <p>{{ 'AMC_SECTION.OTHER_DESCRIPTION' | translate }}</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- AMC ENQUIRY CTA -->
+    <div class="text-center mt-5">
+
+      <h4 class="amc-enquiry-title">
+        {{ 'AMC_SECTION.ENQUIRY_TITLE' | translate }}
+      </h4>
+
+      <a [href]="whatsappUrl"
+         target="_blank"
+         rel="noopener"
+         class="btn-primary-custom">
+
+        <i class="bi bi-whatsapp"></i>
+
+        {{ 'AMC_SECTION.ENQUIRY_BUTTON' | translate }}
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- WHO WE SERVE SECTION -->
+<section class="section-padding audience-section" id="audience">
+
+  <div class="container">
+
+    <!-- SECTION HEADING -->
+    <div class="section-heading" id="audience-heading">
+
+      <span class="section-tag">
+        <i class="bi bi-people-fill"></i>
+        {{ 'AUDIENCE_SECTION.TAG' | translate }}
+      </span>
+
+      <h2>
+        {{ 'AUDIENCE_SECTION.TITLE' | translate }}
+        <span>{{ 'AUDIENCE_SECTION.TITLE_HIGHLIGHT' | translate }}</span>
+      </h2>
+
+      <p>
+        {{ 'AUDIENCE_SECTION.DESCRIPTION' | translate }}
+      </p>
+
+    </div>
+
+    <!-- AUDIENCE CARDS -->
+    <div class="row g-4">
+
+      <div class="col-12 col-md-6 col-lg-4"
+           *ngFor="let item of audiences; let i = index">
+
+        <div class="audience-card"
+             [ngClass]="'audience-card-' + (i % 6)">
+
+          <div class="audience-icon">
+            <i class="bi" [ngClass]="item.icon"></i>
+          </div>
+
+          <h3>{{ item.title }}</h3>
+
+          <p>{{ item.description }}</p>
+
+          <a [href]="getWhatsappUrl(item.title)"
+             target="_blank"
+             rel="noopener"
+             class="audience-whatsapp-btn">
+
+            <i class="bi bi-whatsapp"></i>
+            {{ 'AUDIENCE_SECTION.WHATSAPP' | translate }}
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<hr class="section-divider">
+<!-- WHY CHOOSE US -->
+
+
+<!-- WHY CHOOSE PSA TECH -->
+<section class="why-section section-padding" id="why-us">
+
+  <div class="container">
+
+    <!-- SECTION HEADING -->
+    <div class="section-heading" id="why-heading">
+
+      <span class="section-tag">
+        <i class="bi bi-patch-check-fill"></i>
+        {{ 'WHY_SECTION.TAG' | translate }}
+      </span>
+
+      <h2>
+        {{ 'WHY_SECTION.TITLE' | translate }}
+        <span>{{ 'WHY_SECTION.TITLE_HIGHLIGHT' | translate }}</span>
+      </h2>
+
+      <p>
+        {{ 'WHY_SECTION.DESCRIPTION' | translate }}
+      </p>
+
+    </div>
+
+    <!-- WHY CHOOSE US CARDS -->
+    <div class="row g-4">
+
+      <div class="col-12 col-md-6 col-lg-3"
+           *ngFor="let item of whyChooseUs; let i = index">
+
+        <div class="why-card"
+             [ngClass]="'why-card-' + (i % 8)">
+
+          <!-- ICON -->
+          <div class="why-icon">
+            <i class="bi" [ngClass]="item.icon"></i>
+          </div>
+
+          <!-- CONTENT -->
+          <h4>{{ item.title }}</h4>
+
+          <p>{{ item.description }}</p>
+
+          <!-- DECORATIVE ARROW -->
+          <div class="why-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<hr class="section-divider">
+
+
+
+<!-- CONTACT -->
+<section class="contact-section section-padding" id="contact">
+<div class="process-timeline">
+
+  <!-- Step 1 -->
+  <div class="timeline-step step-1">
+    <div class="timeline-number">1</div>
+    <div class="timeline-content">
+      <h3>Select a Service &amp;</h3>
+      <p>Enquire on WhatsApp</p>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="timeline-step step-2">
+    <div class="timeline-number">2</div>
+    <div class="timeline-content">
+      <h3>Receive Your</h3>
+      <p>Quotation / Proposal</p>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="timeline-step step-3">
+    <div class="timeline-number">3</div>
+    <div class="timeline-content">
+      <h3>Complete the</h3>
+      <p>Registration / Requirement Form</p>
+    </div>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="timeline-step step-4">
+    <div class="timeline-number">4</div>
+    <div class="timeline-content">
+      <h3>Get Your ID &amp;</h3>
+      <p>Password, If Applicable</p>
+    </div>
+  </div>
+
+  <!-- Final Step -->
+  <div class="timeline-step step-finish">
+    <div class="timeline-number finish-icon">
+      <span>✓</span>
+    </div>
+
+    <div class="timeline-content">
+      <h3>You're All Set!</h3>
+      <p>Start Your Journey with PSA TECH</p>
+    </div>
+  </div>
+
+</div>
+</section>
+

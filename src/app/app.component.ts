@@ -61,7 +61,9 @@ private updateHeaderVisibility(): void {
     this.router.url === '/tech' ||
     this.router.url.startsWith('/tech/') ||
     this.router.url === '/live' ||
-    this.router.url.startsWith('/live/')
+    this.router.url.startsWith('/live/') ||
+     this.router.url === '/home' ||
+    this.router.url.startsWith('/home/')
   );
 }
 

@@ -1,4 +1,5 @@
-
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 html, body {
   margin: 0;
   padding: 0;
@@ -56,4 +57,26 @@ html, body {
   font-weight: 500;
   margin: 0;
   color: #444;
+}
+
+/* Common colorful section separator */
+.section-divider {
+  width: 100%;
+  height: 10px;
+  border: none;
+  margin: 40px 0;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #ff0000,
+    #ff7a00,
+    #ffd000,
+    #00c853,
+    #00bfff,
+    #6a00ff,
+    #ff00aa
+  );
+
+  opacity: 0.95;
 }

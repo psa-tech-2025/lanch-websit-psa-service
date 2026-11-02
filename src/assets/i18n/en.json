@@ -228,7 +228,181 @@
 "TITLE": "Learning for Every Goal",
 "DESCRIPTION": "Browse our learning categories and discover topics that match your interests, ambitions and future plans."
 }
+},
+"HOME": {
+  "HERO_LABEL": "Welcome to PSA TECH",
+  "HERO_TITLE": "Transform Your Ideas Into",
+  "HERO_TITLE_HIGHLIGHT": "Digital Success",
+  "HERO_DESCRIPTION": "Your trusted partner for technology solutions, AI innovation, professional training, event management, career opportunities and business growth. Learn, innovate and grow with PSA TECH.",
+  "EXPLORE_SERVICES": "Explore Services",
+  "DISCOVER_AI": "Discover AI",
+  "HIGHLIGHT_DIGITAL": "Digital Solutions",
+  "HIGHLIGHT_AI": "AI Innovation",
+  "HIGHLIGHT_CAREER": "Career Growth",
+  "VISUAL_TITLE": "Learn. Build. Grow.",
+  "VISUAL_DESCRIPTION": "Your journey towards a better digital future starts here.",
+  "TECHNOLOGY": "Technology",
+  "AI_SOLUTIONS": "AI Solutions",
+  "EDUCATION": "Education",
+  "DIGITAL_SOLUTIONS": "Digital Solutions",
+  "SMART_TECHNOLOGY": "Smart Technology",
+  "PERSONAL_GROWTH": "Personal Growth",
+  "BUILD_FUTURE": "Build Your Future"
+},
+
+"AI_SECTION": {
+  "BANNER_LABEL": "NEXT-GENERATION TECHNOLOGY",
+  "BANNER_TITLE": "Discover the Power of",
+  "BANNER_TITLE_HIGHLIGHT": "Artificial Intelligence",
+  "BANNER_DESCRIPTION": "Explore modern AI technologies, smart automation, intelligent applications and AI-powered business solutions with PSA TECH.",
+  "EXPLORE_BUTTON": "Explore AI Solutions",
+  "HUB_LABEL": "AI TECHNOLOGY HUB",
+  "SECTION_TITLE": "Explore Our",
+  "SECTION_TITLE_HIGHLIGHT": "AI Solutions",
+  "SECTION_DESCRIPTION": "Discover how artificial intelligence can support businesses, students and professionals.",
+  "WHATSAPP_BUTTON": "Enquire on WhatsApp"
+},
+"SERVICES_SECTION": {
+  "TAG": "WHAT WE OFFER",
+  "TITLE": "Our",
+  "TITLE_HIGHLIGHT": "Services",
+  "DESCRIPTION": "Complete solutions for businesses, students and professionals to achieve their digital and career goals.",
+  "WHATSAPP": "Enquire on WhatsApp"
+},
+"EVENT_SECTION": {
+  "TAG": "EVENT MANAGEMENT SOLUTIONS",
+  "TITLE": "Plan Events.",
+  "TITLE_HIGHLIGHT": "Manage Easily.",
+  "DESCRIPTION": "Manage registrations, participant information, QR-based entry and digital event experiences with PSA TECH.",
+
+  "ENQUIRE_NOW": "Enquire Now",
+
+  "EVENT_TYPES_TITLE": "Event Solutions for Every Occasion",
+  "EVENT_TYPES_DESCRIPTION": "Explore event management solutions for different occasions.",
+
+  "DISCUSS_EVENT": "Discuss Your Event",
+
+  "DIGITAL_TAG": "DIGITAL EVENT SOLUTIONS",
+  "DIGITAL_TITLE": "Smart Event Management with PSA TECH",
+  "DIGITAL_DESCRIPTION": "Explore digital event planning, QR-based entry, participant management and event reporting solutions.",
+  "DIGITAL_BUTTON": "Enquire About Event Services",
+
+  "CTA_TITLE": "Planning an Event?",
+  "CTA_DESCRIPTION": "Get digital registration forms, QR codes and participant management solutions for your next event.",
+  "CTA_BUTTON": "Discuss Your Event"
+},
+"PARTNER_SECTION": {
+  "LABEL": "PSA TECH BUSINESS PARTNER PROGRAM",
+  "TITLE": "Earn More.",
+  "TITLE_HIGHLIGHT": "Start With ₹0 Investment!",
+  "DESCRIPTION": "Become a PSA TECH Business Partner and explore an opportunity to earn through referrals of our digital services, courses and business solutions.",
+
+  "INVESTMENT_VALUE": "₹0",
+  "INVESTMENT_LABEL": "Upfront Joining Investment",
+
+  "NETWORK_VALUE": "Network",
+  "NETWORK_LABEL": "Build Connections",
+
+  "COMMISSION_VALUE": "Commission",
+  "COMMISSION_LABEL": "Eligible Referrals",
+
+  "CTA": "Become a Business Partner",
+
+  "NOTE": "No guaranteed income. Earnings depend on eligible referrals, completed transactions and applicable partner terms. No upfront joining fee for this program.",
+
+  "GROW": "GROW",
+  "WITH_PSA": "WITH PSA TECH",
+
+  "BENEFITS_LABEL": "PARTNER BENEFITS",
+  "BENEFITS_TITLE": "Grow Together with",
+  "BENEFITS_HIGHLIGHT": "PSA TECH",
+  "BENEFITS_DESCRIPTION": "Discover the advantages of joining our business partner network."
+},
+"ABOUT_SECTION": {
+  "WELCOME": "WELCOME TO PSA TECH",
+  "VISUAL_TITLE": "Innovation Meets Opportunity",
+  "TAGLINE": "Your Digital Growth Partner",
+
+  "LABEL": "ABOUT PSA TECH",
+
+  "TITLE": "Empowering Businesses.",
+  "TITLE_HIGHLIGHT": "Building Careers.",
+  "TITLE_END": "Creating Opportunities.",
+
+  "DESCRIPTION": "PSA TECH focuses on digital technology solutions, AI innovation and professional development opportunities. We bring together web and application development, cloud services, AI solutions, event management, technical education, career guidance and personality development under one platform.",
+
+  "DESCRIPTION_SECOND": "Our goal is to help businesses establish their digital presence and empower individuals with practical skills, confidence and knowledge for a better future.",
+
+  "BUTTON": "Connect With Us"
+},
+"COURSES_SECTION": {
+  "TAG": "LEARN WITH PSA TECH",
+  "TITLE": "Upgrade Your",
+  "TITLE_HIGHLIGHT": "Skills",
+  "DESCRIPTION": "Discover technical, AI, communication and professional development skills to prepare for your future.",
+
+  "ENQUIRE_NOW": "Enquire Now",
+  "MAIN_BUTTON": "Enquire About Courses"
+},
+"AMC_SECTION": {
+  "TAG": "ANNUAL AMC SUPPORT",
+  "TITLE": "AMC Support for",
+  "TITLE_HIGHLIGHT": "Every Sector",
+  "DESCRIPTION": "PSA TECH provides annual maintenance and technical support solutions for organizations across different industries and sectors.",
+
+  "INDUSTRIAL_TITLE": "Industrial Sector",
+  "INDUSTRIAL_DESCRIPTION": "Industries, Manufacturing Units & Factories",
+
+  "HEALTHCARE_TITLE": "Hospitals & Healthcare",
+  "HEALTHCARE_DESCRIPTION": "Hospitals, Clinics & Healthcare Centers",
+
+  "COLLEGE_TITLE": "Colleges & Universities",
+  "COLLEGE_DESCRIPTION": "Colleges, Universities & Training Institutes",
+
+  "SCHOOL_TITLE": "Schools & Education",
+  "SCHOOL_DESCRIPTION": "Schools, Academies & Educational Institutions",
+
+  "GOVERNMENT_TITLE": "Government Sector",
+  "GOVERNMENT_DESCRIPTION": "Government Offices & Public Organizations",
+
+  "CORPORATE_TITLE": "Corporate & Offices",
+  "CORPORATE_DESCRIPTION": "Companies, IT Offices & Business Organizations",
+
+  "RETAIL_TITLE": "Retail & Commercial",
+  "RETAIL_DESCRIPTION": "Shops, Showrooms & Commercial Establishments",
+
+  "HOSPITALITY_TITLE": "Hotels & Hospitality",
+  "HOSPITALITY_DESCRIPTION": "Hotels, Restaurants & Hospitality Businesses",
+
+  "CONSTRUCTION_TITLE": "Construction Sector",
+  "CONSTRUCTION_DESCRIPTION": "Construction Companies & Infrastructure Projects",
+
+  "FINANCE_TITLE": "Banking & Finance",
+  "FINANCE_DESCRIPTION": "Banks, Financial Institutions & Co-operative Societies",
+
+  "AGRICULTURE_TITLE": "Agriculture Sector",
+  "AGRICULTURE_DESCRIPTION": "Agriculture Organizations & Rural Enterprises",
+
+  "OTHER_TITLE": "Other Organizations",
+  "OTHER_DESCRIPTION": "NGOs, Trusts & Other Institutions",
+
+  "ENQUIRY_TITLE": "Looking for Annual AMC Support for Your Organization?",
+  "ENQUIRY_BUTTON": "Enquire About AMC"
+},
+"AUDIENCE_SECTION": {
+  "TAG": "WHO WE SERVE",
+  "TITLE": "Solutions Designed",
+  "TITLE_HIGHLIGHT": "For Everyone",
+  "DESCRIPTION": "Whether you are a business owner, student or job seeker, PSA TECH helps you take the next step.",
+  "WHATSAPP": "Enquire on WhatsApp"
+},
+"WHY_SECTION": {
+  "TAG": "WHY PSA TECH",
+  "TITLE": "Why Choose",
+  "TITLE_HIGHLIGHT": "Us?",
+  "DESCRIPTION": "A platform that connects technology, AI, learning, events, careers and professional growth."
 }
+
 }
 
 

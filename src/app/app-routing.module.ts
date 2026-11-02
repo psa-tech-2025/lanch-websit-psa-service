@@ -25,6 +25,7 @@ import { WebsiteOfferComponent } from './offer/website-offer/website-offer.compo
 import { BusinessPartnershipComponent } from './offer/business-partnership/business-partnership.component';
 import { MarathiBusinessOpportunityComponent } from './opportunity/marathi-business-opportunity/marathi-business-opportunity.component';
 import { BusinessWebsiteMarathiComponent } from './offer/business-website-marathi/business-website-marathi.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'about-us', pathMatch: 'full' },
@@ -108,7 +109,11 @@ const routes: Routes = [
     path: 'live',
     loadChildren: () =>
       import('./live/live.module').then(m => m.LiveModule)
-  }
+  },
+  {
+  path: 'home',
+  component: HomeComponent
+}
 
   
 ];

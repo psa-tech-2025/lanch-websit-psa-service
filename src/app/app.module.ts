@@ -42,6 +42,7 @@ import { AffordableWebsiteComponent } from './offer/affordable-website/affordabl
 import { WebsiteOfferComponent } from './offer/website-offer/website-offer.component';
 import { BusinessPartnershipComponent } from './offer/business-partnership/business-partnership.component';
 import { MarathiBusinessOpportunityComponent } from './opportunity/marathi-business-opportunity/marathi-business-opportunity.component';
+import { HomeComponent } from './pages/home/home.component';
 export function HttpLoaderFactory(http: HttpClient) {
   const prefix = (document?.baseURI || './') + 'assets/i18n/';
   return new TranslateHttpLoader(http, prefix, '.json');
@@ -77,7 +78,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         AffordableWebsiteComponent,
         WebsiteOfferComponent,
         BusinessPartnershipComponent,
-        MarathiBusinessOpportunityComponent
+        MarathiBusinessOpportunityComponent,
+          HomeComponent
 
   ],
   imports: [
