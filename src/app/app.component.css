@@ -56,116 +56,364 @@
   margin-top: 5px;
 }
 
+/* =========================================
+   PSA TECH FESTIVAL POPUP
+========================================= */
 
-.popup-overlay{
+.popup-overlay {
   position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.65);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-  padding:20px;
-  overflow-y:auto; /* 🔥 allow scroll if needed */
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.75);
+
+  z-index: 99999;
+
+  overflow-y: auto;
+  box-sizing: border-box;
+
+  backdrop-filter: blur(4px);
 }
 
-.popup-container{
-  position:relative;
-  background:#fff;
-  border-radius:16px;
-  padding:15px;
-  max-width:700px;   /* 🔥 bigger for desktop */
-  width:100%;
-  max-height:90vh;   /* 🔥 prevent overflow */
-  overflow-y:auto;   /* 🔥 scroll inside popup */
-  text-align:center;
-  box-shadow:0 15px 40px rgba(0,0,0,0.35);
-  animation: popupFade 0.3s ease;
+/* Popup Container */
+
+.popup-container {
+  position: relative;
+
+  width: 100%;
+  max-width: 650px;
+
+  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: #ffffff;
+
+  padding: 15px;
+
+  border-radius: 16px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.45);
+
+  animation: popupFade 0.35s ease;
 }
 
-.popup-img{
-  width:100%;
-  height:auto;
-  max-height:70vh;   /* 🔥 ensures full image fits */
-  object-fit:contain; /* 🔥 IMPORTANT: show full image */
-  border-radius:12px;
+/* Festival Banner */
+
+.popup-img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-height: calc(100dvh - 150px);
+
+  object-fit: contain;
+  object-position: center;
+
+  border-radius: 10px;
 }
 
-/* Close button */
-.close-btn{
-  position:absolute;
-  top:-12px;
-  right:-12px;
-  background:#fff;
-  border:none;
-  font-size:20px;
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  cursor:pointer;
-  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+/* =========================================
+   CLOSE BUTTON - RED CIRCULAR X
+========================================= */
+
+.close-btn {
+  position: absolute;
+
+  top: 12px;
+  right: 12px;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #e53935;
+  color: #ffffff;
+
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+
+  font-size: 30px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  padding: 0;
+
+  cursor: pointer;
+
+  z-index: 100;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+
+  transition: all 0.3s ease;
 }
 
-/* Button */
-.popup-btn{
-  margin-top:15px;
+/* X Icon */
+
+.close-btn span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  line-height: 1;
+
+  transform: translateY(-1px);
 }
 
-.visit-btn{
-  background:#e53935;
-  color:#fff;
-  border:none;
-  padding:14px 30px;
-  font-weight:600;
-  border-radius:10px;
-  cursor:pointer;
-  font-size:16px;
-  transition:0.3s;
+/* Hover */
+
+.close-btn:hover {
+  background: #b71c1c;
+
+  transform: rotate(90deg) scale(1.08);
 }
 
-.visit-btn:hover{
-  background:#c62828;
-  transform:scale(1.05);
+/* Keyboard Focus */
+
+.close-btn:focus-visible {
+  outline: 3px solid #e53935;
+  outline-offset: 3px;
 }
 
-/* Animation */
-@keyframes popupFade{
-  from{
-    transform: scale(0.8);
-    opacity:0;
+/* =========================================
+   VIEW MORE BUTTON
+========================================= */
+
+.popup-btn {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  padding-top: 15px;
+}
+
+.visit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 200px;
+
+  padding: 13px 28px;
+
+  background: #e53935;
+  color: #ffffff;
+
+  border: none;
+  border-radius: 30px;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.visit-btn:hover {
+  background: #b71c1c;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   SOCIAL MEDIA
+========================================= */
+
+.social-section {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.social-section p {
+  font-size: 15px;
+  font-weight: 700;
+  color: #333;
+
+  margin-bottom: 12px;
+}
+
+.social-links {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 14px;
+}
+
+/* Circular Social Icons */
+
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+  font-size: 20px;
+
+  text-decoration: none;
+
+  transition: transform 0.3s ease;
+}
+
+.social:hover {
+  transform: translateY(-4px) scale(1.08);
+  color: #ffffff;
+}
+
+.facebook {
+  background: #1877f2;
+}
+
+.instagram {
+  background: linear-gradient(
+    45deg,
+    #feda75,
+    #fa7e1e,
+    #d62976,
+    #962fbf,
+    #4f5bd5
+  );
+}
+
+.linkedin {
+  background: #0a66c2;
+}
+
+.whatsapp {
+  background: #25d366;
+}
+
+/* =========================================
+   POPUP ANIMATION
+========================================= */
+
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
   }
-  to{
+
+  to {
+    opacity: 1;
     transform: scale(1);
-    opacity:1;
   }
 }
 
-/* Tablet */
-@media(max-width:768px){
-  .popup-container{
-    max-width:420px;
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+  .popup-overlay {
+    padding: 15px;
   }
 
-  .popup-img{
-    max-height:60vh;
+  .popup-container {
+    max-width: 520px;
+    padding: 12px;
   }
+
+  .popup-img {
+    max-height: calc(100dvh - 150px);
+  }
+
 }
 
-/* Mobile */
-@media(max-width:480px){
-  .popup-container{
-    max-width:95%;
-    padding:10px;
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .popup-overlay {
+    padding: 12px;
   }
 
-  .popup-img{
-    max-height:55vh;
+  .popup-container {
+    max-width: 100%;
+    padding: 10px;
+
+    border-radius: 12px;
   }
 
-  .visit-btn{
-    width:100%;
+  .popup-img {
+    max-height: calc(100dvh - 150px);
+    border-radius: 8px;
   }
+
+  .close-btn {
+    width: 36px;
+    height: 36px;
+
+    top: 8px;
+    right: 8px;
+
+    font-size: 25px;
+  }
+
+  .popup-btn {
+    padding-top: 10px;
+  }
+
+  .visit-btn {
+    width: 100%;
+    min-width: unset;
+
+    padding: 12px 20px;
+
+    font-size: 15px;
+  }
+
+  .social-links {
+    gap: 12px;
+  }
+
+  .social {
+    width: 38px;
+    height: 38px;
+
+    font-size: 18px;
+  }
+
 }
+
+/* Small Height Screens */
+
+@media (max-height: 500px) {
+
+  .popup-container {
+    max-height: calc(100dvh - 20px);
+  }
+
+  .popup-img {
+    max-height: calc(100dvh - 130px);
+  }
+
+}
+

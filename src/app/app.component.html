@@ -1,30 +1,127 @@
-<app-header></app-header>
-<app-navheader *ngIf="showNavHeader"></app-navheader>
-<!-- <app-popup></app-popup> -->
-<!-- <app-loader></app-loader> -->
-<!-- <app-userinfo></app-userinfo> -->
-<router-outlet></router-outlet>
-<!-- <app-diolouge-comp></app-diolouge-comp> -->
-<!-- <app-clientdetails *ngIf=" showNavHeader && !isContactRoute()"></app-clientdetails> -->
 
-<div class="popup-overlay" *ngIf="!showPopup">
+<app-header></app-header>
+
+<app-navheader *ngIf="showNavHeader"></app-navheader>
+
+<router-outlet></router-outlet>
+
+<!-- PSA TECH Festival Popup -->
+<div class="popup-overlay" *ngIf="showPopup">
+
   <div class="popup-container">
 
+    <!-- Close Button -->
+    <button
+      class="close-btn"
+      type="button"
+      aria-label="Close popup"
+      title="Close popup"
+      (click)="closePopup()">
 
-    <button class="close-btn" (click)="closePopup()">×</button>
+      <span aria-hidden="true">&times;</span>
 
-  
-    <img src="../assets/images/DM-1.jpeg" class="popup-img" alt="Academy Ad">
+    </button>
 
+    <!-- Festival Banner -->
+    <img
+      src="assets/images/1.jpeg"
+      class="popup-img"
+      alt="PSA TECH ">
+    <!-- View More Button -->
+    <div class="popup-btn">
 
-<div class="popup-btn">
-  <a  target="_self">
-    <button class="visit-btn" (click)="closePopup()">VISIT WEBSITE</button>
-  </a>
-</div>
+      <button
+        class="visit-btn"
+        type="button"
+        (click)="closePopup()">
+
+        View More
+
+      </button>
+
+    </div>
+
+    <!-- Social Media -->
+    <div class="social-section">
+
+      <p>Follow PSA TECH</p>
+
+      <div class="social-links">
+
+        <!-- Facebook -->
+        <a
+          href="https://www.facebook.com/profile.php?id=61591377065125"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social facebook"
+          aria-label="Facebook">
+
+          <i class="fab fa-facebook-f"></i>
+
+        </a>
+
+        <!-- Instagram -->
+        <a
+          href="https://www.instagram.com/digitaltechpsa/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social instagram"
+          aria-label="Instagram">
+
+          <i class="fab fa-instagram"></i>
+
+        </a>
+
+        <!-- LinkedIn -->
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social linkedin"
+          aria-label="LinkedIn">
+
+          <i class="fab fa-linkedin-in"></i>
+
+        </a>
+
+        <!-- WhatsApp -->
+        <a
+          href="https://wa.me/918668267967"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social whatsapp"
+          aria-label="WhatsApp">
+
+          <i class="fab fa-whatsapp"></i>
+
+        </a>
+
+      </div>
+
+    </div>
 
   </div>
+
 </div>
 
- <app-footer></app-footer>
+<!-- Copy and Share Buttons -->
+<button
+  class="copy-btn"
+  type="button"
+  (click)="copyDiwaliMessage()">
 
+  <i class="fas fa-copy"></i>
+
+</button>
+
+<!-- Share Diwali Wishes -->
+<button
+  class="share-btn"
+  type="button"
+  (click)="shareDiwaliMessage()">
+
+  <i class="fas fa-share-alt"></i>
+
+</button>
+
+<app-footer></app-footer>

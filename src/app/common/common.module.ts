@@ -13,6 +13,7 @@ import { FormErrorDirective } from './directive/form-error.directive';
 
 import { ClientdetailsComponent } from
   '../client-details/clientdetails/clientdetails.component';
+import { ExcelManagerComponent } from './excel-manager/excel-manager.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +23,16 @@ import { ClientdetailsComponent } from
     HeaderComponent,
     LoaderComponent,
     FormErrorDirective,
-    ClientdetailsComponent
+    ClientdetailsComponent,
+    ExcelManagerComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    TranslateModule
+    TranslateModule,
+
   ],
   exports: [
     PopupComponent,
@@ -39,7 +42,8 @@ import { ClientdetailsComponent } from
     FormErrorDirective,
     ClientdetailsComponent,
     RouterModule,
-    TranslateModule
+    TranslateModule,
+    ExcelManagerComponent
   ]
 })
 export class MyCommonModule {}

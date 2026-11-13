@@ -26,96 +26,166 @@ import { BusinessPartnershipComponent } from './offer/business-partnership/busin
 import { MarathiBusinessOpportunityComponent } from './opportunity/marathi-business-opportunity/marathi-business-opportunity.component';
 import { BusinessWebsiteMarathiComponent } from './offer/business-website-marathi/business-website-marathi.component';
 import { HomeComponent } from './pages/home/home.component';
+import { FestivalComponent } from './festival/festival.component';
+import { ExcelManagerComponent } from './common/excel-manager/excel-manager.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'about-us', pathMatch: 'full' },
-  { path: 'service', component: PsaServiceComponent },
- { path: 'devsecops', component: DevsecopsComponent },
-  { path: 'devsec', component: DevsecComponent },
-  { path:'cloudnative', component:CloudeNativeComponent},
-  {path:'platformengi', component:PlatformEngineeringComponent },
-  { path:'agiledevops' , component:AgileDevopsComponent},
-  { path: 'uiux', component: UiuxDesignComponent},
-  {path: 'mobile-app', component: AppDevelopmentComponent},
-  { path: 'digital-marketing/:section', component: SocialMediaMarketingComponent },
-    { path: 'industries/:type', component: IndustriesInfoComponent },
+
+  // Default route: Open Home page
     {
-      path:'about-us', component:AboutUsComponent
-    },
-    {
-      path:'careers', component:CareersComponent
-    },
-    // {
-    //   path:'free-consultation', component:ClientdetailsComponent
-    // },
-    {
-      path:'login', component:LoginComponent
-    },
-    {
-      path:'blog', component: BlogComponent
-    },
-    {
-      path:'admin/dashboard', component:AdminDashboardComponent
-    },
-    {
-      path:'market', component:PsamarketplaceComponent
-    },
-    {
-  path: 'business-website',
-  component: BusinessComponent
-},
-{
-  path: 'govt-school',
-  component: GovtSchoolComponent
-},
-{
-  path: 'govt-hospital',
-  component: GovtHospitalComponent
-},
-{
-  path: 'affordable-website',
-  component: AffordableWebsiteComponent
-},
-{
-  path: 'website-offer',
-  component: WebsiteOfferComponent
-},
-{
-  path: 'business-partnership',
-  component: BusinessPartnershipComponent
-},
-  {
-    path: 'offer-business-opportunity',
-    component:
-      MarathiBusinessOpportunityComponent
+    path: 'excel-manager',
+    component: ExcelManagerComponent
   },
   {
-  path: 'business-website-marathi',
-  component: BusinessWebsiteMarathiComponent
-},
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+
+  // Home page
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+
+  // Services
+  { path: 'service', component: PsaServiceComponent },
+  { path: 'devsecops', component: DevsecopsComponent },
+  { path: 'devsec', component: DevsecComponent },
+  { path: 'cloudnative', component: CloudeNativeComponent },
+  { path: 'platformengi', component: PlatformEngineeringComponent },
+  { path: 'agiledevops', component: AgileDevopsComponent },
+  { path: 'uiux', component: UiuxDesignComponent },
+  { path: 'mobile-app', component: AppDevelopmentComponent },
+
+  // Digital Marketing
+  {
+    path: 'digital-marketing/:section',
+    component: SocialMediaMarketingComponent
+  },
+
+  // Industries
+  {
+    path: 'industries/:type',
+    component: IndustriesInfoComponent
+  },
+
+  // About Us
+  {
+    path: 'about-us',
+    component: AboutUsComponent
+  },
+
+  // Careers
+  {
+    path: 'careers',
+    component: CareersComponent
+  },
+
+  // Login
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+
+  // Blog
+  {
+    path: 'blog',
+    component: BlogComponent
+  },
+
+  // Admin Dashboard
+  {
+    path: 'admin/dashboard',
+    component: AdminDashboardComponent
+  },
+
+  // Marketplace
+  {
+    path: 'market',
+    component: PsamarketplaceComponent
+  },
+
+  // Business
+  {
+    path: 'business-website',
+    component: BusinessComponent
+  },
+
+  // Government School
+  {
+    path: 'govt-school',
+    component: GovtSchoolComponent
+  },
+
+  // Government Hospital
+  {
+    path: 'govt-hospital',
+    component: GovtHospitalComponent
+  },
+
+  // Website Offers
+  {
+    path: 'affordable-website',
+    component: AffordableWebsiteComponent
+  },
+
+  {
+    path: 'website-offer',
+    component: WebsiteOfferComponent
+  },
+
+  {
+    path: 'business-partnership',
+    component: BusinessPartnershipComponent
+  },
+
+  {
+    path: 'offer-business-opportunity',
+    component: MarathiBusinessOpportunityComponent
+  },
+
+  {
+    path: 'business-website-marathi',
+    component: BusinessWebsiteMarathiComponent
+  },
+
+  // WhatsApp Campaign
   {
     path: 'whatsapp-campaign',
     loadChildren: () =>
       import('./whatsapp-campaign/whatsapp-campaign.module')
         .then(m => m.WhatsappCampaignModule)
   },
-{
-  path: 'tech',
-  loadChildren: () =>
-    import('./tech/tech.module')
-      .then(m => m.TechModule)
-},
+
+  // Tech Module
+  {
+    path: 'tech',
+    loadChildren: () =>
+      import('./tech/tech.module')
+        .then(m => m.TechModule)
+  },
+
+  // Live Module
   {
     path: 'live',
     loadChildren: () =>
-      import('./live/live.module').then(m => m.LiveModule)
+      import('./live/live.module')
+        .then(m => m.LiveModule)
   },
-  {
-  path: 'home',
-  component: HomeComponent
-}
+    {
+    path: 'festival',
+    component: FestivalComponent
+  },
 
-  
+  // Keep wildcard route LAST
+  {
+    path: '**',
+    redirectTo: 'home'
+  },
+
+
+
 ];
   
 @NgModule({
