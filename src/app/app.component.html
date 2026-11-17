@@ -6,6 +6,7 @@
 <router-outlet></router-outlet>
 
 <!-- PSA TECH Festival Popup -->
+
 <div class="popup-overlay" *ngIf="showPopup">
 
   <div class="popup-container">
@@ -17,28 +18,66 @@
       aria-label="Close popup"
       title="Close popup"
       (click)="closePopup()">
-
       <span aria-hidden="true">&times;</span>
-
     </button>
 
-    <!-- Festival Banner -->
-    <img
-      src="assets/images/1.jpeg"
-      class="popup-img"
-      alt="PSA TECH ">
+
+<!-- Continuous Image Slider -->
+<div class="popup-slider">
+
+  <div class="popup-track">
+
+    <!-- Original Images -->
+    <div class="popup-slide" *ngFor="let img of popupImages">
+
+      <!-- Blurred Background -->
+      <img
+        [src]="img"
+        class="popup-bg"
+        alt=""
+        aria-hidden="true">
+
+      <!-- Main Clear Image -->
+      <img
+        [src]="img"
+        class="popup-img"
+        alt="PSA TECH Banner">
+
+    </div>
+
+    <!-- Duplicate Images for Infinite Scrolling -->
+    <div
+      class="popup-slide"
+      *ngFor="let img of popupImages"
+      aria-hidden="true">
+
+      <!-- Blurred Background -->
+      <img
+        [src]="img"
+        class="popup-bg"
+        alt="">
+
+      <!-- Main Clear Image -->
+      <img
+        [src]="img"
+        class="popup-img"
+        alt="">
+
+    </div>
+
+  </div>
+
+</div>
+
+
     <!-- View More Button -->
     <div class="popup-btn">
-
       <button
         class="visit-btn"
         type="button"
         (click)="closePopup()">
-
         View More
-
       </button>
-
     </div>
 
     <!-- Social Media -->
@@ -48,61 +87,48 @@
 
       <div class="social-links">
 
-        <!-- Facebook -->
         <a
           href="https://www.facebook.com/profile.php?id=61591377065125"
           target="_blank"
           rel="noopener noreferrer"
           class="social facebook"
           aria-label="Facebook">
-
           <i class="fab fa-facebook-f"></i>
-
         </a>
 
-        <!-- Instagram -->
         <a
           href="https://www.instagram.com/digitaltechpsa/"
           target="_blank"
           rel="noopener noreferrer"
           class="social instagram"
           aria-label="Instagram">
-
           <i class="fab fa-instagram"></i>
-
         </a>
 
-        <!-- LinkedIn -->
         <a
           href="https://www.linkedin.com/"
           target="_blank"
           rel="noopener noreferrer"
           class="social linkedin"
           aria-label="LinkedIn">
-
           <i class="fab fa-linkedin-in"></i>
-
         </a>
 
-        <!-- WhatsApp -->
         <a
           href="https://wa.me/918668267967"
           target="_blank"
           rel="noopener noreferrer"
           class="social whatsapp"
           aria-label="WhatsApp">
-
           <i class="fab fa-whatsapp"></i>
-
         </a>
 
       </div>
-
     </div>
 
   </div>
-
 </div>
+
 
 <!-- Copy and Share Buttons -->
 <button

@@ -17,6 +17,11 @@ import { filter } from 'rxjs/internal/operators/filter';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  popupImages: string[] = [
+  '/assets/images/1.png',
+  '/assets/images/2.png',
+  '/assets/images/3.png'
+];
   title = 'ng-demo';
    loginForm: FormGroup;
    namepattern = CommonConst.NAME_PATTERN_STRING;
@@ -74,23 +79,47 @@ private updateHeaderVisibility(): void {
 // PSA TECH Diwali Wishes
 
 // PSA TECH Diwali Wishes in Marathi
-diwaliMessage = `🪔 दिवाळीच्या हार्दिक शुभेच्छा! 🪔
+diwaliMessage = `
+  👋 Hello! Greetings from PSA TECH!
 
-✨ दीपावलीच्या मंगलमय पर्वावर आपल्या जीवनात सुख, समृद्धी, आनंद, आरोग्य आणि यशाची नवी पहाट उजाडो!
+We are pleased to connect with you!
 
-आपणास व आपल्या परिवारास दिवाळीच्या मनःपूर्वक शुभेच्छा! 💐
+🏢 **PSA TECH – Professional Development & IT Solutions**
+
+We provide professional digital and technology solutions, including:
+
+✅ Website & Application Development  
+✅ Digital Marketing & Business Promotion  
+✅ AI Solutions & Business Automation  
+✅ Industrial & Business Technology Solutions  
+✅ Online Services, Training & Career Development  
+
+Our goal is to help businesses grow with innovative, affordable and reliable digital solutions.
 
 ━━━━━━━━━━━━━━━━━━
- संस्थापक: Mr. Shailesh Pawar
+
+ **Founder: Mr. Shailesh Pawar**
+
 🌐 Website: https://www.psatechall.com
 
-🏢 PSA TECH
-Professional Development & IT Solutions
 📝 Registration Number: 110023322503
 
 📞 Contact: +91 8668267967
+
 ━━━━━━━━━━━━━━━━━━
-✨ आपला डिजिटल टेक पार्टनर ✨`;
+
+✨ **PSA TECH – Your Digital TECH Partner**
+
+We would be happy to discuss your requirements and explore how we can work together.
+
+📞 **May I call you for a brief discussion, or could you please confirm a convenient time for a call?**
+
+Looking forward to connecting with you!
+
+**Regards,**  
+**Mr. Shailesh Pawar**  
+Founder – PSA TECH
+`;
 
 
 // Copy Diwali Wishes
@@ -145,25 +174,42 @@ async shareDiwaliMessage(): Promise<void> {
 
 
 // PSA TECH Diwali Wishes in English
-const englishDiwaliMessage = `🪔 Happy Diwali from PSA TECH! 🪔
+const englishDiwaliMessage = `
+👋 Hello! Greetings from PSA TECH!
 
-✨ May this Diwali bring happiness, prosperity, success, and new opportunities to your life!
+We are pleased to connect with you!
 
-Wishing you and your family a Happy and Prosperous Diwali! 💐
+🏢 **PSA TECH – Professional Development & IT Solutions**
 
+We provide professional digital and technology solutions, including:
+
+✅ Website & Application Development  
+✅ Digital Marketing & Business Promotion  
+✅ AI Solutions & Business Automation  
+✅ Industrial & Business Technology Solutions  
+✅ Online Services, Training & Career Development  
+Our goal is to help businesses grow with innovative, affordable and reliable digital solutions.
 ━━━━━━━━━━━━━━━━━━
-Proprietor: Mr. Shailesh Pawar
+ **Founder: Mr. Shailesh Pawar**
 
-🌐 Website:  https://www.psatechall.com
-
-🏢 PSA TECH
-Professional Development & IT Solutions
+🌐 Website: https://www.psatechall.com
 
 📝 Registration Number: 110023322503
 
-📞 Contact: +918668267967
+📞 Contact: +91 8668267967
+
 ━━━━━━━━━━━━━━━━━━
-✨ Your Digital Technology Partner ✨`;
+We would be happy to discuss your requirements and explore how we can work together.
+
+📞 आपल्याशी थोडक्यात चर्चेसाठी मी फोन करू का? किंवा कृपया फोनवर बोलण्यासाठी आपल्याला सोयीची तारीख आणि वेळ कळवावी.
+
+आपल्याशी लवकरच संवाद साधण्यास उत्सुक आहोत!
+
+धन्यवाद!
+
+श्री. शैलेश पवार
+संस्थापक – PSA TECH
+`;
 
 
   try {

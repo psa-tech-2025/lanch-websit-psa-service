@@ -417,3 +417,205 @@
 
 }
 
+
+
+/* =========================================
+   PSA TECH PREMIUM BLUR IMAGE SLIDER
+========================================= */
+
+.popup-slider {
+  width: 100%;
+  height: min(65vh, 550px);
+  min-height: 240px;
+
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  background: #17243b;
+
+  isolation: isolate;
+}
+
+/* Moving Track */
+
+.popup-track {
+  display: flex;
+
+  width: 600%;
+  height: 100%;
+
+  animation: continuousScroll 24s linear infinite;
+
+  will-change: transform;
+}
+
+/* Each Image Slide - Same Size */
+
+.popup-slide {
+  position: relative;
+
+  flex: 0 0 16.666667%;
+  width: 16.666667%;
+  height: 100%;
+
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  background: #17243b;
+}
+
+/* =========================================
+   BLURRED BACKGROUND IMAGE
+========================================= */
+
+.popup-bg {
+  position: absolute;
+
+  inset: -20px;
+
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+
+  object-fit: cover;
+  object-position: center;
+
+  filter: blur(18px) brightness(0.55);
+
+  transform: scale(1.08);
+
+  opacity: 0.95;
+
+  z-index: 0;
+}
+
+/* Dark Overlay */
+
+.popup-slide::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(5, 15, 35, 0.20);
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   MAIN CLEAR BANNER IMAGE
+========================================= */
+
+.popup-slide .popup-img {
+  position: relative;
+
+  z-index: 2;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-height: none;
+
+  object-fit: contain;
+  object-position: center;
+
+  border-radius: 0;
+
+  background: transparent;
+}
+
+/* =========================================
+   CONTINUOUS RIGHT TO LEFT SCROLL
+========================================= */
+
+@keyframes continuousScroll {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+  .popup-slider {
+    height: 55vh;
+    min-height: 220px;
+  }
+
+  .popup-track {
+    animation-duration: 24s;
+  }
+
+  .popup-bg {
+    filter: blur(15px) brightness(0.55);
+  }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .popup-slider {
+    height: 48vh;
+    min-height: 190px;
+  }
+
+  .popup-track {
+    animation-duration: 21s;
+  }
+
+  .popup-bg {
+    filter: blur(12px) brightness(0.55);
+  }
+
+}
+
+/* =========================================
+   SMALL HEIGHT SCREENS
+========================================= */
+
+@media (max-height: 500px) {
+
+  .popup-slider {
+    height: 42vh;
+    min-height: 150px;
+  }
+
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .popup-track {
+    animation: none;
+  }
+
+}

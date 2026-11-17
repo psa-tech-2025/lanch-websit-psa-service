@@ -33,55 +33,54 @@
       </div>
 
       <!-- Search -->
-      <div class="mb-3" *ngIf="tableData.length">
+   <div class="mb-3" *ngIf="tableData.length">
 
-        <label class="form-label">
-          Search by Name or Mobile Number
-        </label>
+<label class="form-label">Search by First Name</label>
 
-        <input
-          type="text"
-          class="form-control"
-          [(ngModel)]="searchText"
-          placeholder="Enter name or mobile number..."
-        />
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="searchText"
+  placeholder="Enter first name..."
+/>
+  <small class="text-muted">
+    Showing {{ filteredData.length }} of {{ tableData.length }} records
+  </small>
 
-        <small class="text-muted">
-          Showing {{ filteredData.length }} of {{ tableData.length }} records
-        </small>
+</div>
 
-      </div>
+      <!-- Download Buttons -->
+<div class="mb-3">
 
-      <!-- Buttons -->
-      <div class="mb-3">
+  <button
+    class="btn btn-success me-2 mb-2"
+    (click)="exportExcel()"
+    [disabled]="!filteredData.length">
 
-        <button
-          class="btn btn-success me-2 mb-2"
-          (click)="exportExcel()"
-          [disabled]="!tableData.length">
+    <i class="bi bi-file-earmark-excel"></i>
+    Download Excel ({{ filteredData.length }})
 
-          Download Excel
+  </button>
 
-        </button>
+  <button
+    class="btn btn-primary me-2 mb-2"
+    (click)="exportCSV()"
+    [disabled]="!filteredData.length">
 
-        <button
-          class="btn btn-primary me-2 mb-2"
-          (click)="exportCSV()"
-          [disabled]="!tableData.length">
+    <i class="bi bi-filetype-csv"></i>
+    Download CSV ({{ filteredData.length }})
 
-          Download CSV
+  </button>
 
-        </button>
+  <button
+    class="btn btn-secondary mb-2"
+    (click)="clearData()">
 
-        <button
-          class="btn btn-secondary mb-2"
-          (click)="clearData()">
+    Clear
 
-          Clear
+  </button>
 
-        </button>
-
-      </div>
+</div>
 
       <!-- Data Table -->
       <div *ngIf="tableData.length">
@@ -117,44 +116,56 @@
                 <!-- Serial Number -->
                 <td>{{ i + 1 }}</td>
 
-                <!-- Excel Columns -->
-                <td *ngFor="let header of headers">
+             
+<!-- Excel Columns -->
+<td *ngFor="let header of headers">
 
-                  <!-- Mobile / WhatsApp Column -->
-                  <ng-container
-                    *ngIf="isMobileColumn(header); else normalCell">
+  <!-- Mobile / WhatsApp Column -->
+  <ng-container *ngIf="isMobileColumn(header); else normalCell">
 
-                    <span>{{ row[header] }}</span>
+    <div class="mobile-whatsapp-cell">
 
-                    <a
-                      *ngIf="row[header]"
-                      [href]="getWhatsAppLink(row[header], row)"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="whatsapp-icon"
-                      title="Send WhatsApp Message">
+      <span class="mobile-number">
+        {{ row[header] }}
+      </span>
 
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="22"
-                        height="22"
-                        viewBox="0 0 24 24"
-                        fill="#25D366">
+      <!-- English WhatsApp -->
+      <a
+        [href]="getWhatsAppLink(row[header], row)"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whatsapp-btn english-btn"
+        title="Send English WhatsApp Message">
 
-                        <path d="M20.52 3.48A11.86 11.86 0 0 0 12.05 0C5.46 0 .1 5.35.1 11.94c0 2.1.55 4.15 1.6 5.96L0 24l6.25-1.64a11.9 11.9 0 0 0 5.8 1.5h.01c6.59 0 11.94-5.36 11.94-11.95 0-3.19-1.24-6.19-3.48-8.43ZM12.05 21.8a9.86 9.86 0 0 1-5.03-1.38l-.36-.21-3.71.97.99-3.62-.24-.37a9.83 9.83 0 1 1 8.35 4.61Z"/>
+        <i class="fab fa-whatsapp"></i>
+        <span>English</span>
 
-                      </svg>
+      </a>
 
-                    </a>
+      <!-- Marathi WhatsApp -->
+      <a
+        [href]="getWhatsAppLinkMarathi(row[header], row)"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whatsapp-btn marathi-btn"
+        title="मराठी WhatsApp संदेश पाठवा">
 
-                  </ng-container>
+        <i class="fab fa-whatsapp"></i>
+        <span>मराठी</span>
 
-                  <!-- Normal Column -->
-                  <ng-template #normalCell>
-                    {{ row[header] }}
-                  </ng-template>
+      </a>
 
-                </td>
+    </div>
+
+  </ng-container>
+
+  <!-- Normal Column -->
+  <ng-template #normalCell>
+    {{ row[header] }}
+  </ng-template>
+
+</td>
+
 
               </tr>
 
