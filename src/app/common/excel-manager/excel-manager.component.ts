@@ -16,8 +16,9 @@ export class ExcelManagerComponent {
   errorMessage = '';
   searchText = '';
 
-  private readonly STORAGE_KEY = 'psa_excel_manager_data';
-
+protected getStorageKey(): string {
+  return 'psa_excel_manager_data';
+}
   private isBrowser: boolean;
 
   constructor(@Inject(PLATFORM_ID) platformId: Object) {
@@ -477,9 +478,9 @@ getWhatsAppLinkMarathi(phone: any, row: any): string {
       };
 
       localStorage.setItem(
-        this.STORAGE_KEY,
-        JSON.stringify(data)
-      );
+  this.getStorageKey(),
+  JSON.stringify(data)
+);
 
     } catch (error) {
 
@@ -501,7 +502,9 @@ getWhatsAppLinkMarathi(phone: any, row: any): string {
 
     try {
 
-      const savedData = localStorage.getItem(this.STORAGE_KEY);
+     const savedData = localStorage.getItem(
+  this.getStorageKey()
+);
 
       if (!savedData) {
         return;
@@ -530,7 +533,7 @@ getWhatsAppLinkMarathi(phone: any, row: any): string {
       return;
     }
 
-    localStorage.removeItem(this.STORAGE_KEY);
+  localStorage.removeItem(this.getStorageKey());
 
   }
 

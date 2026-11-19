@@ -1,0 +1,59 @@
+
+.container {
+  max-width: 1200px;
+}
+
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table {
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.mobile-whatsapp-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.mobile-number {
+  margin-right: 5px;
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+}
+
+.english-btn {
+  background-color: #198754;
+}
+
+.marathi-btn {
+  background-color: #0d6efd;
+}
+
+.whatsapp-btn:hover {
+  opacity: 0.85;
+  color: white;
+}
+
+button {
+  margin-bottom: 5px;
+}

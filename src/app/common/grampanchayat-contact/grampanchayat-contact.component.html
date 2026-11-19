@@ -1,0 +1,203 @@
+
+<div class="container mt-4 mb-4">
+
+  <div class="card shadow-sm">
+
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">
+        Gram Panchayat Contact Manager
+      </h4>
+    </div>
+
+    <div class="card-body">
+
+      <!-- Upload Excel / CSV -->
+      <div class="mb-3">
+        <label class="form-label">
+          Upload Gram Panchayat Excel or CSV File
+        </label>
+
+        <input
+          type="file"
+          class="form-control"
+          accept=".xlsx,.xls,.csv"
+          (change)="onFileChange($event)"
+        />
+      </div>
+
+      <!-- Uploaded File -->
+      <div *ngIf="fileName" class="alert alert-info">
+        Uploaded File: {{ fileName }}
+      </div>
+
+      <!-- Error -->
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Search -->
+      <div class="mb-3" *ngIf="tableData.length">
+
+        <label class="form-label">
+          Search by Name
+        </label>
+
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="searchText"
+          placeholder="Enter Gram Panchayat contact name..."
+        />
+
+        <small class="text-muted">
+          Showing {{ filteredData.length }} of {{ tableData.length }} records
+        </small>
+
+      </div>
+
+      <!-- Download Buttons -->
+      <div class="mb-3">
+
+        <button
+          class="btn btn-success me-2 mb-2"
+          (click)="exportExcel()"
+          [disabled]="!filteredData.length">
+
+          <i class="bi bi-file-earmark-excel"></i>
+          Download Excel ({{ filteredData.length }})
+
+        </button>
+
+        <button
+          class="btn btn-primary me-2 mb-2"
+          (click)="exportCSV()"
+          [disabled]="!filteredData.length">
+
+          <i class="bi bi-filetype-csv"></i>
+          Download CSV ({{ filteredData.length }})
+
+        </button>
+
+        <button
+          class="btn btn-secondary mb-2"
+          (click)="clearData()">
+
+          Clear
+
+        </button>
+
+      </div>
+
+      <!-- Data Table -->
+      <div *ngIf="tableData.length">
+
+        <h5>
+          Total Records: {{ filteredData.length }}
+        </h5>
+
+        <div class="table-responsive">
+
+          <table class="table table-bordered table-striped table-hover">
+
+            <thead class="table-dark">
+              <tr>
+
+                <th>Sr. No.</th>
+
+                <th *ngFor="let header of headers">
+                  {{ header }}
+                </th>
+
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr *ngFor="let row of filteredData; let i = index">
+
+                <td>{{ i + 1 }}</td>
+
+                <td *ngFor="let header of headers">
+
+                  <!-- Mobile / WhatsApp Column -->
+                  <ng-container
+                    *ngIf="isMobileColumn(header); else normalCell">
+
+                    <div class="mobile-whatsapp-cell">
+
+                      <span class="mobile-number">
+                        {{ row[header] }}
+                      </span>
+
+                      <a
+                        [href]="getWhatsAppLink(row[header], row)"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="whatsapp-btn english-btn"
+                        title="Send English WhatsApp Message">
+
+                        <i class="fab fa-whatsapp"></i>
+                        <span>English</span>
+
+                      </a>
+
+                      <a
+                        [href]="getWhatsAppLinkMarathi(row[header], row)"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="whatsapp-btn marathi-btn"
+                        title="मराठी WhatsApp संदेश पाठवा">
+
+                        <i class="fab fa-whatsapp"></i>
+                        <span>मराठी</span>
+
+                      </a>
+
+                    </div>
+
+                  </ng-container>
+
+                  <ng-template #normalCell>
+                    {{ row[header] }}
+                  </ng-template>
+
+                </td>
+
+              </tr>
+
+              <!-- No Search Results -->
+              <tr *ngIf="filteredData.length === 0">
+
+                <td
+                  [attr.colspan]="headers.length + 1"
+                  class="text-center">
+
+                  No matching Gram Panchayat contacts found.
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+      <!-- Empty State -->
+      <div
+        *ngIf="!tableData.length && !errorMessage"
+        class="alert alert-light text-center">
+
+        Please upload a Gram Panchayat Excel or CSV file.
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+

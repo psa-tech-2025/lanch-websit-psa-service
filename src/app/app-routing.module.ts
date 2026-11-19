@@ -28,6 +28,8 @@ import { BusinessWebsiteMarathiComponent } from './offer/business-website-marath
 import { HomeComponent } from './pages/home/home.component';
 import { FestivalComponent } from './festival/festival.component';
 import { ExcelManagerComponent } from './common/excel-manager/excel-manager.component';
+import { GramPanchayatWebsiteComponent } from './pages/gram-panchayat-website/gram-panchayat-website.component';
+import { GrampanchayatContactComponent } from './common/grampanchayat-contact/grampanchayat-contact.component';
 
 const routes: Routes = [
 
@@ -177,7 +179,15 @@ const routes: Routes = [
     path: 'festival',
     component: FestivalComponent
   },
-
+  {
+  path: 'gram-panchayat-website',
+  component: GramPanchayatWebsiteComponent
+},
+{
+  path: 'grampanchayat-contact',
+  component: GrampanchayatContactComponent
+},
+  
   // Keep wildcard route LAST
   {
     path: '**',

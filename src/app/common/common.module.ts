@@ -14,6 +14,7 @@ import { FormErrorDirective } from './directive/form-error.directive';
 import { ClientdetailsComponent } from
   '../client-details/clientdetails/clientdetails.component';
 import { ExcelManagerComponent } from './excel-manager/excel-manager.component';
+import { GrampanchayatContactComponent } from './grampanchayat-contact/grampanchayat-contact.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ExcelManagerComponent } from './excel-manager/excel-manager.component';
     LoaderComponent,
     FormErrorDirective,
     ClientdetailsComponent,
-    ExcelManagerComponent
+    ExcelManagerComponent,
+    GrampanchayatContactComponent
   ],
   imports: [
     CommonModule,

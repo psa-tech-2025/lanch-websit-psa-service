@@ -50,6 +50,8 @@ export class AppComponent implements OnInit {
       this.showPopup = true;
     }, 1000);
 
+    
+
   }
     closePopup(){
     this.showPopup = false;
